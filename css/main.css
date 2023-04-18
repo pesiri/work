@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+
+/* ===================================================================== */
+/* 메인 */
+.mainWrap{display:block; position:relative;}
+.mainArea{display:block; position:relative;}
+.mainSection{display:block; position:relative; padding:1em;}
+.mainSection + .mainSection{border-top:1px solid #eeeeee;}
+.mainSection .SectionTitle{margin-bottom:1em;}
+.mainBanner{display:block; position:relative;}
+	/* [세션] 이벤트링크배너 */
+	.mainSection.mainSection01{padding:0px;}
+	.mainSection01{}
+	.mainSection01 .SectionTitle{}
+		/* 배너관리01 */
+		.Banner01{display:block; position:relative; background-color: #f1f1f1;}
+		.Banner01 .SliderBar{}
+		.Banner01 .SliderBar a{}
+
+	/* [세션] 분류링크 */
+	.mainSection.mainSection02{}
+	.mainSection02{}
+	.mainSection02 .SectionTitle{}
+	.mainSection02 .Link{display:block; position:relative;}
+	.mainSection02 .Link li{display:inline-table; position:relative; vertical-align:middle; margin-bottom:0.5em;}
+	.mainSection02 .Hashtag{}
+	.mainSection02 .Hashtag span{line-height:2em; background-color:#f1f1f1; padding:0px 1em; border-radius:30px; cursor:pointer;}
+	.mainSection02 .Hashtag:hover span{color:#fff; background-color:#0fb3a3; transition:all 0.2s ease;}
+
+	/* [세션] 동영상게시판 */
+	.mainSection.mainSection03{padding:0px; padding-bottom:1em;}
+	.mainSection03{}
+	.mainSection03 .SectionTitle{padding:1em 1em 0em 1em;}
+	.mainSection03 .List.SliderBar{display:block; position:relative;}
+	.mainSection03 .videoThum{width:96% !important;}
+	.mainSection03 .SliderBar .slick-list .slick-slide a{text-align:left;}
+
+	/* [세션] 인기이벤트 */
+	.mainSection.mainSection04{}
+	.mainSection04{}
+	.mainSection04 .SectionTitle{}
+	.mainSection04 .eventThumList{}
+	.mainSection04 .eventThum{}
+
+	/* [세션] 신규이벤트 */
+	.mainSection05{}
+	.mainSection05 .SectionTitle{}
+	.mainSection05 .eventThumList{}
+	.mainSection05 .eventThum{}
+
+
+/* ===================================================================== */

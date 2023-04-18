@@ -1,0 +1,2762 @@
+@charset "utf-8";
+/* 기본템플릿 */
+@media all and (max-width:1920px) and (min-width:769px){}
+@media(max-width:768px) {}
+/*
+폰트레벨
+기본 크기 -3	(8p		= 0.75em; )
+기본 크기 -2	(9pt		= 0.85em; ) 
+기본 크기 -1	(10pt		= 0.9em; )
+기본 크기 0		(11pt		= 1em; )
+기본 크기 +1	(12pt		= 1.1em; )
+기본 크기 +2	(13pt		= 1.15em; )
+기본 크기 +3	(16pt		= 1.45em; )
+*/
+/* ===================================================================== */
+/* 기본구조 */
+html{}
+body{} 
+	.Wrap{} /* 퀵높이만큼아래여백삽입됨(style.js) */
+	.Wrap .Container{}
+	.Wrap .Container .Content{}
+	.Inner{padding:1em 1em;}
+
+@media all and (max-width:1920px) and (min-width:769px){
+	body{background-color: #ebecf1;}
+	.Wrap{width:480px; min-height:100vh; background-color:#fff; box-shadow:1px 1px 5px 0px #f2f2f2; margin:auto;} 
+	.Quick{width:480px !important; left:50% !important; right:auto; margin-left:-240px;}
+	body .Fixed{width:480px !important; left:50%; margin-left:-240px;}
+}
+
+
+/* ===================================================================== */
+/* 기타맞춤세팅 */
+img{max-width:100%; height:auto;} /* width:100%; */
+pre{white-space:pre-line;}
+b{font-weight:normal; font-family:'Roboto',sans-serif;} 
+fieldset legend{margin-bottom:20px;}
+textarea{width:100%; line-height:1.6em; border:1px solid #dddddd; border-radius:5px; padding:0.8em; resize: none;}
+textarea:focus-within{border-color:#272727;}
+a{position:relative;}
+a, a:hover, a:active, a:focus{color:inherit;}
+strong{font-weight:600;}
+
+
+/* ===================================================================== */
+/* 테이블 */
+table{width:100%; table-layout:fixed; font-size:0.9em; word-break:break-all; border-top:2px solid #272727; border-bottom:1px solid #f1f1f1;}
+table caption{text-align:left;}
+	table tr{position:relative;}
+	table td,
+	table th{position:relative; padding:15px 10px; }
+	table th{font-weight:normal; letter-spacing:-1px; text-align:left;}
+	table th .Info_Warning{} /* 필수표시 */
+	table .InputBox{}
+	table .InputBox select{}
+	table .InputBox select option{}
+		/* ------------------------------------------ */
+		table thead{}
+		table thead tr{}
+		table thead th{}
+		table thead td{}
+		table tbody{}
+		table tbody tr{border-top: 1px solid #f1f1f1;}
+		table tbody th{}
+		table tbody td{}
+		table tfoot{}
+		table tfoot th{}
+		table tfoot td{}
+		/* ------------------------------------------ */
+		/* 구별 */
+		table .Title{display:block; width:98%; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; cursor:pointer;}
+		table .Title .Badge{font-size:0.85em; border-radius:3px; padding:3px 5px;}
+		table .FileBox{display:block;}
+		table .FileBox p{display:block; font-weight:bold; margin-bottom:1em; }
+		table .FileBox input[type=file]{display:block; margin-bottom:1em; }
+		table .Low{color:#a9a9a9;} /* 덜중요 */
+		/* ------------------------------------------ */
+		/* 색상교차 */
+ 		table.Cross tbody tr:nth-child( odd ){} /* 색상교차 홀수열 */
+		table.Cross tbody tr:nth-child( even ){background-color:#f1f1f1;} /* 색상교차 짝수열 */
+		/* ------------------------------------------ */
+		/* 리스트타입 */
+		table.ListTable{line-height:1.4em;}
+		table.ListTable thead th{text-align:center;}
+		table.ListTable tbody tr{border-top:1px solid #f1f1f1;}
+		table.ListTable tbody tr:hover{background-color:#fafafa;}
+		table.ListTable .Price{display:block; font-size:1.1em; font-weight:bold; text-align:right;} /* 가격 */
+		/* 테이블형리스트 */
+		.ListTableBuild{}
+		.ListTableBuild .List{display:block; position:relative; border-top:2px solid #272727; border-bottom:1px solid #f1f1f1;}
+		.ListTableBuild .List li{display:block; position:relative;}
+		.ListTableBuild .List li + li{border-top:1px solid #f1f1f1;}
+			.tableBuildThum{display:block; position:relative; font-size:0.9em; line-height:1.4em;}
+			.tableBuildThum a{display:block; position:relative; padding:15px 10px;}
+			.tableBuildThum p{display:block; position:relative; color:#a1a1a1; font-weight:100; cursor:pointer;}
+			.tableBuildThum p span{display:inline-block;}
+			.tableBuildThum p span + span:before{content:"· ";}
+		/* ------------------------------------------ */
+		/* 뷰타입타입 */
+		table.ViewTable{}
+		table.ViewTable thead th{}
+		table.ViewTable thead td{background:none; }
+		table.ViewTable tbody th{text-align:center; vertical-align:top;}
+		table.ViewTable pre{display:block; position:relative;}
+		/* ------------------------------------------ */
+		/* 쓰기타입 */
+		table.WriteTable{}
+		table.WriteTable thead th{text-align:left;}
+		table.WriteTable tfoot tr{border-top: 1px solid #f1f1f1;}
+		/* ------------------------------------------ */
+		/* 아무것도 */
+		table.BlandTable{}
+		table.BlandTable td{text-align:left;} 
+		/* ------------------------------------------ */
+		/* 히위속한항목 */
+		table .Btn{border-collapse:initial;}
+		table .CountBox{border-collapse:initial;}
+		/* ------------------------------------------ */
+		/* 달력 */
+		table.calendarTable{}
+		table.calendarTable th{border:1px solid #f1f1f1; padding:10px 10px;}
+		table.calendarTable td{border:1px solid #f1f1f1; padding:10px 10px;}
+		table.calendarTable thead{}
+		table.calendarTable thead th{text-align:center; background-color:#f7f7f7;}
+		table.calendarTable thead td{text-align:center;}
+		table.calendarTable tbody{}
+		table.calendarTable tbody th{vertical-align:top; }
+		table.calendarTable tbody td{vertical-align:top; cursor:pointer;}
+		table.calendarTable .Day{display:block; position:relative; margin-bottom:0.3em;}
+		table.calendarTable .Info{display:block; position:relative;}
+		table.calendarTable .Num{display:block; position:relative; font-size:1.5em; text-align:center;}
+
+		/* ------------------------------------------ */
+
+
+
+
+/* ===================================================================== */
+/* [게시판] 페이지넘버 */
+.Board_Page{display:block; position:relative; text-align:center; padding:1.5em 0px;} 
+.Board_Page fieldset{display:inline-table; position:relative; table-layout:fixed; text-align:center; margin:auto;}
+.Board_Page a{display:table-cell; position:relative; font-size:0.9em; line-height:24px; text-align:center; vertical-align:middle; word-break:keep-all; border:1px solid transparent; border-radius:5px; padding:0px 0.1em; cursor:pointer;}
+.Board_Page a span{display:block; border-radius:5px; padding:0px 0.5em; }
+.Board_Page a label{display:block; font-weight:bold; cursor:pointer;}
+.Board_Page a label span{}
+.Board_Page a:hover{}
+.Board_Page a.Active{color:#fff; border-color:#272727; background-color:#272727;}
+.Board_Page a:hover{background-color:#f1f1f1;}
+.Board_Page .preBtn{}
+.Board_Page .preBtn label span:before{content:"이전";}
+.Board_Page .nextBtn{}
+.Board_Page .nextBtn label span:before{content:"다음";}
+.Board_Page .preBtn label span:before,
+.Board_Page .nextBtn label span:before{letter-spacing:-1px;}
+
+
+/* ===================================================================== */
+/* 정렬박스 */
+.AlignBox{display:table; position:relative; width:100%; table-layout:fixed;}
+	/* 기본정렬 */
+	.AlignBox.Left{text-align:left;}
+	.AlignBox.Center{text-align:center;}
+	.AlignBox.Right{text-align:right;}
+	/* 하위정렬 */
+	.AlignBox > div{display:table-cell; position:relative; vertical-align:middle;}
+	.AlignBox .Left{text-align:left;}
+	.AlignBox .Center{text-align:center;}
+	.AlignBox .Right{text-align:right;}
+	.AlignBox .Btn{display:inline-table;}
+	.AlignBox .Btn.Btn{margin-right:5px;}
+	/* 근접 */
+	table + .AlignBox{margin:1em auto;}
+	.AlignBox + table{margin:1em auto;}
+/* 버튼영역 */
+.SubmitBox{display:block; position:relative; text-align:center; margin:1em auto;}
+
+
+/* ===================================================================== */
+/* 타이틀류 */
+h1{display:none;}
+h2{display:none;}
+h3{display:none;}
+/* 기본타이틀 */
+h4{display:block; position:relative; font-size:1.1em; font-weight:600; vertical-align:middle; margin-bottom:1em;}
+h4 p{display:block;}
+h4 p strong{display:block;}
+h4 p span{display:block; color:#a1a1a1; font-size:0.9em; font-weight:200; letter-spacing:-1px; margin-top:5px;}
+h4 p em{color:#fe912c; font-weight:300; padding-left:1%;} /* 건수 */
+h4 p em b{font-weight:100;}
+h4 .Btn_More{display:inline-block; position:absolute; top:0px; right:0px;}
+h4.Big{display:table; width:100%; table-layout:fixed; }
+h4.Big >* {display:table-cell; vertical-align:middle;}
+h4.Big strong{font-size:1.45em;}
+h4.Big small{text-align:right;}
+h4.Big .Icon{}
+
+/* 타이틀류 */
+.SectionTitle{display:block; position:relative; font-weight:bold; text-align:left; margin-bottom:0.5em;}
+.SectionTitle a{display:block; position:relative;}
+.SectionTitle p{display:block; position:relative;}
+.SectionTitle span{display:block; position:relative; color:#a1a1a1; font-size:0.9em; line-height:1.4em; letter-spacing:-1px; margin-top:5px;}
+.SectionTitle .Btn_More{display:inline-block; position:absolute; top:0px; right:0px; }
+.SectionTitle .Btn_More span{margin:0px;}
+.SectionTitle .Btn_Close{display:inline-block; position:absolute; top:0px; right:0px;}
+.SectionTitle.Small{}
+.SectionTitle.Small > p{font-size:0.9em;}
+.SectionTitle.Big{}
+.SectionTitle.Big > p{font-size:1.15em;}
+.SectionTitle.Large{}
+.SectionTitle.Large > p{font-size:1.45em;}
+.SectionTitle .NO{display:inline-table; width:1.5em; color:#dedede; font-size:0.8em; text-align:center; border:1px solid #dedede; border-radius:5px; margin-right:5px;}
+
+/* 텍스트타입 */
+.Info_Basics,
+.Info_Basics *{color:#a1a1a1; line-height:1.4em;}
+.Info_Warning{color:#0fb3a3 !important; line-height:1.4em; font-weight:bold;}
+
+/* 필수입력포시 */
+.Surely{display:inline-table; position:relative; vertical-align:middle;}
+.Surely:after{content:"*"; clear:both; display:block; color:#0fb3a3;}
+
+/* 약관보기 */
+.TermsText{display:block; position:relative; font-size:0.9em; font-weight:100; line-height:1.6em; word-break:keep-all; text-align:justify;}
+.TermsText h4{font-size:1.45em; line-height:1em; margin-bottom:0px;}
+.TermsText strong{font-size:1.1em;}
+.TermsText span{}
+
+/* 안내문구 */
+.InfoText{display:block; color:#a1a1a1; font-size:0.85em; }
+.InfoBox{display:block; position:relative; line-height:1.4em; background-color:#f7f7f7; padding:1em;}
+.InfoBox strong{line-height:1.6em;}
+.InfoBox span{display:block; color:#a1a1a1; letter-spacing:-1px;}
+.InfoBox p + p{margin-top:1em;}
+
+/* 비어있을때안내문구 */
+.EmptyCont{display:block; position:relative; text-align:center; padding:1em; margin:auto;}
+.EmptyCont .Inner{color:#a1a1a1; text-align:center; margin:auto; }
+.EmptyCont .Logo{display:inline-table; position:relative;}
+.EmptyCont .Logo strong{display:table-cell; position:relative; width:8em; height:8em; text-align:center; vertical-align:middle; border-radius:50%; background-color:#f7f7f7; padding:5%; overflow:hidden; 
+background-image:url('/img/brand_opengraph.png'); background-repeat:no-repeat; background-size:100% auto; background-position:center center;}
+.EmptyCont .Logo img{width:70%;}
+.EmptyCont p{display:block; position:relative; color:#a1a1a1; font-size:0.9em; margin-top:1em;}
+
+/* 해시태그 */
+.Hashtag{display:block; position:relative;}
+.Hashtag span{display:inline-table; position:relative; vertical-align:middle; letter-spacing:-1px;}
+.Hashtag span:before{content:"#";}
+.Hashtag span + span{}
+
+/* 푸쉬알림 */
+.PushAlarm{display:block; position:absolute; top:5%; right:5%; width:8px; height:8px; vertical-align:middle; border-radius:50%; background-color:#0fb3a3; overflow:hidden;}
+
+/* 배지 */
+.Badge{display:inline-table; min-width:10px; vertical-align:middle; color:#fff; font-weight:300; font-size:0.9em; line-height:1em; text-align:center; white-space:nowrap; vertical-align:baseline; background-color:#0fb3a3; border-radius:15px; padding:3px 7px;} 
+.BadgeLine{display:inline-block; color:#0fb3a3; font-size:0.9em; line-height:1em; text-align:center; white-space:nowrap; vertical-align:baseline; border:1px solid #0fb3a3; border-radius:15px; padding:3px 7px;} 
+table .Badge,
+table .BadgeLine{font-size:1em;}
+
+.Badge.New{}
+.Badge.New:before{content:"N"; color:#fff;}
+
+/* 알림배지 */
+.NewPushAlarm{display:inline-block; position:absolute; top:0%; right:0px; width:15px; height:15px; line-height:15px; color:#fff; font-size:0.75em; text-align:center; border-radius:50%; background-color:#0fb3a3; box-shadow:0px 1px 3px rgb(0, 0, 0, 0.5); overflow:hidden;}
+.NewPushAlarm{animation:NewPushAlarm_Animation 0.7s 0s infinite ease-in-out alternate;}
+.NewPushAlarm:after{content:"N"; position:absolute; left:0px; right:0px; top:0%; bottom:0px;}
+@keyframes NewPushAlarm_Animation{
+									0%{opacity:100%;}
+									100%{opacity:0%;}
+								}
+
+/* 로딩바원형 */
+.LoadingCircle{width:5em; height:5em;border:3px solid #333; border-right-color:#7c65d9; border-top-color:#7c65d9; border-radius: 100%; margin: 5% auto;
+						animation:LoadingCircleMovie 800ms infinite linear;
+						}
+@keyframes LoadingCircleMovie {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(359deg); }
+}
+
+/* 구분선류 */
+hr{display:block; width:100%; height:0px; border:none; overflow:hidden; border-top:1px solid #ebebeb; margin:0px; padding:0px;}
+hr.Bold{border:none; height:6px; background-color:#eeeeee; box-shadow:1px 1px 3px 0px #cfcfcf inset; margin-top:30px;}
+.Inner + hr.Bold{margin-top:0px;}
+
+/* 스롤시고정 */
+body .Fixed{position:fixed !important; top:0px; width:100%; background-color:#fff; z-index:80; animation:FixedAnimation 0.5s forwards;}
+@keyframes FixedAnimation {
+										0% {transform: translateY(-10px);}
+										100% {transform: translateY(0px);}
+										}
+
+/* 동영상삽입*/
+.Movie_IframArea{display:inline-block; position:relative; width:100%;}
+.Movie_Iframe{position:relative; width:100%; margin:0; padding:0; padding-bottom:56.25%;}
+.Movie_Iframe iframe{position:absolute; left:0; width:100%; height:100%; margin:0; padding:0;}
+.Movie_Iframe video{position:absolute; left:0; width:100%; height:100%; margin:0; padding:0;}
+
+/* 더보기 */
+.Btn_More{position:relative; color:#a1a1a1; font-size:0.9em; font-weight:400; letter-spacing:-1px; }
+.Btn_More span{display:inline-block; position:relative; border-bottom:1px solid #a1a1a1; }
+/* 링크 */
+.Btn_Link{display:table; width:100%; table-layout:fixed; padding:1.5em 1em;}
+.Btn_Link p{display:table-cell; position:relative; vertical-align:middle;}
+.Btn_Link p strong{font-weight:500;}
+.Btn_Link p span{}
+.Btn_Link p:after{content:''; clear:both; display:block; position:absolute; top:2px; right:0px; width:10px; height:10px; border-right:1px solid #a1a1a1; border-top:1px solid #a1a1a1; transform:translateY(0px) rotate(45deg);}
+
+.Btn_Link p:first-child{text-align:left; }
+.Btn_Link p:nth-child(2){width:20%; text-align:right;}
+
+
+/* 최상위로이동 */
+.Btn_GoTop{display:block; position:fixed; bottom:9.5%; right:1em; width:34px; height:34px; border-radius:50%; border:1px solid #dedede; background-color:rgba(255,255,255, 0.6); box-shadow: 3px 3px 5px rgba(0,0,0, 0.04); overflow:hidden; z-index:10; } /* display:none; 일단숨김 */
+.Btn_GoTop:after{content:''; clear:both; display:block; position:absolute; top:40%; left:50%; margin-left:-6px; width:12px; height:12px; border-left:1px solid #d4d4d4; border-bottom:1px solid #d4d4d4; transform:translateY(0px) rotate(135deg);}
+body.Fixed .Btn_GoTop{display:block;}
+
+
+/* 툴팁 안내문구 */
+[data-tooltip-text]{position:relative;}
+[data-tooltip-text]:hover{position:relative;}
+[data-tooltip-text]:hover:after{content:attr(data-tooltip-text); clear:both; display:block; position:absolute; left:50%; margin-left:-7em; width:14em; height:auto; word-break:keep-all; border:1px solid #0fb3a3; border-radius:5px; background-color:rgba(255, 255, 255, 0.95); overflow:hidden; z-index:5; padding:1em;}
+[data-tooltip-direction=top]{border:2px dashed red;}
+[data-tooltip-direction=top]:hover:after{bottom:100%; margin-top:-4em;} /* top:100%; left:50%; margin-left:-7em; */
+[data-tooltip-direction=bottom]{border:2px dashed blue;}
+[data-tooltip-direction=bottom]:hover:after{}
+[data-tooltip-direction=left]{border:2px dashed yellow;}
+[data-tooltip-direction=left]:hover:after{left:0px;}
+[data-tooltip-direction=right]{border:2px dashed pink;}
+[data-tooltip-direction=right]:hover:after}
+
+
+/* ===================================================================== */
+/* 인풋기본모양 */
+input[type=text]{}
+input[type=textarea]{}
+input[type=date]{cursor:pointer;}
+.InputBox{position:relative; table-layout:fixed; line-height:1em; border:1px solid #dedede; border-radius:5px; background-color:#ffffff; padding:12px 10px;}
+.InputBox input{width:100%;}
+.InputBox input:placeholder{}
+.InputBox input + .Unit{width:20%; text-align:right; }
+.InputBox:focus-within{border-color:#272727;}
+.InputBox select{width:100%; margin-top:-4px; margin-top:0px\0\IE8;}
+.InputBox.Fixedly{color:#a1a1a1; border-color:#fff;} /* 보기용값표기 */
+.InputBox + .InputBox{margin-top:0.8em;} /* 근접 */
+
+/* 인풋 세트구성 : 기간선택 */
+.InputSetBox{display:inline-table; position:relative; table-layout:fixed; vertical-align:middle; border:1px solid #dedede; border-radius:5px; background-color:#ffffff; padding:12px 10px;}
+.InputSetBox > *{display:table-cell; vertical-align:middle; line-height:1em; }
+.InputSetBox > span{padding:0px 5px;}
+.InputSetBox input{}
+.InputSetBox .Dash{width:10%; color:#a1a1a1;}
+.InputSetBox.Center Input{text-align:center;}
+.InputSetBox:focus-within{border-color:#272727;}
+
+/* 약관관련박스 */
+.ClauseBox{display:block; width:100%; margin-top:10px; display:none; } /* 일단숨김 */
+.ClauseBox pre{height:6em; border:1px solid #dedede; border-radius:5px; padding:10px 10px; overflow:hidden; overflow-y:scroll;}
+.ClauseBox pre,
+.ClauseBox pre *{color:#a1a1a1; font-size:0.85em; font-weight:300; line-height:1.4em; word-break:keep-all; text-align:justify;}
+.InpuAgreeBox +.ClauseBox{}
+.AgreeArea .Checkbox big p{color: #a1a1a1; font-size:0.9em;}
+	/* 이용약관일때 */
+	.ServiceText{}
+	/* 개인정보취급방침일때 */
+	.PrivacyText{}
+	/* 위탁처리일때 */
+	.EntrustText{}
+	/* 알림동의일때 */
+	.AlarmText{}
+
+/* ------------------------------------------ */
+/* [인풋입력] 텍스트박스 */
+input[type=text]{}
+
+/* ------------------------------------------ */
+/* [인풋선택] 기본형(라디오 공용) */
+input[type=checkbox]{}
+.Checkbox{display:inline-table; position:relative; table-layout:fixed; vertical-align:middle; cursor:pointer;} 
+.Checkbox input{display:none;} /* 일단숨김 */
+.Checkbox input ~ *{display:table; position:relative; table-layout:fixed;}
+.Checkbox mark{background:none; margin:0px; padding:0px;}
+.Checkbox small{display:table-cell; width:20px; vertical-align:top;}
+.Checkbox small em{display:block; position:relative; width:20px; font-style:normal; font-weight:normal; overflow:hidden;}
+.Checkbox small em b{display:block; position:relative; top:0; width:20px; height:20px; border:1px solid #dedede; border-radius:4px; background-color:#ffffff;}
+.Checkbox small em b:after{content: ''; display:block; position:absolute; top:0%; left:28%; width:6px; height:13px; border-bottom:2px solid #fff; border-right:2px solid #fff; transform:rotate( 45deg ); -webkit-transform:rotate( 45deg );-moz-transform:rotate( 45deg ); display:none;} /* 일단숨김 */
+.Checkbox big{display:table-cell; line-height:1em; vertical-align:middle; padding-left:5px;}
+.Checkbox big p{}
+.Checkbox big .Box{display:table; position:relative; width:100%; table-layout:fixed; } /* 추가항목이있을경우 */
+.Checkbox big .Box > *{display:table-cell; width:70%; vertical-align:middle; }
+.Checkbox big .Box > p{}
+.Checkbox big .Box em{text-align:right;}
+.Checkbox input:checked ~ * small em{}
+.Checkbox input:checked ~ * small em b{border-color:#0fb3a3; background-color:#0fb3a3; transition:all 0.2s ease;}
+.Checkbox input:checked ~ * small em b:after{display:block;}
+.Checkbox input:checked ~ * big{}
+.Checkbox input:disabled ~ * {cursor:no-drop;}
+.Checkbox input:disabled ~ * small em b{}
+.Checkbox input:disabled ~ * big{color:#a1a1a1;}
+.Checkbox input:disabled:checked~ * small em b{border-color:#dedede; background-color:#dedede;} 
+	/* 기본체크형>> 크게 */
+	.Checkbox.Big{}
+	.Checkbox.Big small{width:30px;}
+	.Checkbox.Big small em{width:30px;}
+	.Checkbox.Big small em b{width:30px; height:30px;}
+	.Checkbox.Big small em b:after{width:10px; height:18px; border-bottom-width:3px; border-right-width:3px;} 
+	.Checkbox.Big big{font-size:1.1em;}
+	.Checkbox.Big.Radius b:after{top:8%; left:28%; width:8px; height:16px;}
+	/* 기본체크형>> 작게 */
+	.Checkbox.Small{}
+	.Checkbox.Small small{width:15px; }
+	.Checkbox.Small small em{width:15px; vertical-align:middle;}
+	.Checkbox.Small small em b{width:15px; height:15px; border-radius:3px;}
+	.Checkbox.Small small em b:after{width:4px; height:9px;}
+	.Checkbox.Small big{font-size:0.9em; padding-left:2px;}
+	.Checkbox.Small.Radius b:after{width:5px; height:9px;}
+	/* 기본체크형>> 선형태 */
+	.Checkbox.Border{}
+	.Checkbox.Border small em b{background:none;}
+	.Checkbox.Border small em b:after{border-bottom-color:#0fb3a3; border-right-color:#0fb3a3; }
+	.Checkbox.Border input:checked ~ * small em b{border-color:#0fb3a3; background:none;}
+	.Checkbox.Border input:disabled:checked~ * small em b{border-color:#dedede;}
+	.Checkbox.Border input:disabled:checked~ * small em b:after{border-bottom-color:#dedede; border-right-color:#dedede;} 
+	/* 기본체크형>> 원형태 */
+	.Checkbox.Radius{}
+	.Checkbox.Radius small em b{border-radius:50%;}
+	.Checkbox.Radius small em b:after{top:2%; height:11px;}
+	/* 선택상태가아니어도체크모양이보기 */
+	.Checkbox.Shadow{}
+	.Checkbox.Shadow small em b{}
+	.Checkbox.Shadow small em b:after{display:block; border-color:#eee;}
+	.Checkbox.Shadow input:checked ~ * small em b{}
+	.Checkbox.Border.Shadow{}
+	.Checkbox.Border.Shadow input:checked ~ * small em b{}
+	.Checkbox.Border.Shadow input:checked ~ * small em b:after{border-color:#0fb3a3;}
+	.Checkbox.Radius.Shadow{}
+	.Checkbox.Radius.Shadow input:checked ~ * small em b{}
+	.Checkbox.Radius.Shadow input:checked ~ * small em b:after{}
+
+
+/* [체크박스] 버튼형(선) */
+.Check_Btn{display:inline-block; position:relative; line-height:2em; cursor:pointer;}
+.Check_Btn p{border:1px solid #dedede; border-radius:3px; background-color:#ffffff; padding: 0px 15px;}
+.Check_Btn input{display:none;} /* 일단숨김 */
+.Check_Btn input:checked ~ p{color:#272727; border:1px solid #272727; transition:all 0.2s ease;}
+.Check_Btn:hover p span{display:block; transform:scale(0.94); -webkit-transition:scale(0.94);}
+	/* 크기 */
+	.Check_Btn.Big{font-size:1.15em; line-height:2.4em;}
+	.Check_Btn.Small{font-size:0.9em;}
+	.Check_Btn.Tiny{font-size:0.9em; line-height:1.4em;}
+/* [체크박스] 버튼형(배경) */
+.Check_BtnBg{display:inline-block; position:relative; line-height:2em; cursor:pointer;}
+.Check_BtnBg p{border:1px solid #dedede; border-radius:3px; background-color:#ffffff; padding: 0px 15px;}
+.Check_BtnBg input{display:none;} /* 일단숨김 */
+.Check_BtnBg input:checked ~ p{color:#ffffff; border:1px solid #272727; background-color:#272727; transition:all 0.2s ease;}
+.Check_BtnBg:hover p span{display:block; transform:scale(0.94); -webkit-transition:scale(0.94);}
+	/* 크기 */
+	.Check_BtnBg.Big{font-size:1.15em; line-height:2.4em;}
+	.Check_BtnBg.Small{font-size:0.9em;}
+	.Check_BtnBg.Tiny{font-size:0.9em; line-height:1.4em;}
+/* [체크박스] 버튼형(배경)세트 */
+.Check_BtnBgSet{display:table; line-height:1em; table-layout:fixed; border-radius:3px; border:1px solid #dedede; overflow:hidden;} 
+.Check_BtnBgSet input{display:none;} /* 일단숨김 */
+.Check_BtnBgSet label{display:table-cell; line-height:2em; border-right:1px solid #dedede; cursor:pointer;} 
+.Check_BtnBgSet label p{background-color:#ffffff; padding: 0px 15px;}
+.Check_BtnBgSet label:first-child{}
+.Check_BtnBgSet label:last-child{border-right:none;}
+.Check_BtnBgSet label input:checked + p{color:#fff; background-color:#272727; transition:all 0.2s ease;} 
+.Check_BtnBgSet label:hover p span{display:block; transform:scale(0.94); -webkit-transition:scale(0.94);}
+.Check_BtnBgSet .Active{color:#fff; background-color:#272727;}
+	/* 크기 */
+	.Check_BtnBgSet.Big{font-size:1.15em; line-height:2.4em;}
+	.Check_BtnBgSet.Small{font-size:0.9em;}
+	.Check_BtnBgSet.Tiny{font-size:0.9em; line-height:1.4em;}
+/* [라디오] 기본선택형 */
+input[type=radio]{}
+.InputArea .Radiobox{}
+.Radiobox{display:inline-table; position:relative; line-height:1em; table-layout:fixed; vertical-align:middle; cursor:pointer;} 
+.Radiobox input{display:none;} /* 일단숨김 */
+.Radiobox mark{background:none; margin:0px; padding:0px;}
+.Radiobox small{display:table-cell; width:20px; vertical-align:top;}
+.Radiobox small em{display:block; position:relative; width:20px; font-style:normal; font-weight:normal; overflow:hidden;}
+.Radiobox small em b{display:block; position:relative; top:0; width:20px; height:20px; border:1px solid #dedede; border-radius:50%; background-color:#ffffff; overflow:hidden;}
+.Radiobox small em b:after{content: ''; display:block; position:absolute; top:50%; margin-top:-6px; left:50%; margin-left:-6px; font-size:1em; width:12px; height:12px; background-color:#0fb3a3; border-radius:50%; display:none;} /* 일단숨김 */
+.Radiobox big{display:table-cell; line-height:1.5em; vertical-align:middle; padding-left:5px;}
+.Radiobox big p{}
+.Radiobox input:checked ~ * small em{}
+.Radiobox input:checked ~ * small em b{border-color:#0fb3a3;}
+.Radiobox input:checked ~ * small em b:after{display:block; color:#0fb3a3; transition:all 0.2s ease;}
+.Radiobox input:checked ~ * big{}
+.Radiobox input:disabled ~ * {cursor:no-drop;}
+.Radiobox input:disabled ~ * big{color:#a1a1a1;}
+.Radiobox input:disabled:checked~ * small em b{border-color:#dedede;} 
+.Radiobox input:disabled:checked~ * small em b:after{color:#dedede;}
+	/* 기본선택형>> 크게 */
+	.Radiobox.Big{}
+	.Radiobox.Big small{width:30px;}
+	.Radiobox.Big small em{width:30px;}
+	.Radiobox.Big small em b{width:30px; height:30px;}
+	.Radiobox.Big small em b:after{margin-top:-9px; margin-left:-9px; width:18px; height:18px;} /* 일단숨김 */
+	.Radiobox.Big big{font-size:1.1em;}
+	/* 기본선택형>> 작게 */
+	.Radiobox.Small{}
+	.Radiobox.Small small{width:16px;}
+	.Radiobox.Small small em{width:16px;}
+	.Radiobox.Small small em b{width:16px; height:16px;}
+	.Radiobox.Small small em b:after{margin-top:-4px; margin-left:-4px;width:8px; height:8px;} /* 일단숨김 */
+	.Radiobox.Small big{font-size:0.9em;}
+	/* 선택상태가아니어도체크모양이보기 */
+	.Radiobox.Shadow{}
+	.Radiobox.Shadow small em b{}
+	.Radiobox.Shadow small em b:after{display:block; background-color:#eee;}
+	.Radiobox.Shadow input:checked ~ * small em b{}
+	.Radiobox.Shadow input:checked ~ * small em b:after{background-color:#0fb3a3}
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* [체크박스전용] 스위치형(옵션켜고끄기-원형) https://codepen.io/salutmerry/pen/QzNPXB?editors=1100 */
+.CheckSwitch{display:inline-block; position:relative; }
+.CheckSwitch input{display:none;} /* 일단숨김 */
+.CheckSwitch label{display:block; position:relative; width:60px; height:30px;}
+.CheckSwitch em{display:block; width:100%; height:inherit; border-radius:50px; border:1px solid #e5e5e5; background-color:#dedede; border:1px solid #dedede; transition:all 0.3s ease; overflow:hidden; cursor:pointer;}
+.CheckSwitch em button{position:absolute; top:1px; left:1px; display:block; width:28px; height:28px; border-radius:50%; background-color:#fff; transition:all 0.3s cubic-bezier(0.275, -0.45, 0.725, 1.45);}
+.CheckSwitch em span{display:block; font-size:0.85em;}
+.CheckSwitch em span.On{color:#0fb3a3; display:none;}
+.CheckSwitch em span.Off{color:#dedede;}
+.CheckSwitch input:active + label em ,
+.CheckSwitch input:checked + label em{background-color:#0fb3a3; border:1px solid #0fb3a3;}
+.CheckSwitch input:active + label em button,
+.CheckSwitch input:checked + label em button{left:31px;}
+.CheckSwitch input:checked + label em span.On{display:block;}
+.CheckSwitch input:checked + label em span.Off{display:none;}
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* [라디오전용] 스위치형(옵션켜고끄기-원형) https://codepen.io/nickbottomley/pen/uhfmn?editors=0100*/
+.RadioSwitch{display:inline-table; position:relative; vertical-align:middle;}
+.RadioSwitch input{display:none;}
+.RadioSwitch label{display:table-cell; position:relative; vertical-align:middle; width:50%; height:30px; min-width:30px; color:#dedede; font-size:0.85em; line-height:30px; text-align:center; cursor:pointer; z-index:2;}
+.RadioSwitch button{display:block; position:absolute; left:0; right:0px; width:100%; height:30px; background-color:#dedede; border-radius:70px; transition:0.25s ease all; overflow:hidden; z-index:1;}
+.RadioSwitch button span{display:block; position:absolute; top:0px; left:0px; width:30px; height:inherit; background-color:#fff; border:1px solid #dedede; border-radius:50%; transition:0.25s ease all; z-index:1;}
+.RadioSwitch input:checked{z-index:1;}
+.RadioSwitch input:first-child:checked ~ button{} /* off */
+.RadioSwitch input:first-child:checked ~ button span{left:0px;}
+.RadioSwitch input ~ input:checked + label{color:#0fb3a3; } /* on */
+.RadioSwitch input ~ input:checked ~ button{background-color:#0fb3a3;}
+.RadioSwitch input ~ input:checked ~ button span{border-color:#0fb3a3; left:50%;}
+/* [라디오전용] 스위치형(옵션켜고끄기-캡슐형) https://codepen.io/salutmerry/pen/QzNPXB?editors=1100 */
+.RadioCapsule{display:inline-table; position:relative; height:30px; vertical-align:middle; border:1px solid #f1f1f1; border-radius:50px; background: #f1f1f1; overflow:hidden;}
+.RadioCapsule input{display:none;} /* 일단숨김 */
+.RadioCapsule label{display:table-cell; position:relative; width:60px; height:inherit; line-height:30px; text-align:center; vertical-align:middle; border-right:1px solid #e5e5e5;}
+.RadioCapsule label:last-chlid{border-right:none;}
+.RadioCapsule em{display:block; width:100%; height:inherit; transition:all 0.3s ease; overflow:hidden; cursor:pointer;}
+.RadioCapsule em span{display:block; font-size:0.85em;}
+.RadioCapsule em span.On{color:#0fb3a3; display:none;}
+.RadioCapsule em span.Off{color:#dedede;}
+.RadioCapsule input:checked + em{color:#fff; background-color:#0fb3a3;}
+/* [라디오전용] 항목세트형(토글방식) */
+.RadioSetBox{display:inline-table; position:relative; table-layout:fixed; vertical-align:middle; border:1px solid #dedede; border-radius:5px; overflow:hidden;}
+.RadioSetBox label{display:table-cell; vertical-align:middle; border-right:1px solid #dedede; cursor:pointer;}
+.RadioSetBox label:last-child{border-right:none;}
+.RadioSetBox label input{display:none;} /* 일단숨김 */
+.RadioSetBox label p{display:inline-block; padding:5px 10px; transition:all ease 0.5s;}
+.RadioSetBox label input:checked + p{color:#fff; background-color:#0fb3a3;}
+.RadioSetBox label:hover p span{display:block; transform:scale(0.94); -webkit-transition:scale(0.94);}
+/* [라디오전용] 주요값선택 */
+.RadioSelectSet{display:block; position:relative}
+.RadioSelectbox{display:block; position:relative; line-height:1em; table-layout:fixed; cursor:pointer;} 
+.RadioSelectbox + .RadioSelectbox{margin-top:1em;}
+.RadioSelectbox input{display:none;} /* 일단숨김 */
+.RadioSelectbox mark{display:table; width:100%; background:none; margin:0px; padding:1em 1em;}
+.RadioSelectbox mark:after{content: ''; display:block; position:absolute; top:0px; left:0px; bottom:0px; right:0px; border:2px solid #f1f1f1; border-radius:8px;}
+.RadioSelectbox small{display:table-cell; width:20px; vertical-align:top;}
+.RadioSelectbox small em{display:table-cell; position:relative; width:20px; font-style:normal; font-weight:normal; overflow:hidden;}
+.RadioSelectbox small em b{display:block; position:relative; top:0; width:20px; height:20px; border:1px solid #dedede; border-radius:50%; background-color:#ffffff;}
+.RadioSelectbox small em b:after{content: ''; display:block; position:absolute; top:23%; left:23%; width:10px; height:10px; background-color:#0fb3a3; border-radius:50%; display:none;} /* 일단숨김 */
+.RadioSelectbox big{display:table-cell; line-height:1.5em; vertical-align:middle; padding-left:5px;}
+.RadioSelectbox big .Box{display:table; position:relative; width:100%; }
+.RadioSelectbox big .Box p{display:table-cell; vertical-align:top;}
+.RadioSelectbox big .Box strong{display:table-cell; vertical-align:top; text-align:right;}
+.RadioSelectbox big .Box p + strong{width:30%; }
+.RadioSelectbox input:checked ~ * small em{}
+.RadioSelectbox input:checked ~ * small em b{border-color:#0fb3a3;}
+.RadioSelectbox input:checked ~ * small em b:after{display:block; color:#0fb3a3;}
+.RadioSelectbox input:checked ~ mark:after{border-color:#0fb3a3;}
+.RadioSelectbox:hover{background-color:#f3f6f6;}
+
+
+/* ------------------------------------------ */
+/* 셀렉트 */
+.Selectbox{display:inline-block; position:relative;}
+.InputBox select{}
+select option{}
+
+/* 펼침메뉴셀렉트박스같이만들기 */
+.SelectBox{display:block; position:relative; font-size:0.9em; text-align:left;}
+.SelectBox .SelectBtn{display:block; position:relative;}
+.SelectBox .SelectBtn:hover .selectOptionList{}
+.SelectBox .SelectBtn a{display:block; position:relative; width:100%; border:1px solid #dedede; border-radius: 5px; background-color:#ffffff; padding:12px 15px;}
+.SelectBox .SelectBtn a:after{content:'▼'; display:block; position:absolute; top:10px; right:15px;}
+.SelectBox .SelectBtn + .selectOptionList:not([style*='display: none']){}
+.SelectBox .selectOptionList{display:block; position:absolute; width:100%; border:1px solid #dedede; background-color:#ffffff; margin-top:-1px; z-index:100; display:none;} /* 일단숨김 */
+.SelectBox .selectOptionList li{display:block; border-bottom:1px solid #f1f1f1; }
+.SelectBox .selectOptionList li:last-child{border-bottom:none;}
+.SelectBox .selectOptionList a,
+.SelectBox .selectOptionList label{display:block; padding:12px 15px;}
+.SelectBox .selectOptionList a:hover,
+.SelectBox .selectOptionList label:hover{background-color:#fafafa;}
+.SelectBox .selectOptionList .OptionSoldout a{color:#a1a1a1; cursor:no-drop;} /* 품절 */
+.SelectBox + .SelectBox{margin-top:1em;} /* 근접 */
+	/* 옵션썸네일 */
+	.selectThum{display:block; position:relative;}
+	.selectThum input{display:none} /* 일단숨김 */
+	.selectThum small{display:inline; position:relative; vertical-align:middle;}
+	.selectThum small pre{display:inline; position:relative;}
+	.selectThum small pre i{}
+	.selectThum big{display:inline-block; position:relative; vertical-align:middle; padding-left:0.6em;}
+	.selectThum big strong{position:relative; }
+	.selectThum big em{position:relative; font-weight:bold;}
+	.selectThum big em b{font-weight:inherit; }
+	.selectThum big strike{position:relative; }
+	.selectThum big:before{content:"/"; position:absolute; left:0px; }
+
+
+/* ------------------------------------------ */
+/* 수량조정 */
+.CountBox{display:inline-table; position:relative; width:auto; height:30px; line-height:1em; table-layout:fixed; border:1px solid #d9d9d9; border-radius:3px; background-color:#ffffff; overflow:hidden;}
+.CountBox > *{display:table-cell; position:relative; vertical-align:middle; }
+.CountBox input{appearance:auto; width:60px; height:inherit; text-align:center; border-left:1px solid #d9d9d9; border-right:1px solid #d9d9d9;}
+.CountBox input[type='number']:-webkit-outer-spin-button,
+.CountBox input[type='number']:-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
+.CountBox button{position:relative; width:30px; height:inherit; text-indent:-9999px; background-color:#f1f1f1; overflow:hidden;}
+.CountBox button:before{content:""; position:absolute; top:50%; left:50%; margin-left:-5px; width:10px; height:2px; background-color:#272727;}
+.CountBox button:hover{background-color:#dedede;}
+.CountBox .Down{}
+.CountBox .Up{}
+.CountBox .Up:after{content:""; position:absolute; top:50%; margin-top:-5px; left:50%; margin-left:-1px; width:2px; height:12px; background-color:#272727;}
+
+
+/* ------------------------------------------ */
+/* 진료과목선택 */
+.selectClinicList{display:block; position:relative; padding:1em;}
+.selectClinicList li{position:relative; vertical-align:top;}
+.selectClinicList .SectionTitle{display:block; position:relative;}
+.selectClinicList .Box{display:block; position:relative;}
+.selectClinicList .Checkbox{display:block;}
+.selectClinicList .Checkbox mark{width:100%; padding:0.5em; border-radius:15px;}
+.selectClinicList .Checkbox big{}
+.selectClinicList .Checkbox big p{display:block; position:relative; width:95%; white-space:nowrap; word-break:keep-all; text-overflow:ellipsis; overflow:hidden;}
+.selectClinicList .Checkbox + .Checkbox{}
+	.selectClinicList li.Level1{display:inline-table; width:48%;}
+	.selectClinicList li.Level1{}
+	.selectClinicList li.Level1 .SectionTitle{}
+	.selectClinicList li.Level1 .Box{}
+	.selectClinicList li.Level1 .Checkbox input:checked{}
+	.selectClinicList li.Level1 .Checkbox input:checked ~ mark{background-color:#f3f6f6;}
+	.selectClinicList li.Level1 .Checkbox input:checked ~ mark big:after{content:'>'; display:block; position:absolute; top:0.5em; right:0.5em;  font-size:1.4em; font-weight:100; z-index:1; }
+	.selectClinicList li.Level2{display:inline-table; width:48%;}
+	.selectClinicList li.Level2 .SectionTitle{}
+	.selectClinicList li.Level2 .Box{background-color:#f3f6f6; border-radius:15px;}
+	.selectClinicList li.Level3{display:block; margin-top:2em;}
+	.selectClinicList li.Level3 .SectionTitle{}
+	.selectClinicList li.Level3 .Box{}
+	.selectClinicList li.Level3 .Btn{margin-bottom:0.3em;}
+
+
+* ===================================================================== */
+/* 버튼류 */
+button.Btn{}
+.Btn{display:inline-table; position:relative; text-align:center; font-size:0.9em; line-height:2em; text-align:center; vertical-align:middle; border-radius:3px; border:1px solid #dedede; background-color:#fff; padding:0px 15px; cursor:pointer;} /* 글씨크기를넣어야 a,button,div높이동일 */
+.Btn p{display:block; table-layout:fixed; vertical-align:middle; text-align:center; padding-top:1px;}
+.Btn .Del{display:inline-table; font-size:1.6em; line-height:1em; font-weight:200; vertical-align:middle;} /* 삭제할때× */
+.Btn:hover{box-shadow:0px 0px 5px 0px rgb(0 0 0 / 10%);}
+.Btn:hover p{}
+.Btn:hover p span{display:block; transform:scale(0.94); -webkit-transition:scale(0.94);}
+	/* 크기(tiny small medium big(large) great huge mega) */
+	.Btn.Tiny{font-size:0.85em; line-height:1.3em; line-height:1.4em; padding:0px 10px;}
+	.Btn.Tiny p{}
+	.Btn.Small{font-size:0.9em;}
+	.Btn.Small p{}
+	.Btn.Big{line-height:2.4em; font-size:1.15em; font-weight:bold; padding:0px 20px;}
+	.Btn.Big p{}
+	.Btn.Large{line-height:3em; font-size:1.15em; font-weight:bold; padding:0px 20px;}
+	.Btn.Large p{;}
+	/* (바탕형)바탕있음 */
+	.Btn_Full1, .Btn_Full1:hover, .Btn_Full1:focus{color:#fff; background-color:#44465c; border:1px solid #44465c;} /* 기본블랙 */
+	.Btn_Full2, .Btn_Full2:hover, .Btn_Full2:focus{color:#fff; background-color:#0fb3a3; border:1px solid #0fb3a3;} /* 민트 */
+	.Btn_Full3, .Btn_Full3:hover, .Btn_Full3:focus{color:#fff; background-color:#fe912c; border:1px solid #fe912c;} /* 주황 */
+	.Btn_Full4, .Btn_Full4:hover, .Btn_Full4:focus{color:#fff; background-color:#fad400; border:1px solid #fad400;} /* 노랑 */
+	.Btn_Full5, .Btn_Full5:hover, .Btn_Full5:focus{color:#fff; background-color:#000; border:1px solid #000;} /* 블랙 */
+	.Btn_Full6, .Btn_Full6:hover, .Btn_Full6:focus{color:#fff; background-color:#44465c; border:1px solid #44465c;} /* 네이비 */
+	a.Btn_Full1:hover,
+	a.Btn_Full2:hover,
+	a.Btn_Full3:hover,
+	a.Btn_Full4:hover,
+	a.Btn_Full5{color:#fff;}
+	/* 선형(선있음) */
+	.Btn_Border1, .Btn_Border1:hover, .Btn_Border1:focus{color:#44465c; border:1px solid #44465c;} /* 기본블랙 */
+	.Btn_Border2, .Btn_Border2:hover, .Btn_Border2:focus{color:#0fb3a3; border:1px solid #0fb3a3;} /* 민트 */
+	.Btn_Border3, .Btn_Border3:hover, .Btn_Border3:focus{color:#fe912c; border:1px solid #fe912c;} /* 주황 */
+	.Btn_Border4, .Btn_Border4:hover, .Btn_Border4:focus{color:#fad400; border:1px solid #fad400;} /* 노랑 */
+	.Btn_Border5, .Btn_Border5:hover, .Btn_Border5:focus{color:#000; border:1px solid #000;} /* 블랙 */
+	.Btn_Border6, .Btn_Border6:hover, .Btn_Border6:focus{color:#44465c; border:1px solid #44465c;} /* 네이비 */
+	/* 세트기본 */
+	.Btn_Set{display:table; table-layout:fixed;}
+	.Btn_Set button{display:table-cell; vertical-align:middle; border-radius:0px;}
+	.Btn_Set button:first-child{border-radius:3px 0px 0px 3px;}
+	.Btn_Set button:last-child{border-radius:0px 3px 3px 0px;}
+	/* 세트선으로 */
+	.Btn_SetBorder{display:table; line-height:1em; table-layout:fixed; border-radius:3px; border:1px solid #dedede;}
+	.Btn_SetBorder .Btn{display:table-cell; border:none; border-radius:0px; border-right:1px solid #dedede;}
+	.Btn_SetBorder .Btn:first-child{border-radius:3px 0px 0px 3px;}
+	.Btn_SetBorder .Btn:last-child{border-radius:0px 3px 3px 0px; border-right:none;}
+	.Btn_SetBorder .Btn:hover{}
+	.Btn_SetBorder .Active{color:#fff; background-color: #44465c;}
+	/* 비활성화 */
+	.Btn_Donot{color:#fff; border:none; background-color:#dedede; border:1px solid #dedede; cursor:no-drop;}
+	.Btn.Btn_Donot:hover p{transform:scale(1); -webkit-transition:scale(1);}
+	/* 둥근타입 */
+	.Btn.Radius{border-radius:30px;}
+	/* 정원타입 */
+	.Btn.Crcle{width:2.2em; height:2.2em; border-radius:50%; padding:0px; overflow:hidden;}
+	.Btn.Crcle .Icon{position:absolute; top:21%; left:22%;}
+	.Btn.Crcle.Tiny{width:1.8em; height:1.8em;}
+	.Btn.Crcle.Tiny .Icon{}
+	.Btn.Crcle.Small{}
+	.Btn.Crcle.Small .Icon{}
+	.Btn.Crcle.Big{width:2.6em; height:2.6em;}
+	.Btn.Crcle.Big .Icon{top:25%; left:25%;}
+	.Btn.Crcle.Large{width:3.2em; height:3.2em;}
+	.Btn.Crcle.Large .Icon{}
+	/* 닫기 */
+	.Btn.Close{}
+	.Btn.Close p{padding-right:1em;}
+	.Btn.Close p:after{content:"×"; clear:both; position:absolute; font-weight:100; font-size:1.8em;}
+
+
+/* ===================================================================== */
+/* 아이콘(스프라이트구조) */
+.Icon{display:inline-table; position:relative; width:20px; height:20px; max-width:50px; max-height:50px; vertical-align:middle; font-size:11pt; line-height:1em; text-align:center; text-indent:-1000; background-repeat:no-repeat; background-repeat:no-repeat; background-size:100% auto; background-position:center top; cursor:pointer; overflow:hidden;}
+.Icon:active{transform:scale(0.85); -webkit-transition:scale(0.85);}
+.Icons img{display:none;}
+.Icons:active{transform:scale(1); -webkit-transition:scale(1)}
+i.Icon{font-style:normal}
+	/* ------------------------------------------ */
+	/* 배지가있을경우 */
+	.Btn .Icon ~ .Badge,
+	a .Icon ~ .Badge{position:absolute; top:-4px; right:-4px; font-size:0.85em; padding:2px 5px;}
+	/* ------------------------------------------ */
+	/* 크기 */
+	.Icon.Tiny{width:12px; height:12px; font-size:0.95em;}
+	.Icon.Tiny img{max-height:12px;}
+	.Icon.Small{width:15px; height:15px;}
+	.Icon.Small img{max-height:15px;}
+	.Icon.Medium{} /* 기본20px */
+	.Icon.Medium img{}
+	.Icon.Big{width:30px; height:30px;}
+	.Icon.Big img{height:30px;}
+	.Icon.Large{width:50px; height:50px;}
+	.Icon.Large img{height:50px;}	
+	/* ------------------------------------------ */
+	/* 색상 기본회색 */
+	.IconsColor2{background-position:center 25%;} /* 검정 */
+	.IconsColor3{background-position:center 50%;} /* 민트 */
+	.IconsColor4{background-position:center 75%;} /* 주황 */
+	.IconsColor5{background-position:center 100%;} /* 흰색 */
+	/* ------------------------------------------ */
+	/* 배경구분(스트라이프이미지) */ 
+	.Icon_search{background-image:url("/img/common/Icon_search.png");}										/* 검색 */
+	.Icon_profile{background-image:url("/img/common/Icon_profile.png");}									/* 프로필 */
+	.Icon_alarm{background-image:url("/img/common/Icon_alarm.png");}										/* 알람 */
+	.Icon_home{background-image:url("/img/common/Icon_home.png");}										/* 홈 */
+	.Icon_review{background-image:url("/img/common/Icon_review.png");}										/* 리얼리뷰 */
+	.Icon_event{background-image:url("/img/common/Icon_event.png");}										/* 이벤트 */
+
+	.Icon_messenger{background-image:url("/img/common/Icon_messenger.png");}							/* 대화 */
+	.Icon_beookmark{background-image:url("/img/common/Icon_beookmark.png");}						/* 관심등록 */
+	.Icon_beookmarkActivity{background-image:url("/img/common/Icon_beookmarkActivity.png");}	/* 관심등록2 */
+	.Icon_comment{background-image:url("/img/common/Icon_comment.png");}							/* 댓글 */
+
+	.Icon_option{background-image:url("/img/common/Icon_option.png");}									/* 환경설정 */
+	.Icon_share{background-image:url("/img/common/Icon_share.png");}										/* 공유하기 */
+	.Icon_delete{background-image:url("/img/common/Icon_delete.png");}										/* 삭제 */
+	.Icon_write{background-image:url("/img/common/Icon_write.png");}											/* 작성 */
+	.Icon_poto{background-image:url("/img/common/Icon_poto.png");}											/* 사진첨부 */
+	.Icon_reset{background-image:url("/img/common/Icon_reset.png");}											/* 초기화 */
+	.Icon_handling{background-image:url("/img/common/Icon_handling.png");}								/* 헨들링 */
+
+	.Icon_close{background-image:url("/img/common/Icon_close.png");}										/* 닫기 */
+	.Icon_plus{background-image:url("/img/common/Icon_plus.png");}											/* 더하기 */
+	.Icon_wayDown{background-image:url("/img/common/Icon_wayDown.png");}							/* 아래로 */
+	.Icon_wayUp{background-image:url("/img/common/Icon_wayUp.png");}									/* 위로 */
+	.Icon_wayLift{background-image:url("/img/common/Icon_wayLift.png");}									/* 이전 */
+	.Icon_wayRight{background-image:url("/img/common/Icon_wayRight.png");}								/* 다음 */
+	.Icon_arrowLeft{background-image:url("/img/common/Icon_arrowLeft.png");}								/* 앞화살표 */
+	.Icon_arrowRight{background-image:url("/img/common/Icon_arrowRight.png");}						/* 뒤화살표*/
+	.Icon_more{background-image:url("/img/common/Icon_more.png");}										/* 메뉴더보기*/
+	.Icon_open{background-image:url("/img/common/Icon_open.png");}										/* 메뉴펼치기*/
+	.Icon_info{background-image:url("/img/common/Icon_info.png");}											/* 안내문 */
+	.Icon_warning{background-image:url("/img/common/Icon_warning.png");}								/* 경고문 */
+
+	.Icon_like{background-image:url("/img/common/Icon_like.png");}											/* 좋아요 */
+	.Icon_likeActivity{background-image:url("/img/common/Icon_likeActivity.png");}							/* 좋아요2 */
+	.Icon_call{background-image:url("/img/common/Icon_call.png");}												/* 전화 */
+	.Icon_talk{background-image:url("/img/common/Icon_talk.png");}											/* 톡톡 */
+	.Icon_kind{background-image:url("/img/common/Icon_kind.png");}											/* 종류 */
+	.Icon_map{background-image:url("/img/common/Icon_map.png");}											/* 지도마커 */
+
+	.Icon_bsket{background-image:url("/img/common/Icon_bsket.png");}											/* 장바구니 */
+	.Icon_cart{background-image:url("/img/common/Icon_cart.png");}											/* 카트 */
+	
+	.Icon_cctv{background-image:url("/img/common/Icon_cctv.png");}											/* Cctv */
+	.Icon_shot{background-image:url("/img/common/Icon_shot.png");}											/* 마취과 */
+	.Icon_dr{background-image:url("/img/common/Icon_dr.png");}												/* 전문의 */
+	.Icon_drF{background-image:url("/img/common/Icon_drF.png");}												/* 여의사진료 */
+	.Icon_recover{background-image:url("/img/common/Icon_recover.png");}									/* 전담회복실 */
+	.Icon_nightTime{background-image:url("/img/common/Icon_nightTime.png");}							/* 야간진료 */
+	
+	.Icon_C00080{background-image:url("/img/common/Icon_C00080.png");}									/* 걸페이스 */
+	.Icon_C00081{background-image:url("/img/common/Icon_C00081.png");}									/* 고닥 */
+
+
+
+/* [아이콘] 물음표(설명글) */
+.Icon_question{display:inline-table; position:relative; width:16px; height:16px; vertical-align:middle; line-height:1em; background-color:#dedede; border-radius:50%; cursor:help;}
+.Icon_question:before{content:"?"; position:absolute; left:0px; width:inherit; height:inherit; text-align:center; color:#fff; font-size:9pt; font-weight:bold;}
+.Icon_question:after{content:attr(data-title); position:absolute; left:0px; top:2em; width:200px; height:auto; font-size:9pt; line-height:1.4em; text-align:left; word-break: break-all; border:1px solid #d9d9d9; border-radius:5px; background-color:#ffffff; padding:10px; overflow:hidden; z-index:10; display:none; } /* 일단숨김 */
+.Icon_Question:hover:after{display:inline-block;}
+
+
+/* ===================================================================== */
+/* 배경블라인드*/
+.BlindBg{display:block; position:fixed; top:0px; left:0px; width:100%; height:100%; background-color:rgba(0, 0, 0, 0.6); z-index:90;}
+.NOTscroll{position:fixed; width:100%; height: 100%; overflow:hidden;}
+
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* 팝업띄우는영역1 */
+.FloatLayer{display:block; position:fixed; width:100%; height:100%; top:0px; right:0px; bottom:0px; text-align:right; z-index:90; display:none;} /* 일단숨김 */
+.FloatLayer .BlindBg{}
+.FloatLayer .InnerBox{display:inline-block; position:relative; width:80%; height:inherit; text-align:left; background-color:#fff; padding:0px; overflow-y:auto;}
+.FloatLayer fieldset{}
+	/* 헤더영역 */
+	.FloatLayer .HeadCont{display:block; position:relative;}
+		/* 타이틀 */
+		.FloatLayer .SectionTitle{padding:0; margin:1em;}
+		.FloatLayer .SectionTitle p{}
+		.FloatLayer h4 p{display:table-cell; vertical-align:middle;}
+		.FloatLayer h4 p + p{width:20px;} 
+		.FloatLayer h4 span{display:table-cell; }
+		/* 버튼 */
+		.FloatLayer .Btn_Set{width:100%;}
+		.FloatLayer .Btn_Set .Btn{width:50%; border-radius:0px;}
+		/* 검색 */
+		.FloatLayer .Search{width:100%;}
+		.FloatLayer .Search .SearchBox{padding:10px 5px;}
+	/* 컨텐츠영역 */
+	.FloatLayer .BodyCont{display:block; position:relative; width:100%;}
+/* ------------------------------------------ */
+/* [띄우는영역] 필터항목선택(아코디언이있을경우 부모가 display:none이면 메뉴오류발생) */
+.FloatLayer.FilterAsideArea{} /* display:block; width:0px; */
+.FilterAsideArea{}
+.FilterAsideArea .InnerBox{box-shadow:1px -5px 10px rgb(0 0 0 / 30%);}
+	/* 헤더영역 */
+	.FilterAsideArea .HeadCont{}
+	/* 내용 */
+	.FilterAsideArea .BodyCont{}
+		/* 선택항목(아코디언펼침메뉴) */
+		.FilterAsideArea .FilterList.accordionMenu{} 
+		/* 선택된항목(필터안에노출도있을때) */
+		.FilterAsideArea .SelectedBox{display:block; position:relative; background-color:#f7f7f7; padding:1em;}
+.FloatLayer.FilterAsideArea.FilterAsideAreaShow{width:100%;}
+@media all and (max-width:1920px) and (min-width:769px){
+.FilterAsideArea .InnerBox{width:30%;}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* 팝업띄우는영역2 */
+.LayerPop{position:fixed; top:0px; left:0px; right:0px; bottom:0px; background-color: rgba(0, 0, 0, 0.6); z-index:90; display:none;} /* 일단숨김 */
+.LayerPop .InnerBox{display:block; position:relative; width:90%; margin-left:-45%; border-radius:6px; margin:auto; z-index:92;} 
+@media all and (max-width:1920px) and (min-width:769px){
+.LayerPop .InnerBox,
+.LayerPop.ContextMessage .InnerBox,
+.LayerPop.settingPop .InnerBox{margin-left:-12.5em; width:25em; }
+}
+/* ------------------------------------------ */
+/* [띄우는영역] 메세지팝업(예아니오) */
+.LayerPop.ContextMessage{}
+.ContextMessage{display:none;} /* 일단숨김 */
+.ContextMessage .InnerBox{display:block; position:absolute; left:50%; bottom:50%; width:90%; margin-left:-45%; background-color:#ffffff; border-radius:5px; overflow:hidden;}
+.ContextMessage dl{display:block; position:relative; width:100%;}
+.ContextMessage dt{display:block; position:relative; text-align:center; padding:1em;}
+.ContextMessage dt .SectionTitle{display:block; position:relative; text-align:center; }
+.ContextMessage dt > p{display:block; position:relative; color:#8c8c8c; line-height:1.4em; word-break: keep-all; margin-top:1em;}
+.ContextMessage dd{display:table; position:relative; width:100%; table-layout:fixed; border-top:1px solid #ddd;}
+.ContextMessage dd > *{display:table-cell; text-align:center; vertical-align:middle; border-radius:0px; border:none; border-right:1px solid #ddd;}
+.ContextMessage dd > *:last-child{border-right:none;}
+.ContextMessage dd .Btn{padding:5px;}
+/* ------------------------------------------ */
+/* [띄우는영역] 기본팝업 */
+.LayerPop.settingPop{}
+.settingPop{display:none;} /* 일단숨김 display:none;*/
+.settingPop .InnerBox{display:block; position:absolute; left:50%; bottom:50%; width:90%; margin-left:-45%; border-radius:5px; overflow:hidden;}
+.settingPopHead{display:table; position:relative; width:100%; table-layout:fixed; border-bottom:1px solid #ddd; background-color:#ffffff; padding:1em;}
+.settingPopHead .SectionTitle{display:table-cell; position:relative; vertical-align:middle;}
+.settingPopHead .Close{display:table-cell; position:relative; vertical-align:middle; text-align:right;}
+.settingPopBody{display:block; position:relative; width:100%; background-color:#ffffff; padding:1em; }
+.settingPopBottom{display:block; position:relative; text-align:center; background-color:#ffffff; padding:1em;}
+/* ------------------------------------------ */
+/* [띄우는영역] 헤더고정 하단스크롤일때 */
+.LayerPop.fixedPop{text-align:center;}
+.LayerPop.fixedPop .InnerBox{width:100%; height:100%; border-radius:0px; margin:auto;}
+@media (max-width: 1920px) and (min-width: 769px)
+{
+.LayerPop.fixedPop .InnerBox{margin-left:0%; width:480px; margin:auto;}
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* 메인팝업 */
+.popupArea{position:fixed; top:0px; left:0px; right:0px; bottom:0px; z-index:90; display:none;} /* 일단숨김 - 캐시적용위해서는숨김필요 */
+.popupArea .BlindBg{} /* 배경클릭시닫기 */
+.popupArea .InnerBox{display:block; position:relative; width:90%; border-radius:6px; margin:auto; margin-top:70px; z-index:91;} 
+	/* 컨텐츠 */
+	.popupArea .popupSecitonCont{display:block; position:relative;}
+	.popupArea .popupSecitonCont .SliderBtnBar{background:rgba(0,0,0, 0.5); border-radius:5px; border:1px solid #000;}
+	.popupArea .popupSecitonCont .SliderBtnBar .Thum{}
+	.popupArea .popupSecitonCont .SliderBtnBar ul.SliderThum_BtnPage{}
+	.popupArea .popupSecitonCont .SliderBtnBar ul.SliderThum_BtnPage li button{color:#fff;}
+	.popupArea .popupSecitonCont .SliderBtnBar ul.SliderThum_BtnPage li.slick-active button{color:#0fb3a3;}
+		/*	텍스트타입 */
+		.popupArea .typeText{display:block; position:relative; text-align:center; overflow:hidden;}
+		/*	이미지타입 */
+		.popupArea .typeImg{display:block; position:relative; overflow:hidden;}
+		.popupArea .typeImg a{display:block; position:relative;}
+		.popupArea .typeImg a img{}
+	/* 하단 */
+	.popupArea .popupSecitonBttom{display:table; position:relative; width:100%; table-layout:fixed; vertical-align:middle; color:#fff; background:rgba(0,0,0, 0.5); border-radius:5px; border:1px solid #000; margin-top:0.5em;}
+	.popupArea .popupSecitonBttom p{display:table-cell; position:relative;  vertical-align:middle; cursor:pointer; padding:0.3em;}
+	.popupArea .popupSecitonBttom p:first-child{width:80%; font-size:0.85em; font-weight:100; text-align:left;}
+	.popupArea .popupSecitonBttom p + p{width:20%; text-align:right;}
+
+	@media all and (max-width:1920px) and (min-width:769px){
+	.popupArea .InnerBox{left:50%;  margin-left:-12.5em; width:25em;}
+	}
+
+/* 메인팝업 - 새창단독으로따로띄울경우 */
+.popupBlankWarp{height:100%; background-color:#ebecf1; }
+.popupBlankArea{}
+.popupBlankArea .popupArea{display:block; position:relative;}
+.popupBlankArea .popupArea .InnerBox{width:100%; text-align:center; margin:0 auto;}
+@media all and (max-width:1920px) and (min-width:769px){
+	.Wrap.popupBlankWarp{width:100%; min-height:100%; background:none; box-shadow:1px 1px 5px 0px #f2f2f2; margin:auto;} 
+	body .Fixed{width:480px !important; left:50%; margin-left:-240px;}
+
+	.popupBlankArea .popupArea .InnerBox{left:0px; margin-left:0px; width:100%;}
+}
+
+
+/* ===================================================================== */
+/* [탭메뉴] 기본 */
+.TabMenu{content:''; clear:both; display:block; position:relative; box-shadow:4px 4px 5px #eeeeee;}
+.TabMenu li:last-child{content:''; clear:both;}
+.TabMenu a,
+.TabMenu p{position:relative; margin:0px; padding:0px 5px;}
+.TabMenu .Active a,
+.TabMenu .Active p{color:#0fb3a3;}
+	/* 한단일때 */
+	.TabMenu .Menu{display:table; position:relative; width:100%; table-layout:fixed; border-bottom:1px solid #eeeeee}
+	.TabMenu .Menu li{display:table-cell; position:relative; vertical-align:middle; text-align:center;}
+	.TabMenu .Menu a,
+	.TabMenu .Menu p{display:inline-block; position:relative; font-size:1.1em; line-height:1em; font-weight:bold; padding:15px 5px 12px 5px;}
+	.TabMenu .Menu a:before,
+	.TabMenu .Menu p:before{content:''; position:absolute; left:50%; right:50%; bottom:0; width:0px; background:#0fb3a3; height:3px; z-index:-1; 
+	transition-property:left right; -webkit-transition-property:left right;
+	transition-duration:0.3s; -webkit-transition-duration:0.3s; 
+	transition-timing-function:ease-out; -webkit-transition-timing-function:ease-out;}
+	.TabMenu .Menu p:hover:before{width:100%; left:0; right:0;}
+	.TabMenu .Menu li.Active p:before{width:100%; left:0; right:0;}
+	/* 두단일때 */
+	.TabMenu .List{display:block; position:relative; overflow:hidden; overflow-x:scroll;}
+	.TabMenu .List li{position:relative; display:table-cell; position:relative; vertical-align:middle; text-align:center;}
+	.TabMenu .List a,
+	.TabMenu .List p{display:inline-block; line-height:2.8em; font-weight:bold; white-space:nowrap;} 
+	.TabMenu .List li.Active{}
+	/* 탭컨텐츠 */
+	.TabMenu + .TabContent{}
+	.TabContent{display:block; position:relative; padding:1em;}
+
+/* [탭메뉴] 밑선 */
+.TabMenu_UnderBar{display:block; position:relative;}
+.TabMenu_UnderBar .Menu{display:table; position:relative; width:100%; table-layout:fixed; border-bottom:1px solid #eeeeee;}
+.TabMenu_UnderBar li{display:table-cell; vertical-align:middle;}
+.TabMenu_UnderBar li + li{}
+.TabMenu_UnderBar a,
+.TabMenu_UnderBar p{display:block; position:relative; color:#8c8c8c; text-align:center; padding:1em 0em;}
+.TabMenu_UnderBar a:after,
+.TabMenu_UnderBar p:after{content:''; clear:both; display:block; position:absolute; left:0px; bottom:0px; width:100%; border-bottom:2px solid transparent;}
+.TabMenu_UnderBar li.Active{}
+.TabMenu_UnderBar li.Active a,
+.TabMenu_UnderBar li.Active p{color:#272727;}
+.TabMenu_UnderBar li.Active a:after,
+.TabMenu_UnderBar li.Active p:after{border-bottom-color:#272727;}
+
+/* 탭메뉴가퀵링크로사용될경우(상단고정-해당메유의 영역에스크롤되면메뉴Active) */
+.quickLinkMenu{display:block; position:relative;}
+.quickLinkMenu.Fixed{}
+.quickLinkMenu.Fixed .TabMenu,
+.quickLinkMenu.Fixed .TabMenu_UnderBar{box-shadow:none;}
+.quickLinkMenu.Fixed .TabMenu a,
+.quickLinkMenu.Fixed .TabMenu p,
+.quickLinkMenu.Fixed .TabMenu_UnderBar a,
+.quickLinkMenu.Fixed .TabMenu_UnderBar p{}
+.quickLinkSection{}
+
+
+/* ------------------------------------------ */
+/* 아코디언메뉴(https://jqueryui.com/accordion/ ) - 부모가display:none상태라면오류발생 */
+.FloatLayer_Content .accordionMenu{}
+.accordionMenu{display:block; position:relative; border-top:1px solid #dddddd;}
+.accordionMenu .ui-icon{display:none; }
+.accordionMenu .ui-icon-triangle-1-e {background-position:-32px 0px;}
+.accordionMenu .ui-icon-triangle-1-s{background-position:-65px 0px;}
+.accordionMenu .Depth1{position:relative; line-height:3em; padding:0px 2em;} 
+.accordionMenu .Depth1:after{content:''; clear:both; display:block; position:absolute; top:1em; right:2em; width:14px; height:14px; border-left:1px solid #a1a1a1; border-bottom:1px solid #a1a1a1; transform:translateY(0px) rotate(-45deg);}
+.accordionMenu .Depth1Box{display:block; position:relative; background-color:yellow;}
+.accordionMenu .Depth1.ui-state-active{font-weight:bold;}
+.accordionMenu .Depth1.ui-state-active:after{top:1.2em; transform:translateY(0px) rotate(135deg)}
+.accordionMenu .Depth1Box.ui-state-active{}
+.accordionMenu dl{display:block; position:relative; border-bottom:1px solid #dddddd;}
+.accordionMenu dt{display:table; position:relative; width:100%; table-layout:fixed; padding:1em;}
+.accordionMenu dt p{display:table-cell; vertical-align:middle;}
+.accordionMenu dt p + p{width:30%; text-align:right; }
+.accordionMenu dt p span{}
+.accordionMenu dd{padding:13px 15px 15px 15px;} 
+
+/* 아코디언메뉴 */
+.accordionFilterMenu{display:block; position:relative;}
+.accordionFilterMenu dl{display:block; position:relative; }
+.accordionFilterMenu dt{display:block; position:relative; padding:1em;}
+.accordionFilterMenu dt p{display:block; position:relative;}
+.accordionFilterMenu dt p:after{content:''; clear:both; display:block; position:absolute; top:0px; right:0px; margin-top:-0.2em; width:10px; height:10px; border-left:1px solid #a1a1a1; border-bottom:1px solid #a1a1a1; transform:translateY(0px) rotate(-45deg);}
+.accordionFilterMenu dd{display:block; position:relative; border-top:1px dashed #f1f1f1; padding:1em; display:none;} /* 일단숨김 */
+.accordionFilterMenu dl + dl{border-top:1px solid #f1f1f1;}
+
+
+/* ===================================================================== */
+/* [검색] */
+.SearchField{display:block; position:relative;}
+/* 검색모양_기본 */
+.SearchBox{display:inline-table; position:relative; height:inherit; height:40px; text-align:left; vertical-align:middle; border-radius:30px; background-color:#f1f1f1; padding:0px 1em;} 
+.SearchBox strong{display:table-cell; position:relative; vertical-align:middle;} 
+.SearchBox strong input{display:block; width:100%}
+.SearchBox p{display:table-cell; text-align:right; vertical-align:middle; cursor:pointer;} 
+.SearchBox p .Icon{}
+.SearchBox.Big{height:70px; border-radius:40px; border-width:2px; padding:0px 2em;}
+.SearchBox.Big strong input{font-size:1em;}
+/* 검색밑줄형 */
+.SearchBox.SearchUnderBox{}
+.SearchUnderBox{border-radius:0px; border-bottom:1px solid #272727; background-color:#fff;} 
+/* 검색테두리형 */
+.SearchBox.SearchBorderBox{}
+.SearchBorderBox{background-color:#fff; border:1px solid #dedede;}
+.SearchBorderBox strong{padding:0px 0.5em;}
+
+/* ------------------------------------------ */
+/* [검색] 현재검색위치 */
+.mapSearch_place{display:block; position:relative;}
+.mapSearch_place dl{display:table; position:relative;  width:100%; table-layout:fixed;}
+.mapSearch_place dt{display:table-cell; position:relative; vertical-align:middle;}
+.mapSearch_place dt p{display:inline-block;}
+.mapSearch_place dt strong{display:inline-block;}
+.mapSearch_place dt span{display:inline-block;}
+.mapSearch_place dd{display:table-cell; position:relative; width:20%; vertical-align:middle; text-align:right;}
+.mapSearch_place dt .Btn{}
+/* [검색] 검색위치선택 */
+.mapSearch_region{display:block; position:relative;}
+	.regionList{display:flex; position:relative; flex-direction:row; flex-wrap:wrap; align-items:stretch; width:100%; margin:0 auto;}
+	.regionList li{display:block; position:relative; flex:0 0 33.3%; width:33.3%; overflow:hidden;}
+	.regionList li:before{content:''; clear:both;}
+	.regionList li:after{content:''; clear:both; position:absolute; top:0px; right:0px; bottom:0px; left:0px; border:1px solid #dedede;}
+	.regionList li:nth-child(3n+1){}/* 첫째 */
+	.regionList li:nth-child(3n+1):after{}
+	.regionList li:nth-child(3n+2){}/* 둘째 */
+	.regionList li:nth-child(3n+2):after{}
+	.regionList li:nth-child(3n+3){}/* 셋째 */
+	.regionList li:nth-child(3n+3):after{}
+	.regionList a{display:block; position:relative; width:100%; height:100%; padding:1em 0.3em;}
+
+
+/* ------------------------------------------ */
+
+
+/* ===================================================================== */
+/* 프로필(기본) */
+.ProfileBar{display:table; width:100%; table-layout:fixed; position:relative;}
+/* .ProfileBar > a{display:table; width:100%; table-layout:fixed; position:relative;}
+.ProfileBar > a > *{display:table-cell; position:relative; vertical-align:middle;} */
+	.ProfileBar > a{display:table-cell; position:relative; vertical-align:middle;}
+	/* 프로필사진 */
+	.ProfileBar em{display:table-cell; position:relative; vertical-align:middle; width:2.3em;}
+	.ProfileBar em strong{display:table-cell; position:relative; width:2.3em; height:2.3em; text-indent:-1000; text-align:center; font-style:normal; margin:auto; vertical-align:middle; background-color:#f7f7f7; border-radius:50%; background-image:url('/img/common/Icon_myprofile.svg'); background-repeat:no-repeat; background-size:100% auto; background-position:center center; overflow:hidden;}
+	.ProfileBar em .Icon{}
+	/* 이름과시간대 */
+	.ProfileBar > p{display:table-cell; position:relative; vertical-align:middle; text-align:left; padding-left:7px; }
+	.ProfileBar > p strong{display:block; font-size:0.9em; line-height:1.4em; font-weight:500;}
+	.ProfileBar > p span{display:block; color:#a1a1a1; font-size:0.75em; font-weight:100; }
+	/* 메뉴 */
+	.ProfileBar small{display:table-cell; position:relative; vertical-align:middle; width:40%; color:#a1a1a1; text-align:right;}
+	.ProfileBar small > *{display:inline-table; position:relative; vertical-align:middle; margin-left:5px; cursor:pointer;}
+	.ProfileBar small span{}
+	.ProfileBar small .BtnBox{}
+	.ProfileBar small .BtnBox > *{color:#a1a1a1; line-height:20px; padding:1px;}
+	.ProfileBar small a{display:inline-table}
+	/* ------------------------------------------ */
+	/* 중간프로필(의료진) */
+	.ProfileBar.Big{}
+		/* 프로필사진 */
+		.ProfileBar.Big em{width:4em}
+		.ProfileBar.Big em strong{width:4em; height:4em;}
+		/* 이름과시간대 */
+		.ProfileBar.Big p{}
+		.ProfileBar.Big p strong{}
+		.ProfileBar.Big p span{}
+
+/* ------------------------------------------ */
+/* 큰프로필(나의프로필/상대프로필) */
+.ProfileBar_Big{display:block; width:100%; table-layout:fixed; position:relative; text-align:center; margin:auto;}
+	/* 프로필사진 */
+	.ProfileBar_Big em{display:inline-block; position:relative;}
+	.ProfileBar_Big em strong{display:inline-block; width:10em; height:10em; text-indent:-1000; text-align:center; font-style:normal; margin:auto; vertical-align:middle; background-color:#f7f7f7; border-radius:50%; background-image:url('/img/common/Icon_myprofile.svg'); background-repeat:no-repeat; background-size:100% auto; background-position:center center; overflow:hidden;}
+	.ProfileBar_Big em strong img{}
+	.ProfileBar_Big em span{}
+	.ProfileBar_Big em img{width:50%; vertical-align:middle; margin-top:23%;}
+		/* 프로필사진변경(이미지첨부) */
+		.ProfileBar_Big	input {display:none;}
+		.ProfileBar_Big label{position:absolute; right:0px; bottom:0px; border-radius:50%; overflow:hidden; background-color:#414751; padding:10px;}
+		.ProfileBar_Big .Icon{}
+		/* 세로로찍은사진회전여부 */
+		.ImgTurn{-webkit-transform: rotate(90deg); -moz-transform: rotate(90deg) -o-transform: rotate(90deg); -ms-transform: rotate(90deg); transform: rotate(90deg);}
+	/* 이름 */
+	.ProfileBar_Big p{margin-top:20px;}
+	.ProfileBar_Big p strong{display:block; font-size:1.1em; line-height:1.4em; font-weight:bold;}
+
+/* ------------------------------------------ */
+/* [알림] 알림쪽용 */
+.PushProfileBar{display:table; width:100%; table-layout:fixed; position:relative;}
+.PushProfileBar > *{display:table-cell; position:relative; vertical-align:top; }
+	/* 프로필사진 */
+	.PushProfileBar em{width:2.3em;}
+	.PushProfileBar em strong{display:table-cell; width:2.3em; height:2.3em; text-indent:-1000; text-align:center; font-style:normal; margin:auto; vertical-align:middle; background-color:#f7f7f7; border-radius:50%; background-image:url('/img/common/Icon_myprofile.svg'); background-repeat:no-repeat; background-size:120%; background-position:center center; overflow:hidden;}
+	.PushProfileBar em .Icon{}
+	/* 이름과시간대 */
+	.PushProfileBar a{padding-left:7px;}
+	.PushProfileBar a strong{display:block; font-size:0.9em; line-height:1.3em; color:#a1a1a1; font-weight:500;}
+	.PushProfileBar a strong b{color:#303641; font-weight:normal; font-family:"Noto Sans KR","돋음, Dotum","Arial","sans-serif";}
+	.PushProfileBar a span{display:block; color:#a1a1a1; font-size:0.75em; line-height:1.4em;}
+	.PushProfileBar mark{display:inline-block; width:100%; color:#a1a1a1; font-size:0.9em; line-height:1.4em; font-weight:100; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; background:none;}
+	/* 메뉴 */
+	.PushProfileBar small{width:8%; color:#a1a1a1; text-align:right; padding-top:5px;}
+	.PushProfileBar small > *{display:inline-block;}
+	.PushProfileBar small span{margin-left:5px;}
+	.PushProfileBar small.Icon{}
+
+
+/* ===================================================================== */
+/* 리뷰별점 (기본 60*10 / 96*16 / 108*18 /  / 120*20 / 180*30 )	 */
+.reviewStar{display:inline-table; position:relative; vertical-align:middle;}
+.reviewStar strong{display:inline-table; position:relative; vertical-align:middle; width:108px; height:18px; vertical-align:middle; text-align:left;  background-size:108px 36px; background-image:url("/img/common/Icon_reviewstar.svg"); background-repeat:no-repeat; background-position:0px 0px; overflow:hidden;}
+.reviewStar strong span{display:block; position:relative; width:auto; height:inherit; text-align:left;  background-size:108px 36px; background-image:url("/img/common/Icon_reviewstar.svg"); background-repeat:no-repeat; background-position:0px 100%;overflow:hidden;}
+.reviewStar p{display:inline-table; position:relative; vertical-align:middle; padding-left:0.5em;}
+.reviewStar p span{}
+	/* 크기 >> 더작게 */
+	.reviewStar.Tiny {}
+	.reviewStar.Tiny  strong{width:60px; height:10px; background-size:60px 20px;}
+	.reviewStar.Tiny  strong span{background-size:60px 20px;}
+	.reviewStar.Tiny  .reviewStar_Value{background-size:60px 20px;}
+	/* 크기 >> 작게 */
+	.reviewStar.Small{}
+	.reviewStar.Small strong{width:96px; height:16px; background-size:96px 32px;}
+	.reviewStar.Small strong span{background-size:96px 32px;}
+	.reviewStar.Small .reviewStar_Value{background-size:96px 32px;}
+	/* 크기 >> 크게 */
+	.reviewStar.Big{}
+	.reviewStar.Big strong{width:120px; height:20px; background-size:120px 40px;}
+	.reviewStar.Big strong span{background-size:120px 40px;}
+	.reviewStar.v .reviewStar_Value{background-size:120px 40px;}
+	/* 크기 >> 더크게 */
+	.reviewStar.Large{}
+	.reviewStar.Large strong{width:180px; height:30px; background-size:180px 60px;}
+	.reviewStar.Large strong span{background-size:180px 60px;}
+	.reviewStar.Large .reviewStar_Value{background-size:180px 60px;}
+
+/* ------------------------------------------ */
+/* 막대그래프(가로) */
+.graphBar{display:block; position:relative;}
+.graphBar li{display:block; position:relative; }
+.graphBar li + li{margin-top:0.6em;}
+.graphBar label{display:table; position:relative; width:100%; table-layout:fixed; line-height:1em;}
+.graphBar label p{display:table-cell; position:relative;  height:1em; vertical-align:middle; text-align:left; background-color:#dedede; border-radius:30px; overflow:hidden;}
+.graphBar label p span{display:inline-block; position:relative; width:auto; height:100%; background-color:#0fb3a3;}
+.graphBar label strong{display:table-cell; position:relative; width:20%; vertical-align:middle; font-size:0.9em; font-weight:normal; text-align:center;}
+
+/* ------------------------------------------ */
+/* 평균만족도 */
+.reviewAverage{display:block; position:relative; text-align:center; background-color:#fafafa; border-radius:10px; padding:2em 1em;}
+.reviewAverage .SectionTitle{display:block; position:relative; text-align:center;}
+.reviewAverage .reviewStar{text-align:center;}
+.reviewAverage .reviewStar p{display:block; position:relative; font-size:1.45em; font-weight:bold; padding:1em;}
+
+
+/* ===================================================================== */
+/* 이미지첨부리스트(https://codepen.io/siremilomir/pen/jBbQGo) */
+.addImgList{display:block; position:relative;}
+.addImgList li{display:block; position:relative; float:left; width:calc(100% / 2); margin-bottom:1em;}
+.addImgList li:nth-child( odd ){text-align:left;} /* 홀수 */
+.addImgList li:nth-child( even ){text-align:right;} /* 짝수 */
+	/* 이미지첨부 */
+	.addImgThum{display:inline-block; position:relative; width:96%; height:12em; overflow:hidden; border-radius:3px;}
+	.addImgThum strong{display:inline-block; position:relative; width:100%; height:12em; background-color:#f7f7f7; background-repeat:no-repeat; background-size:100% auto; background-position:center center; overflow:hidden;}
+	.addImgThum strong p{position:absolute; top:0px; width:100%; height:100%; background-repeat:no-repeat; background-size:auto 110% ; background-position:center center;}
+	.addImgThum strong p.ImgTurn{top:-40%; left:-40%; width:24em; height:16em;} 
+	.addImgThum input{display:none;}
+	.addImgThum label{display:inline-block; position:absolute; top:0px; right:0px; bottom:0px; left:0px; width:100%; height:100%; text-align:center;} /* 추가 */
+	.addImgThum label .Icon{position:absolute; top:50%; margin-top:-1em; left:50%; margin-left:-1em; z-index:2;}
+	.addImgThum button{display:inline-block; position:absolute; right:0%; bottom:0%; border-radius:3px 0px 0px 0px; background-color:rgba(0, 0, 0, 0.5); padding:8px;} /* 삭제 */
+
+
+/* ===================================================================== */
+/* 롤링배너 - 기본
+(http://kenwheeler.github.io/slick/)
+*/
+.SliderBar{content:''; clear:both; display:block; position:relative; width:100%; height:inherit; overflow:hidden;}
+.SliderBar.slider{content:''; clear:both; display:block;}
+.SliderBar.slick-dotted{}
+	/* 이미지 */
+	.SliderBar .slick-list{display:block; position:relative;overflow:hidden; margin:0; padding:0;}
+	.SliderBar .slick-list.dragging{cursor:pointer;}
+	.SliderBar .slick-list .slick-slide{}
+	.SliderBar .slick-list .slick-slide div{}
+	.SliderBar .Thum{display:block; position:relative;}
+	.SliderBar .slick-list .slick-slide a{display:block; width:100%; text-align:center; outline:none;}
+	.SliderBar .slick-list .slick-slide a img{}
+	.SliderBar .slick-prev:before,
+	.SliderBar .slick-next:before {color:black;}
+	.SliderBar .slick-slide{display:none; float:left; height:100%; min-height:1px;} 
+	.SliderBar .slick-active{}/* 왼쪽 첫번째인 이미지 */
+	.SliderBar .slick-current{}/* 왼쪽 첫번째가 아닌 이미지 */
+	.SliderBar.slick-slider{position:relative; display:block; }
+	.SliderBar.slick-slider .slick-track,
+	.SliderBar.slick-slider .slick-list{-webkit-transform:translate3d(0, 0, 0); -moz-transform:translate3d(0, 0, 0); -ms-transform:translate3d(0, 0, 0); -o-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0); }
+	.SliderBar.slick-initialized .slick-slide{display:block;}
+	/* 버튼 */
+	.SliderBar .slick-arrow{}
+	.SliderBar .slick-arrow.SliderThum_BtnSide{display:inline-block; position:absolute; top:50%; margin-top:-1em; width:2em; height:2em; border:none; background:transparent; outline:none; cursor:pointer; z-index:10;}
+	.SliderBar .slick-arrow.SliderThum_BtnSide span{position:absolute; top:15%; width:1em; height:1em;}
+	.SliderBar .slick-arrow.SliderThum_BtnPrev{left:3%;}
+	.SliderBar .slick-arrow.SliderThum_BtnPrev span{left:0px; border-top:1px solid #fff; border-left:1px solid #fff; transform:rotate( -45deg ); -webkit-transform:rotate( -45deg );-moz-transform:rotate( -45deg );}
+	.SliderBar .slick-arrow.SliderThum_BtnNext{right:3%;}
+	.SliderBar .slick-arrow.SliderThum_BtnNext span{right:0px; border-bottom:1px solid #fff; border-right:1px solid #fff; transform:rotate( -45deg ); -webkit-transform:rotate( -45deg );-moz-transform:rotate( -45deg );}
+	.SliderBar .slick-arrow.slick-hidden{display:none; }
+	.SliderBar ul.SliderThum_BtnPage{content:''; clear:both; display:block; position:absolute; bottom:5%; width:100%; text-align:center; margin-top:15px;}
+	.SliderBar ul.SliderThum_BtnPage li{display:inline-block; }
+	.SliderBar ul.SliderThum_BtnPage li button{width:1em; height:1em; color:transparent; border:1px solid #fff; border-radius:50%; background:transparent; cursor:pointer; margin-right:7px; overflow:hidden;} 
+	.SliderBar ul.SliderThum_BtnPage li.slick-active button{border-color:#fff; background-color:#fff;}
+	.SliderBar ul.SliderThum_BtnPage li button:hover,
+	.SliderBar ul.SliderThum_BtnPage li button:focus{outline:none;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* 롤링배너 - 제목바 */
+.SliderBtnBar{content:""; clear:both; display:block; position:relative; width:100%; height:inherit; overflow:hidden;}
+.SliderBtnBar.slider{content:""; clear:both; display:block;}
+.SliderBtnBar.slick-dotted{}
+	.SliderBtnBar .slick-list{position:relative; display:block; overflow:hidden; margin:0; padding:0;}
+	.SliderBtnBar .slick-list:focus{outline:none;}
+	.SliderBtnBar .slick-slide.slick-loading img{display:none;}
+	.SliderBtnBar .slick-list.dragging{cursor:pointer;}
+	.SliderBtnBar .slick-slide.dragging img{}
+	.SliderBtnBar .slick-list .slick-slide{display:none; float:left; height:100%; min-height:1px; margin-left:1px; margin-right:1px;}
+	.SliderBtnBar .slick-list .slick-slide div{}
+	.SliderBtnBar .Thum{display:block; position:relative;}
+	.SliderBtnBar .slick-list .slick-slide a{display:block; width:100%; text-align:center; outline:none; position:relative; display:block; text-decoration:none; box-sizing:border-box;}
+	.SliderBtnBar .slick-list .slick-slide a p{}
+	.SliderBtnBar .slick-list .slick-slide a p b{}
+	.SliderBtnBar .slick-list .slick-slide a img{display:block; width:100%;}
+	.SliderBtnBar .slick-prev:before,
+	.SliderBtnBar .slick-next:before {color:black;}
+	.SliderBtnBar .slick-slide{float:left; height:100%; min-height: 1px;}
+	.SliderBtnBar .slick-active{}/* 왼쪽 첫번째인 이미지 */
+	.SliderBtnBar .slick-current{}/* 왼쪽 첫번째가 아닌 이미지 */
+	.SliderBtnBar.slick-slider{position:relative; display: block; box-sizing:border-box;}
+	.SliderBtnBar.slick-slider .slick-track,
+	.SliderBtnBar.slick-slider .slick-list{-webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+	.SliderBtnBar.slick-initialized .slick-slide{display: block;}
+	.SliderBtnBar .slick-arrow.SliderThum_BtnPrev,
+	.SliderBtnBar .slick-arrow.SliderThum_BtnNext{height:inherit; color:#fff; border:none; background:none; z-index:998; }
+	.SliderBtnBar .slick-arrow.SliderThum_BtnPrev{position:absolute; top:0px; left:0px; margin-left:-30px; border:none; background: transparent; outline:none; cursor:pointer;}
+	.SliderBtnBar .slick-arrow.SliderThum_BtnNext{position:absolute; top:0px; right:0px; margin-right:-30px; border:none; background: transparent; outline:none; cursor:pointer;}
+	.SliderBtnBar .slick-arrow.slick-hidden{display: none; }
+	.SliderBtnBar ul.SliderThum_BtnPage{content:""; clear:both; display:table; position:relative; width:100%; table-layout:fixed; text-align:center;} 
+	.SliderBtnBar ul.SliderThum_BtnPage li{display:table-cell;}
+	.SliderBtnBar ul.SliderThum_BtnPage li button{display:block; position:relative; width:100%; height:40px;letter-spacing:-1px; line-height:1em; cursor:pointer; word-break:keep-all;} 
+	.SliderBtnBar ul.SliderThum_BtnPage li.slick-active button{color:#0fb3a3;}
+	.SliderBtnBar ul.SliderThum_BtnPage li button:hover,
+	.SliderBtnBar ul.SliderThum_BtnPage li button:focus{outline: none;}
+
+
+/* ===================================================================== */
+/* 영역스크롤 롤링
+(https://github.com/Mobius1/Pageable https://www.cssscript.com/fullscreen-scrolling-presentation-pageable/) 
+- AOS 대신 CSS모션 사용
+- ani : 완료된상태로 1초가량 보여지므로, 투명도와 완료상태여부를 추가
+- get+class : 스크롤을 하면 class를 지웠다가 다시 부여하는과정을 위한 class명
+*/
+.pageableScrollArea{display:block; position:relative;}
+.pageableScrollArea .scrollContBox{display:block; position:relative;}
+	/* 영역컨텐츠 */
+	.pageableScrollArea .scrollContSection{display:flex; position:relative; align-items:center; justify-content:center; flex-flow:row; background-color:#000; background-repeat:no-repeat; background-repeat:no-repeat; background-size:100% auto; background-position:center top; overflow:hidden;}
+	.pageableScrollArea .contBox{display:block; position:relative;}
+	.pageableScrollArea .contBox img{max-width:100%;}
+	.pageableScrollArea .contBox .ani{opacity:0; animation-fill-mode:forwards; animation-timing-function:ease;}
+	.pageableScrollArea .contBox.Active{}
+	/* 메뉴 */
+	.pageableScrollArea .scrollContNav{display:block; position:fixed; display:flex; align-items:center; justify-content:center; height:100vh; top:0; right:5%; z-index:99;}
+	.pageableScrollArea .scrollContNav .Menu{display:block; position:relative;}
+	.pageableScrollArea .scrollContNav .Menu li{display:block; position:relative; }
+	.pageableScrollArea .scrollContNav .Menu li + li{margin-top:1em;}
+	.pageableScrollArea .scrollContNav .Menu a{display:flex; position:relative; width:1em; height:1em; align-items:center; text-align:center; text-transform:uppercase; z-index:1; cursor:pointer; }
+	.pageableScrollArea .scrollContNav .Menu a span{display:block; position:relative; width:0.6em; height:0.6em; border-radius:50%; background:#fff; transition:all 0.1s ease-in-out; margin:auto;}
+	.pageableScrollArea .scrollContNav .Menu a span:after{content:""; display:block; position:absolute; left:-32%; top:-32%; width:160%; height:160%; border-radius:50%; background:rgba(255, 255, 255, 0.3); z-index:1; display:none;}/* 일단숨김 */
+	.pageableScrollArea .scrollContNav .Menu a:hover span:after{display:block; transition:0.3s; }
+	.pageableScrollArea .scrollContNav .Menu a.Active{}
+	.pageableScrollArea .scrollContNav .Menu a.Active span{width:1em; height:1em;}
+	.pageableScrollArea .scrollContNav .Menu a.Active span:after{display:block; transition:0.3s; }
+	.pageableScrollArea .pg-wrapper.pg-vertical{}  /* 세로가기본 */
+	.pageableScrollArea .pg-wrapper.pg-horizontal{} /* 가로일때(하단에위치) */
+	.pageableScrollArea .pg-wrapper.pg-horizontal .scrollContNav{top:auto; right:0px; left:0; bottom:4%; width:100%;}
+	.pageableScrollArea .pg-wrapper.pg-horizontal .scrollContNav .Menu{display:inline-table;}
+	.pageableScrollArea .pg-wrapper.pg-horizontal .scrollContNav .Menu li{display:table-cell; vertical-align:middle;}
+	.pageableScrollArea .pg-wrapper.pg-horizontal .scrollContNav .Menu li + li{margin-top:0px; padding-left:0.5em;}
+	/* 메뉴- 별도로메뉴삽입시(세로가기본) */
+	.pageableScrollArea .otherMenu{display:block; position:fixed; display:flex; align-items:center; justify-content:center; height:100vh; top:0; left:5%; z-index:99;} 
+	.pageableScrollArea .otherMenu .Menu{display:block; position:relative;}
+	.pageableScrollArea .otherMenu .Menu li{display:block; position:relative;}
+	.pageableScrollArea .otherMenu .Menu li + li{margin-top:0.2em;}
+	.pageableScrollArea .otherMenu .Menu a{display:block; position:relative; writing-mode:vertical-rl; text-transform:uppercase; color:#fff;  border:2px solid transparent; border-radius:30px; padding:1em 0.5em; }
+	.pageableScrollArea .otherMenu .Menu a span{display:block; position:relative;}
+	.pageableScrollArea .otherMenu .Menu a:hover{background:rgba(255, 255, 255, 0.2);}
+	.pageableScrollArea .otherMenu .Menu a.Active{border-color:#fff; transition:0.3s;}
+	.pageableScrollArea .otherMenu.Horizontal{top:auto; left:0; right:0px; bottom:3%; width:100%; height:auto;} /* 가로일때(하단에위치) */
+	.pageableScrollArea .otherMenu.Horizontal .Menu{display:inline-table;}
+	.pageableScrollArea .otherMenu.Horizontal .Menu li{display:table-cell; vertical-align:middle;}
+	/* 스크롤안내 */
+	.pageableScrollGuide{display:block; position:fixed; bottom:0px; left:50%; margin-left:-10%; width:20%; color:#fff; font-size:0.9em; text-align:center; z-index:98;}
+	.pageableScrollGuide .infoText{display:block; position:relative; letter-spacing:0.1em; text-transform:uppercase; text-align:center; margin-bottom:0.5em;}
+	.pageableScrollGuide .infoText:before{content: "SCROLL"; clear: both; display:block; position:relative;}
+	.pageableScrollGuide .Bar{display:block; position:relative; width:2px; height:3em; background-color:rgba(255,255,255, 0.5); margin:auto;}
+	.pageableScrollGuide .Bar:after{content: ""; clear: both; display:block; position:absolute; width:100%; height:30%; background-color:#fff; animation:fullScrollGuide_Animation 2s linear infinite;}
+	@keyframes fullScrollGuide_Animation{
+													0%{top:0%}
+													50%{top:80%;}
+													100%{top:0%;}
+												}
+
+
+
+
+/* ===================================================================== */
+/* [리스트] 리스트(링크메뉴만있을경우) */
+.MenuList{display:block; position:relative;}
+.MenuList .List{display:block; position:relative; border-top:1px solid #272727;}
+.MenuList li{display:block; position:relative; }
+.MenuList li + li{border-top:1px solid #f2f2f2; }
+.MenuList + .MenuList{} /* 근접 */
+
+
+/* [리스트] 입력및메뉴 리스트(메뉴&입력값이있을경우) */
+.MultiList{display:block; position:relative;	border-top:2px solid #272727; }
+.MultiList li{display:block; position:relative; margin-top:1em;}
+.MultiList li + li{}
+.MultiList hr{padding:0px; margin:0px;}
+.MultiList + .MultiList{margin-top:1em;} /* 근접 */
+.MultiList + .MenuList{margin-top:1em;} /* 근접 */
+	/* ------------------------------------------ */
+	/* 세트구성(이름입력등) */
+	.InputSet dl{display:table; position:relative; width:100%; }
+	.InputSet dt{display:table-cell; position:relative; vertical-align:middle; text-align:left;} 
+	.InputSet dd{display:table-cell; position:relative; vertical-align:middle; text-align:right;}
+	.InputSet dl + div{margin-top: 1em;}
+	.InputSet{display:block; position:relative; vertical-align:middle;}
+	.InputSet .Caption{display:block; margin-bottom:0.5em;}
+	.InputSet .Caption .Info{display:inline-block; color: #a1a1a1;}
+	.InputSet .Option{display:block;}
+	.InputSet + .InputSet{margin-top:1em;} /* 근접 */
+
+	.InputSet .ChooseBox{display:inline-table; vertical-align:middle;}
+	.InputSet .ChooseBox label{margin-bottom:0.5em;}
+	.InputSet .Box{display:table; position:relative; width:100%; table-layout:fixed; border:1px solid #dedede; border-radius:5px; background-color:#ffffff; overflow:hidden;}
+	.InputSet .Box input{display:table-cell; position:relative; width:65%; vertical-align:middle; text-align:left; padding:12px 10px;}
+	.InputSet .Box .Btn{display:table-cell; position:relative; width:35%; vertical-align:middle; border:none; border-left:1px solid #dedede; border-radius:0px;}
+	.InputSet .Box + .Box {margin-top:1em;}
+	.InputSet .InputTextarea{display:table-cell; width:80%;} /* 텍스트박스 */
+	.InputSet textarea{display:block; width:100%; resize:none; border-radius:0px; border:none; padding:0px;}
+	.InputSet .InputBtn{display:table-cell; width:20%; vertical-align:middle; } /* 버튼 */
+	.InputSet .InputBtn .Btn{display:block; width:100%; height:100%; min-height:6.5em; border-radius:0px;}
+	.InputSet .InputText + .InputBtn{width:20%;}
+	.InputSet:focus-within .Box{border-color:#272727;}
+	.InputSet label + label{} 
+	.InputSet .NowKeep{color:#a1a1a1;} /* 현재값 */
+	.InputSet .InfoText,
+	.InputSet ~ .InfoText{display:block; margin-top:0.5em;}
+	/* ------------------------------------------ */
+	/* 좌우구성(onoff설정) */
+	.MultiList dl{display:table; position:relative; width:100%; table-layout:fixed; }
+	.MultiList dt{display:table-cell; position:relative; vertical-align:middle; text-align:left;}
+	.MultiList dt p{display:block;}
+	.MultiList dt p strong{}
+	.MultiList dt span{display:block; color:#a1a1a1; font-size:0.9em; font-weight:200; margin-top:5px;}
+	.MultiList dd{display:table-cell; position:relative; width:30%; vertical-align:middle; text-align:right;}
+	.MultiList dd .Btn {width:100%;}
+	/* ------------------------------------------ */
+	/* 변경창 */
+	.MultiList .EXchange{background-color:#f7f7f7; padding:1em; margin-top:1em; display:none;} /* 일단숨김 */
+	.MultiList .EXchange .InputSet .Box .Btn{width:29%;}
+	/* ------------------------------------------ */
+	/* 타이틀과버튼 */
+	.MultiList .Btn_More{}
+	.MultiList .Btn_Link{}
+
+
+/* ===================================================================== */
+/* [리스트] 시간대리스트 */
+.bookingTimeThumList{display:block; position:relative;}
+.bookingTimeThumList .List{display:block; position:relative}
+.bookingTimeThumList .List li{display:inline-table; position:relative; width:18.9%; text-align:center; margin-bottom:0.5em;}
+.bookingTimeThumList .List li + li{}
+	/* 시간썸네일 */
+	.bookingTimeThum{display:table; position:relative; width:96%; line-height:1em; vertical-align:middle; border:1px solid #dedede; border-radius:30px; background-color:#ffffff; cursor:pointer; padding:0.6em 0em; margin:auto;}
+	.bookingTimeThum p{}
+	.bookingTimeThum strong{font-weight:normal;}
+	.bookingTimeThum span{}
+	.bookingTimeThum:hover{}
+	.bookingTimeThum:hover p{transform:scale(1.1); -webkit-transition:scale(1.1);}
+		/* 예약불가 */
+		.bookingTimeThum.timeSelected{color:#fff; border:1px solid #0fb3a3; background-color:#0fb3a3;}
+		/* 예약불가 */
+		.bookingTimeThum.timeImpossible{color:#a1a1a1; border:1px solid #f7f7f7; background:none; background-color:#f7f7f7; box-shadow:none; cursor:help; cursor:not-allowed;}
+		.bookingTimeThum.timeImpossible:hover p{transform:none;}
+
+/* 날짜리스트 */
+.bookingCalendarThumList{display:block; position:relative;}
+	/* 펼쳐진달력(https://jqueryui.com/datepicker/#inline) */
+	.bookingCalendarThum{display:block; position:relative;}
+	.bookingCalendarThum .ui-datepicker{}
+	.bookingCalendarThum table{border:none;}
+	.bookingCalendarThum table td,
+	.bookingCalendarThum table th{padding:2px;}
+	.bookingCalendarThum table tbody tr{border:none;}
+	.bookingCalendarThum .ui-state-default{}
+	.bookingCalendarThum .ui-state-disabled{color:#a1a1a1;} /* 지난날짜*/
+	.bookingCalendarThum .ui-state-default.ui-state-active{color:#fff; border-color:#0fb3a3; background-color:#0fb3a3;} /* 선택된날짜 */
+	.bookingCalendarThum .ui-datepicker .ui-datepicker-header{}
+	.bookingCalendarThum .ui-datepicker .ui-datepicker-title{position:relative; line-height:2em;}
+	.bookingCalendarThum .ui-datepicker .ui-datepicker-title select{font-size:1.15em;}
+	.bookingCalendarThum .ui-widget-header{position:relative; }
+	.bookingCalendarThum .ui-widget-header .ui-corner-all{top:0px; z-index:1;}
+	.bookingCalendarThum .ui-widget-header .ui-icon{position:relative; top:0px; left:auto; width:1.4em; height:1.4em; background-repeat:no-repeat; background-repeat:no-repeat; background-size:100% auto; background-position:center top; cursor:pointer; overflow:hidden; margin:auto;}
+	.bookingCalendarThum .ui-widget-header .ui-datepicker-prev,
+	.bookingCalendarThum .ui-widget-header .ui-datepicker-next{width:1.4em; height:1.4em;}
+	.bookingCalendarThum .ui-widget-header .ui-datepicker-prev{left:0px; }
+	.bookingCalendarThum .ui-widget-header .ui-datepicker-prev .ui-icon{background-image:url('/img/common/Icon_wayLift.png'); }
+	.bookingCalendarThum .ui-widget-header .ui-datepicker-next{right:0px;}
+	.bookingCalendarThum .ui-widget-header .ui-datepicker-next .ui-icon{background-image:url('/img/common/Icon_wayRight.png'); }
+
+
+/* ===================================================================== */
+/* [리스트] 정렬방식선택메뉴 */
+.watchMenu{display:inline-table; position:relative; vertical-align:middle;}
+.watchMenu li{display:table-cell; position:relative; vertical-align:middle; color:#a1a1a1; font-size:0.85em; }
+.watchMenu li p{display:block; position:relative; font-weight:normal; cursor:pointer;} /* line-height:2em;  */
+.watchMenu li + li{padding-left:0.5em;}
+.watchMenu li + li p:before{content:"· ";}
+.watchMenu .Active{color:#0fb3a3}
+
+
+/* ===================================================================== */
+/* [리스트] 썸네일과리스트 */
+.itemList{padding:0px 1em;}
+.itemList li{}
+
+/* [리스트] 본문노출한리스트 */
+.itemAllotalThumList{display:block; position:relative;}
+.itemAllotalThumList li{display:block; position:relative; text-align:center; padding-bottom:3em; ;}
+.itemAllotalThumList li:after{content:""; position:absolute; left:0px; bottom:1em; width:100%; height:6px; background-color:#eeeeee; box-shadow:1px 1px 3px 0px #cfcfcf inset; }
+.itemAllotalThumList li + li{}
+.itemAllotalThumList .itemAllThum{}
+	/* [기본라벨]본문노출썸네일 */
+	.itemAllThum{display:block; position:relative; text-align:left; margin:auto;}
+	.itemAllThum a{display:block; position:relative }
+	.itemAllThum .section{display:block; position:relative;}
+		/* 작성자프로필 */
+		.itemAllThum .sectionTop{padding-bottom:0.5em;}
+		.itemAllThum .sectionTop .ProfileBar{}
+		/* 본문이미지 */
+		.itemAllThum .sectionThum{}
+		.itemAllThum .sectionThum .Thum{}
+		.itemAllThum .sectionThum .Thum p{display:block; position:relative; float:left; width:50%; margin-bottom:10px;}
+		.itemAllThum .sectionThum .Thum p span{display:inline-block; width:96%; height:12.5em; position:relative; border-radius:10px; overflow:hidden; background-color:#f7f7f7; background-repeat:no-repeat; background-size:120%; background-position:center center;}
+		.itemAllThum .sectionThum .Thum p:nth-child(odd){text-align:left;} /* 홀수 */
+		.itemAllThum .sectionThum .Thum p:nth-child(even){text-align:right;} /* 짝수 */
+		.itemAllThum .sectionThum .Thum p:nth-child(4) span:after{content: "더보기"; position:absolute; top:0px; bottom:0px; left:0px; height:100%; line-height:12.5em; right:0px; color:#fff; border-radius:5px; text-align:center; background-color:rgba(0, 0, 0, 0.4); overflow:hidden;} /* 더보기(이미지가4개일때 삽입) */
+			/* 전후문구 */
+			.itemAllThum .sectionThum .Thum p i,
+			.itemAllThum .sectionThum .Thum p s{display:inline-block; position:absolute; top:1px; left:1px; width:1.8em; height:1.8em; line-height:2em; color:#f7f7f7; font-size:0.85em; font-weight:bold; font-style:normal; text-decoration:none; text-align:center; border-radius:50% 50% 1px 50%; overflow:hidden; background-color:rgba(0, 0, 0, 0.7);}
+			.itemAllThum .sectionThum .Thum p i{} /* 후 */
+			.itemAllThum .sectionThum .Thum p s{} /* 전 */
+		/* 본문내용 */
+		.itemAllThum .sectionInfo{}
+			 /* 추가 */
+			.itemAllThum .sectionInfo .Add{display:table; width:100%; table-layout:fixed; color:#a1a1a1; font-size:0.9em; margin-bottom:1em;}
+			.itemAllThum .sectionInfo .Add p{display:table-cell; vertical-align:middle; width:50%;}
+			.itemAllThum .sectionInfo .Add p + p{text-align:right;}
+			.itemAllThum .sectionInfo .Add .Icon{}
+			.itemAllThum .sectionInfo .Add .Icon + .Icon{}
+			/* 내용 */
+			.itemAllThum .sectionInfo .Count{display:block; position:relative;}	
+			.itemAllThum .sectionInfo .Count .Hashtag{color:#0fb3a3; font-weight:600;}
+			.itemAllThum .sectionInfo .Count .Hashtag span{}
+			.itemAllThum .sectionInfo .Count pre{display:block; position:relative; line-height:2em; height:4em; font-size:0.9em; letter-spacing:-1px; font-weight:300; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical; text-overflow:ellipsis; margin-top:0.5em; overflow:hidden;} /* 2줄 */
+			.itemAllThum .sectionInfo .Count .Btn_More{display:inline-block; margin-top:0.5em;}
+			.itemAllThum .sectionInfo .Info{display:block; position:relative; color:#a1a1a1; font-size:0.85em; font-weight:100; margin-top:1em;}
+			.itemAllThum .sectionInfo .Info span{display:inline-block;}
+			.itemAllThum .sectionInfo .Info span + span:before{content:"· ";}
+			/* 메뉴 */
+			.itemAllThum .sectionBottom{display:block; position:relative; margin-top:1em;}
+			.itemAllThum .sectionBottom .Btn{display:block; width:100%;}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* [리스트] 이미지형썸네일리스트 */
+.itemImgThumList{display:block; position:relative;}
+.itemImgThumList li{display:block; position:relative; float:left; width:calc(100% / 3); margin:auto; margin-bottom:1em;} 
+.itemImgThumList li:last-child:after{content:""; clear:both; display:block;}
+.itemImgThumList .itemImgThum{width:96%;}
+	/* 이미지형썸네일 */
+	.itemImgThum{display:inline-block; position:relative; width:100%; border-radius:6px; overflow:hidden;}
+	.itemImgThum{display:block; position:relative;}
+	.itemImgThum dt{display:block; position:relative;}
+	.itemImgThum dt .Thum{display:block; position:relative; background-color:#f7f7f7; }
+	.itemImgThum dt .Thum span{display:inline-block; width:100%; height:8em; position:relative; border-radius:10px; overflow:hidden; background-color:#f7f7f7; background-repeat:no-repeat; background-size:120%; background-position:center center;}
+	.itemImgThum dd{display:block; position:relative; letter-spacing:-1px;text-align:left;}
+	.itemImgThum dd .Title{display:block; position:relative; width:95%; font-size:0.9em; font-weight:normal; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:0.5em;} 
+	.itemImgThum dd p{display:block; position:relative; color:#a1a1a1; font-size:0.85em; font-weight:100; margin-top:0.3em;}
+	.itemImgThum dd p span{display:inline-block;}
+	.itemImgThum dd p span + span:before{content:"· ";}
+		/* 가로수량조정 */
+		.itemImgThumList.colNum4{} /* 4칸일때 */ 
+		.itemImgThumList.colNum4 li{width:calc(100% / 4);}
+		.itemImgThumList.colNum4 li:nth-child( 4n+1 ){text-align:left;} /* 첫째칸 */
+		.itemImgThumList.colNum4 li:nth-child( 4n+2 ){text-align:center;} /* 둘째칸 */
+		.itemImgThumList.colNum4 li:nth-child( 4n+3 ){text-align:center;} /* 셋째칸 */
+		.itemImgThumList.colNum4 li:nth-child( 4n+4 ){text-align:right;} /* 셋째칸 */
+		.itemImgThumList.colNum4 dt .Thum span{height:6em;}
+		.itemImgThumList.colNum3{} /* 기본값은 3칸 */
+		.itemImgThumList.colNum3 li{} 
+		.itemImgThumList.colNum3 li:nth-child( 3n+1 ){text-align:left;} /* 첫째칸 */
+		.itemImgThumList.colNum3 li:nth-child( 3n+2 ){text-align:center;} /* 둘째칸 */
+		.itemImgThumList.colNum3 li:nth-child( 3n+3 ){text-align:right;} /* 셋째칸 */
+		.itemImgThumList.colNum2{} /* 2칸일때 */
+		.itemImgThumList.colNum2 li{width:calc(100% / 2);}
+		.itemImgThumList.colNum2 li:nth-child( 2n+1 ){text-align:left;} /* 첫째칸 */
+		.itemImgThumList.colNum2 li:nth-child( 2n+2 ){text-align:right;} /* 둘째칸 */
+		.itemImgThumList.colNum2 dt .Thum span{height:13em;}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* [리스트] (기본썸네일)소개형리스트 */
+.itemThumList{display:block; position:relative;}
+.itemThumList li{display:block; position:relative;} 
+.itemThumList li:after{}
+.itemThumList li + li{border-top:1px solid #ebebeb; margin-top:1em;}
+	/* 기본썸네일 */
+	.itemThum{display:inline-block; position:relative;}
+	.itemThum a{display:block; position:relative;}
+	.itemThum dl{display:block; position:relative;}
+	.itemThum dt{display:block; position:relative;}
+	.itemThum dt .Thum{display:block; position:relative; background-color:#f7f7f7;}
+	.itemThum dt .Thum img{}
+	.itemThum dt + dd{margin-top:1em;}
+	.itemThum dd{display:block; position:relative;}
+	.itemThum dd .Title{display:block; position:relative; width:95%; font-weight:normal; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;} 
+	.itemThum dd .Info{display:table; position:relative; width:auto; color:#a1a1a1; font-size:0.85em; font-weight:100; margin-top:0.8em;}
+	.itemThum dd .Info p{display:table-cell; position:relative; vertical-align:middle;}
+	.itemThum dd .Info p + p{padding-left:1em;}
+	.itemThum dd .Info p .Icon{margin-right:0.2em;}
+	.itemThum .Add{display:inline; position:absolute; right:0px; margin-top:-3em;} /* 관심등록 */
+	.itemThum .Add .Btn{}
+	.itemThum .Url{display:block; position:relative; color:#a1a1a1; margin-top:0.8em;} /* 홈페이지주소 */
+	.itemThum .Url a{display:block; position:relative;}
+	/* 기본썸네일작게(가로형) */
+	.itemThumSmall{display:inline-block; position:relative;}
+	.itemThumSmall a{display:block; position:relative;}
+	.itemThumSmall dl{display:table; position:relative; width:100%; table-layout:fixed;}
+	.itemThumSmall dt{display:table-cell; position:relative; width:120px; vertical-align:top;}
+	.itemThumSmall dt .Thum{display:block; position:relative; background-color:#f7f7f7;}
+	.itemThumSmall dt .Thum img{}
+	.itemThumSmall dd{display:table-cell; position:relative; vertical-align:middle; padding-left:0.5em;}
+	.itemThumSmall dd .Title{display:block; position:relative; width:100%; font-weight:normal; font-size:0.9em; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}  /* 1줄 */
+	.itemThumSmall dd .Info{display:table; position:relative; width:auto; color:#a1a1a1; font-size:0.85em; font-weight:100; margin-top:0.5em;}
+	.itemThumSmall dd .Info p{display:table-cell; position:relative; vertical-align:middle;}
+	.itemThumSmall dd .Info p + p{padding-left:1em;}
+	.itemThumSmall dd .Info p .Icon{margin-right:0.2em;}
+	.itemThumSmall .Add{display:inline; position:absolute; right:0px; margin-top:-2.5em;} /* 관심등록 */
+	.itemThumSmall .Add .Btn{}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* [리스트] 영상리스트 */
+.videoThumList{display:block; position:relative;}
+.videoThumList li{display:block; position:relative;}
+.videoThumList li + li{}
+	/* 영상썸네일기본 */
+	.videoThum{display:block; position:relative;}
+	.videoThum a{display:block; position:relative;}
+	.videoThum dl{display:block; position:relative;}
+	.videoThum dt{display:block; position:relative;}
+	.videoThum dt .Thum{display:block; position:relative; background-color:#f7f7f7;}
+	.videoThum dt .Thum img{}
+	.videoThum dd{display:block; position:relative;}
+	.videoThum dt + dd{margin-top:1em;}
+	.videoThum dd{display:block; position:relative;}
+	.videoThum dd .Title{display:block; position:relative; width:100%; font-weight:normal; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;} 
+	.videoThum dd .Info{display:table; position:relative; width:100%; color:#a1a1a1; font-size:0.85em; font-weight:100; margin-top:0.5em;}
+	.videoThum dd .Info p{display:table-cell; position:relative; vertical-align:middle;}
+	.videoThum dd .Info p + p{padding-left:1em;}
+	.videoThum dd .Info p .Icon{margin-right:0.2em;}
+	.videoThum dd .Hashtag{color:#a1a1a1; font-size:0.85em; font-weight:100; }
+	.videoThum .Movie_IframArea{}
+	/* 영상썸네일작게(가로형) */
+	.videoThumSmall{display:block; position:relative; }
+	.videoThumSmall a{display:block; position:relative;}
+	.videoThumSmall dl{display:table; position:relative; width:100%; table-layout:fixed;}
+	.videoThumSmall dt{display:table-cell; width:120px; position:relative; vertical-align:top;}
+	.videoThumSmall dt .Thum{display:block; position:relative; background-color:#f7f7f7;}
+	.videoThumSmall dt .Thum img{}
+	.videoThumSmall dd{display:block; position:relative; padding-left:0.5em;}
+	.videoThumSmall dt + dd{margin-top:1em;}
+	.videoThumSmall dd{display:table-cell; position:relative; vertical-align:top;}
+	.videoThumSmall dd .Title{display:block; position:relative; width:100%; font-weight:normal; font-size:0.9em; height:2.6em; line-height:1.3em; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical; text-overflow:ellipsis; overflow:hidden;}  /* 2줄 */
+	.videoThumSmall dd .Info{display:table; position:relative; width:100%; color:#a1a1a1; font-size:0.85em; font-weight:100; margin-top:0.5em;}
+	.videoThumSmall dd .Info p{display:table-cell; position:relative; vertical-align:middle;}
+	.videoThumSmall dd .Info p + p{padding-left:1em;}
+	.videoThumSmall dd .Info p .Icon{margin-right:0.2em;}
+	.videoThumSmall dd .Hashtag{color:#a1a1a1; font-size:0.85em; font-weight:100; text-overflow:ellipsis; overflow:hidden;}
+	.videoThumSmall .Movie_IframArea{}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* [리스트] 상품정보구성리스트 */
+.getGoodsThumList{display:block; position:relative;}
+.getGoodsThumList li{display:block; position:relative;}
+.getGoodsThumList li + li{margin-top:1em;}
+.getGoodsThumList .getGoodsThum{}
+	/* 상품정보구성 */
+	.getGoodsThum{display:block; position:relative; }
+	.getGoodsThum a{display:block; position:relative;}
+	.getGoodsThum dl{display:block; position:relative; border-radius:8px; border:1px solid #ebebeb; background-color:#fff;}
+	.getGoodsThum dt{display:block; position:relative; border-radius:7px 7px 0px 0px; background-color:#0fb3a3; padding:1em;} /* 프로필영역 */
+	.getGoodsThum dt .ProfileBar{color:#fff;}
+	.getGoodsThum dt .Btn_More{color:#fff;}
+	.getGoodsThum dt .Btn_More span{border-bottom-color:#fff;}
+	.getGoodsThum dd{display:block; position:relative; }  /* 병원영역 */
+	.getGoodsThum dd + dd{border-top:1px dashed #ebebeb;}
+	.getGoodsThum .reserveInfo{display:block; position:relative; line-height:1.4em; padding:1em;} 
+	.getGoodsThum .reserveInfo p{display:table; position:relative; width:100%; table-layout:fixed;}
+	.getGoodsThum .reserveInfo p + p{}
+	.getGoodsThum .reserveInfo p span{display:table-cell; position:relative;  width:20%; vertical-align:middle;  color:#a1a1a1; }
+	.getGoodsThum .reserveInfo p strong{display:table-cell; position:relative; vertical-align:middle;  }
+	/* 상품내용 */
+	.getGoodsThum .goodsInfo{display:block; position:relative; padding:1em;} 
+	.getGoodsThum .goodsInfo small{display:block; position:relative;}
+	.getGoodsThum .goodsInfo small strong{display:block; position:relative;}
+	.getGoodsThum .goodsInfo small pre{display:block; position:relative; color:#a1a1a1; font-size:0.9em; margin-top:0.4em;}
+	.getGoodsThum .goodsInfo big{display:inline-table; position:relative; width:60%; table-layout:fixed; margin-top:0.4em;}
+	.getGoodsThum .goodsInfo big strong{display:table-cell; position:relative;  width:20%; vertical-align:middle; color:#ff8605; text-align:left;}
+	.getGoodsThum .goodsInfo big em{display:table-cell; position:relative;  width:40%; vertical-align:middle; font-weight:bold; text-align:right;}
+	.getGoodsThum .goodsInfo big strike{display:table-cell; position:relative;  vertical-align:middle; color:#a1a1a1; text-align:right;}
+	/* 병원정보 */
+	.getGoodsThum .partnerInfo{display:block; position:relative; text-align:center; padding:1em;}
+	.getGoodsThum .partnerInfo em{display:block; position:relative; font-size:1.15em; font-weight:bold;}
+	.getGoodsThum .partnerInfo span{display:block; color:#a1a1a1; font-size:0.9em; margin-top:1em;}
+	.getGoodsThum .partnerInfo p{display:block; font-size:0.9em; margin-top:0.5em;}
+	/* 버튼 */
+	.getGoodsThum .btnInfo{display:block; position:relative; text-align:center; padding:1em;}
+
+/* [리스트] 상품정보구성리스트 - 장바구니 */
+.getCartGoodsThum{display:block; position:relative; border-radius:8px; border:1px solid #ebebeb; background-color:#fff;}
+	/* 담긴정보 */
+	.myCartListSectionCont .getCartGoodsThum{display:block; position:relative; border-radius:8px; border:1px solid #ebebeb; background-color:#fff;}
+		/* 병원 */
+		.getCartGoodsThum .partnerInfo{background-color:#0fb3a3; border-radius:7px 7px 0px 0px; padding:1em;}
+		.getCartGoodsThum .ProfileBar{color:#fff; }
+		.getCartGoodsThum .ProfileBar > p span{color:inherit;}
+		.getCartGoodsThum .ProfileBar small{color:inherit;}
+		.getCartGoodsThum .ProfileBar .Btn_More{color:inherit;}
+		.getCartGoodsThum .ProfileBar .Btn_More span{border-bottom-color:#fff;}
+		/* 상품 */
+		.getCartGoodsThum .goodsThum{padding:1em;}
+		.getCartGoodsThum .goodsThum .Add{display:none;}
+		.getCartGoodsThum .goodsThum dt{width:60px;}
+		.getCartGoodsThum .goodsThum dd small strong{width:100%; height:3.9em; line-height:1.3em; white-space:normal; -webkit-line-clamp:3; -webkit-box-orient:vertical;} /* 3줄 */
+		.getCartGoodsThum .goodsThum dd small pre{display:none;}
+		.getCartGoodsThum .goodsThum dd small em{display:none;}
+		.getCartGoodsThum .goodsThum dd big{display:none;}
+		/* 옵션정보 */
+		.getCartGoodsThum .selectedInfoBox{display:block; position:relative; background-color: #f7f7f7;}
+		.getCartGoodsThum .goodsSelectedThum{}
+		.getCartGoodsThum .goodsSelectedThum + .goodsSelectedThum{border-top:1px dashed #ebebeb;}
+		.getCartGoodsThum .goodsSelectedThum .Checkbox{position:absolute; left:1em; top:1em; z-index:1;}
+		.getCartGoodsThum .goodsSelectedThum .Checkbox small em{display:block;}
+		.getCartGoodsThum .goodsSelectedThum .Checkbox big{display:none;}
+
+		.getCartGoodsThum .goodsSelectedThum dl{padding-left:2em;}
+		.getCartGoodsThum .goodsSelectedThum dd small{font-size:0.9em;}
+		.getCartGoodsThum .goodsSelectedThum dd small strong{line-height:1.3em; white-space:normal; display:none;}
+		.getCartGoodsThum .goodsSelectedThum dd small pre{white-space:normal;}
+		/* 버튼 */
+		.getCartGoodsThum .SubmitBox{}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* [리스트] 고객예약정보 */
+.bookingThumList{display:block; position:relative;}
+.bookingThumList li{display:block; position:relative;}
+.bookingThumList li + li{margin-top:1em;}
+	/* 상품정보구성 */
+	.bookingThum{display:block; position:relative; border-radius:8px; border:1px solid #ebebeb; background-color:#fff; padding:1em;}
+	.bookingThum > a{display:block; position:relative;}
+	.bookingThum dl{display:table; position:relative;  width:100%; table-layout:fixed;}
+	.bookingThum dd{display:table-cell; position:relative; vertical-align:middle;}
+	.bookingThum dt{display:table-cell; position:relative; width:20%; vertical-align:middle; text-align:right;}
+	.bookingThum dt .Btn{display:block; width:100%;}
+	.bookingThum dt .Btn + .Btn{margin-top:.5em;}
+	.bookingThum .bookingInfo{display:block; position:relative; line-height:1.4em;} 
+	.bookingThum .bookingInfo p{display:table; position:relative; width:100%; table-layout:fixed;}
+	.bookingThum .bookingInfo p + p{}
+	.bookingThum .bookingInfo p span{display:table-cell; position:relative;  width:20%; vertical-align:middle;  color:#a1a1a1; }
+	.bookingThum .bookingInfo p strong{display:table-cell; position:relative; vertical-align:middle; font-weight:normal; }
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* [리스트] 랭킹리스트 */
+.rankingThumList{display:block; position:relative;}
+.rankingThumList li{display:block; position:relative;}
+.rankingThumList li + li{}
+	/* 랭킹썸네일 */
+	.rankingThum{display:block; position:relative;}
+	.rankingThum a{display:table; position:relative; width:100%; table-layout:fixed; line-height:1.4em; padding:0.5em; cursor:pointer;}
+	.rankingThum .Rank{display:table-cell; position:relative; width:10%; vertical-align:middle; text-align:center; font-weight:bold;} /* 순위 */
+	.rankingThum .Title{display:table-cell; position:relative; vertical-align:middle; color:#a1a1a1;} /* 검색어 */
+	.rankingThum .Title p{display:block; position:relative;  width:100%; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; cursor:pointer;}
+	.rankingThum .Num{display:table-cell; position:relative; width:20%; vertical-align:middle; font-size:0.85em; text-align:center;} /* 오르내림 */
+	.rankingThum .Num i{display:inline-table; position:relative; } /* min-width:10px; vertical-align:middle; color:#fff; font-weight:300; font-size:0.9em; line-height:1em; text-align:center; white-space:nowrap; vertical-align:baseline; background-color:#0fb3a3; border-radius:15px; padding:3px 7px; */
+	.rankingThum .Num.Up{color:#0fb3a3;}
+	.rankingThum .Num.Up i:after{content: "▲"; }
+	.rankingThum .Num.Down{color:#a1a1a1;}
+	.rankingThum .Num.Down i:after{content: "▼"; }
+	/* 베스트여부 */
+	.rankingThum .Best{}
+	.rankingThum .Best .Rank{color:#0fb3a3;}
+	.rankingThum .Best .Title{color:#0fb3a3;}
+
+
+/* ===================================================================== */
+/* 상품썸네일리스트 */
+.goodsThumList{}
+.goodsThumList li{display:block; position:relative;} 
+.goodsThumList li + li{margin-top:1em;}
+	/* 상품썸네일 */
+	.goodsThum{display:block; position:relative; cursor:pointer;}
+	.goodsThum .Add{display:inline-block; position:absolute; top:-3px; right:-2px;}
+	.goodsThum .Add .Icon{}
+	.goodsThum .Add .Icon:active{}
+	.goodsThum dl{display:table; position:relative; width:100%; table-layout:fixed;}
+	.goodsThum dt{display:table-cell; width:95px; position:relative; vertical-align:top;}
+	.goodsThum dt .Thum{}
+	.goodsThum dt .Thum img{display:block; width:100%;}
+	.goodsThum dd{display:table-cell; position:relative; vertical-align:top; padding-left:1em;}
+	.goodsThum dd b{font-weight:normal; font-family:'Roboto',sans-serif;}
+	.goodsThum dd small{display:block; position:relative; font-size:inherit;}
+	.goodsThum dd small strong{display:block; position:relative; width:80%; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow: hidden; }
+	.goodsThum dd small pre{display:block; position:relative; font-size:0.9em; height:2.6em; line-height:1.3em; color:#a1a1a1; font-weight:500; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical; text-overflow:ellipsis; margin-top:0.2em; overflow:hidden; } /* 2줄 */
+	.goodsThum dd small em{display:block; position:relative; color:#a1a1a1; font-size:0.9em; margin-top:0.2em;}
+	.goodsThum dd small em span{display:inline-table; position:relative; vertical-align:middle; padding-right:0.2em;}
+	.goodsThum dd small em span + span{padding-left:0.5em;}
+	.goodsThum dd small em span + span:before{content:"/"; position:absolute; left:0px;}
+	.goodsThum dd big{display:table; position:relative; width:75%; table-layout:fixed; font-size:inherit; font-size:1.1em; margin-top:0.4em;}
+	.goodsThum dd big strong{display:table-cell; width:20%; vertical-align:middle; color:#ff8605; text-align:left;}
+	.goodsThum dd big strong b{}
+	.goodsThum dd big em{display:table-cell; width:40%; vertical-align:middle; font-weight:bold; text-align:right;}
+	.goodsThum dd big em b{}
+	.goodsThum dd big strike{display:table-cell; vertical-align:middle; color:#a1a1a1; text-align:right;}
+	.goodsThum dd big strike b{}
+	.goodsThum .Movie_IframArea{}
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* 선택된상품썸네일 */
+.goodsSelectedThumList{display:block; position:relative;}
+.goodsSelectedThumList li{display:block; position:relative; background-color: #f7f7f7;} 
+.goodsSelectedThumList li + li{border-top:1px dashed #ebebeb;}
+	.goodsSelectedThum{display:block; position:relative; padding:1em;}
+	.goodsSelectedThum dl{display:block; position:relative;}
+	.goodsSelectedThum dt{display:block; position:relative; width:90px; display:none;} 
+	.goodsSelectedThum dt .Thum{}
+	.goodsSelectedThum dd{display:block; position:relative; text-align:right;}
+	.goodsSelectedThum dd b{font-weight:normal; font-family:'Roboto',sans-serif;}
+	.goodsSelectedThum small{display:block; position:relative; font-size:inherit; text-align:left;}
+	.goodsSelectedThum small strong{display:block; position:relative; font-weight:bold; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+	.goodsSelectedThum small pre{display:block; position:relative; min-width:0; max-width:100%; color:#a1a1a1; line-height:1.3em; font-weight:500; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; } /* min-width:0; max-width:100%;fieldset에서글자잘리지않는현상때문에넣음 */
+	.goodsSelectedThum small em{display:block; position:relative; color:#a1a1a1; display:none;}
+	.goodsSelectedThum small em span{display:inline-table; position:relative; vertical-align:middle; padding-right:0.2em;}
+	.goodsSelectedThum small em span + span{padding-left:0.5em;}
+	.goodsSelectedThum small em span + span:before{content:"/"; position:absolute; left:0px;}
+	.goodsSelectedThum big{display:inline-table; position:relative; width:50%; table-layout:fixed; font-size:inherit; font-size:1.1em; margin-top:0.4em; margin-right:2em;}
+	.goodsSelectedThum big strong{display:table-cell; position:relative; width:20%; vertical-align:middle; color:#ff8605; text-align:left;}
+	.goodsSelectedThum big strong b{}
+	.goodsSelectedThum big em{display:table-cell; position:relative; width:40%; vertical-align:middle; font-weight:bold; text-align:right;}
+	.goodsSelectedThum big em b{}
+	.goodsSelectedThum big strike{display:table-cell; position:relative; vertical-align:middle; color:#a1a1a1; text-align:right;}
+	.goodsSelectedThum big strike b{}
+	.goodsSelectedThum big + .Icon{position:absolute; right:0px; margin-top:0.3em;}
+	.goodsSelectedThum .joyPad{display:inline-table; position:relative; } /* 수량조정 */
+	.goodsSelectedThum .joyPad > div{display:table-cell; position:relative; vertical-align:middle; }
+	.goodsSelectedThum .joyPad .CountBox{}
+	/* 한줄로단순하게 */
+	.selectedGoodsThumSmall{display:block; position:relative; padding:1em;}
+	.selectedGoodsThumSmall dl{display:block; position:relative;}
+	.selectedGoodsThumSmall dt{display:block; position:relative; display:none;} 
+	.selectedGoodsThumSmall dt .Thum{}
+	.selectedGoodsThumSmall dd{display:table; position:relative; width:100%; table-layout:fixed; text-align:left;}
+	.selectedGoodsThumSmall dd b{font-weight:normal; font-family:'Roboto',sans-serif;}
+	.selectedGoodsThumSmall small{display:table-cell; position:relative; width:70%; vertical-align:middle;}
+	.selectedGoodsThumSmall small strong{display:none;}
+	.selectedGoodsThumSmall small pre{display:block; position:relative; min-width:0; max-width:100%; vertical-align:middle; color:#a1a1a1; line-height:1.3em; font-weight:500; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; } /* min-width:0; max-width:100%;fieldset에서글자잘리지않는현상때문에넣음 */
+	.selectedGoodsThumSmall small em{display:none;}
+	.selectedGoodsThumSmall big{display:table-cell; position:relative; vertical-align:middle; width:30%; text-align:right; padding-right:1.5em;}
+	.selectedGoodsThumSmall big strong{display:none;}
+	.selectedGoodsThumSmall big em{}
+	.selectedGoodsThumSmall big strike{display:none;}
+	.selectedGoodsThumSmall big ~ i{position:absolute; right:0px;}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* 상품상세페이지상단썸네일 */
+.goodsDetailThum{display:block; position:relative; text-align:center; margin:auto;}
+.goodsDetailThum dl{display:block; position:relative; }
+.goodsDetailThum dt{display:block; position:relative; } 
+.goodsDetailThum dt .Thum{display:block; position:relative;} /* 이미지 */
+.goodsDetailThum .partnerInfo{display:block; position:relative; padding:1em; border-bottom:1px solid #f7f7f7;} /* 병원정보 */
+.goodsDetailThum .partnerInfo .ProfileBar{}
+.goodsDetailThum .partnerInfo .ProfileBar small{display:table-cell;}
+.goodsDetailThum dd{display:block; position:relative; text-align:center; padding:2em 1em;} /* 시술정보 */
+.goodsDetailThum small{display:block; position:relative; font-size:inherit;}
+.goodsDetailThum small strong{display:block;}
+.goodsDetailThum small mark{display:block; color:#a1a1a1; background:none; margin-top:1em;}
+.goodsDetailThum big{display:inline-block; position:relative; font-size:inherit; border:1px solid #dddddd; border-radius:10px; text-align:center; margin:auto; padding:1em 2em; margin-top:1em;}
+.goodsDetailThum big p{display:table; position:relative; min-width:100%; table-layout:fixed;}
+.goodsDetailThum big p > *{display:table-cell; width:calc(100% / 3); font-size:1.1em; text-align:center; vertical-align:bottom;}
+.goodsDetailThum big strong{color:#ff8605;}
+.goodsDetailThum big em{font-weight:bold;}
+.goodsDetailThum big em b{font-weight:500;}
+.goodsDetailThum big strike{color:#a1a1a1; }
+.goodsDetailThum big u{display:block; position:relative; color:#a1a1a1; font-size:0.9em; letter-spacing:-0.5px; text-decoration: none;margin-top:1em;}
+.goodsDetailThum big u span{}
+.goodsDetailThum pre{line-height:1.6em; letter-spacing:-1px; font-weight:300; white-space:normal; word-break:keep-all; margin-top:1.5em;}
+.goodsDetailThum > em{}
+/* ===================================================================== */
+/* 질문과답변리스트 */
+.qnaThumList{display:block; position:relative;}
+.qnaThumList li{display:block; position:relative;} 
+.qnaThumList li + li{border-top:1px solid #f7f7f7;}
+	/* 질문과답변 */
+	.qnaThum{display:block; position:relative;}
+	.qnaThum pre{display:block; position:relative;}
+	.qnaThum .Info{display:block; position:relative; color:#a1a1a1; font-size:0.85em; font-weight:300; margin-top:0.5em;}
+	.qnaThum .Info span{display:inline-block;}
+	.qnaThum .Info span + span:before{content:"· ";}
+	.qnaThum .Badge,
+	.qnaThum .BadgeLine{font-size:0.85em;}
+	.qnaThum .BtnBox{display:inline-block; position:absolute; right:0px; bottom:0px; margin-bottom:-0.3em; z-index:1;}
+	.qnaThum dl{display:block; position:relative; }
+	.qnaThum dt{display:block; position:relative; margin:1em 0px;} /* 질문 */
+	.qnaThum dd{display:block; position:relative; background-color:#f7f7f7; padding:1em; display:none;} /* 일단숨김 답변 */
+	.qnaThum dd .Info{text-align:right;}
+	/* 수정삭제 */
+
+
+/* ===================================================================== */
+/* 후기리스트 */
+.reviewThumList{display:block; position:relative; }
+.reviewThumList li{display:block; position:relative; padding:2em 0em;} 
+.reviewThumList li + li{border-top:1px solid #f7f7f7;}
+	/* 후기(로그인여부구분) */
+	.reviewThum{display:block; position:relative;}
+	.reviewThum dl{display:block; position:relative; }
+		/* 작성정보 */
+		.reviewThum dt{display:block; position:relative;}
+		.reviewThum .Name{display:block; position:relative; font-size:0.9em;}
+		.reviewThum .Name strong{}
+		.reviewThum .Name span{color:#a1a1a1; font-weight:300; margin-left:0.2em;}
+		.reviewThum .Score{display:block; position:relative; text-align:center; margin-top:1em;} /* 평점 */
+		.reviewThum .Score .reviewStar{}
+		.reviewThum .Score .reviewStar p{color:#a1a1a1; font-weight:300; font-size:0.9em;}
+		.reviewThum .surveyBox{display:table; position:relative; width:100%; font-size:0.9em; background-color:#f7f7f7; border-radius:5px; padding:1em 0em; margin-top:1em;} /* 설문결과 */
+		.reviewThum .surveyBox p{display:table-cell; vertical-align:middle; letter-spacing:-1px; text-align:center;}
+		.reviewThum .surveyBox p strong{display:inline-block; position:relative; margin-left:0.4em;}
+		.reviewThum .surveyBox p span{display:inline-block; position:relative; color:#a1a1a1; }
+		.reviewThum pre{display:block; position:relative; margin-top:1em;}
+		/* 해당상품정보 */
+		.reviewThum .goodsInfo{display:block; position:relative; border-bottom:1px dashed #ebebeb; padding-bottom:1em;} 
+		.reviewThum .goodsInfo a{display:table; position:relative; width:100%; table-layout:fixed;} 
+		.reviewThum .goodsInfo .Thum{display:table-cell; position:relative; vertical-align:middle; width:50px; border-radius:8px; overflow:hidden;}
+		.reviewThum .goodsInfo .Thum img{}
+		.reviewThum .goodsInfo small{display:table-cell; position:relative; vertical-align:middle; padding-left:1em;}
+		.reviewThum .goodsInfo small strong{display:block; position:relative; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+		.reviewThum .goodsInfo small pre{display:block; position:relative; color:#a1a1a1; font-size:0.9em; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; margin-top:0.4em;}
+		.reviewThum .goodsInfo ~ .Name{margin-top:1em; }
+		/* 첨부이미지 */
+		.reviewThum dd{display:table; position:relative; width:100%; table-layout:fixed; margin-top:1em;}
+		.reviewThum .Thum{display:table-cell; width:calc(100% / 3);  vertical-align:middle; text-align:center;}
+		.reviewThum .Thum span{display:block; position:relative; width:96%; height:8em; position:relative; border-radius:10px; overflow:hidden; background-color:#f7f7f7; background-repeat:no-repeat; background-size:120%; background-position:center center; margin:auto;}
+		/* 좋아요 */
+		.reviewThum .Llike{display:block; position:relative; margin-top:1em; ;}
+		.reviewThum .Llike .Btn{}
+		.reviewThum .Llike .Left{border:none;}
+		.reviewThum .Llike .Right{position:absolute; right:0px; top:0px;}
+		/* 판매자답변 */
+		.reviewThum .partnerReply{display:block; position:relative; background-color:#f3f6f6; border-radius:5px; padding:1em; margin-top:1em;}
+		.reviewThum .partnerReply strong{display:inline-block; position:relative;}
+		.reviewThum .partnerReply span{display:inline-block; position:relative; color:#a1a1a1; }
+		.reviewThum .partnerReply pre{display:block; position:relative; }
+		/* 로그인여부 */
+		.reviewThum.logIn{}
+		.reviewThum.logOut{}
+		.reviewThum.logOut .Score,
+		.reviewThum.logOut .surveyBox,
+		.reviewThum.logOut pre,
+		.reviewThum.logOut .Thum{opacity:0.1;  -webkit-filter: blur(3px); -moz-filter: blur(3px); -ms-filter: blur(3px); -o-filter: blur(3px); filter: blur(3px); filter: Blur(Strength=30); filter progid:DXImageTransform.Microsoft.blur(pixelradius=30);}
+		.reviewThum.logOut .Thum{opacity:0.05; }
+		.reviewThum.logOut:before{content:""; clear:both; display:block; position:absolute; left:0px; right:0px; top:2em; bottom:3em; text-align:center; background-color:rgba(68,71,81, 0.3); border-radius:5px; padding-top:20%; z-index:1;}
+		.reviewThum.logOut:after{content:"로그인 후에 이용 가능합니다."; clear:both; display:block; position:absolute; left:0px; right:0px; top:50%; margin-top:-0.5em; font-weight:bold; text-align:center; z-index:1;}
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* 질문과응답 (고객만족도평가 customer satisfaction rate) */
+.csrThumList{display:block; position:relative; }
+.csrThumList li{display:block; position:relative;} 
+.csrThumList li + li{}
+	/* 질문과응답 */
+	.csrThum{display:block; position:relative;}
+	.csrThum dl{display:block; position:relative;}
+	.csrThum dt{display:block; position:relative; padding-bottom:1em;} 	/* 질문항목 */
+	.csrThum dt p{display:inline-block; position:relative; line-height:1.4em;}
+	.csrThum dt p strong{display:inline-block; position:relative;}
+	.csrThum dt p strong:before{content:"Q"; clear:both; display:inline-block; position:relative; width:1.4em; height:1.4em; color:#fff; font-weight:400; text-align:center; background-color:#44465c; border-radius:50%; margin-right:5px;}
+	.csrThum dd{display:block; position:relative; text-align:center;} /* 응답항목 */
+	.csrThum dd .Checkbox{width:20%; text-align:center; }
+	.csrThum dd .Checkbox mark{display:block;}
+	.csrThum dd .Checkbox small{display:block; width:auto; text-align:center;}
+	.csrThum dd .Checkbox small em{margin:auto;}
+	.csrThum dd .Checkbox big{display:block; margin-top:0.7em;}
+
+
+/* ===================================================================== */
+/* 덧글영역 */
+.Comment_Area{display:block; position:relative; border:1px solid blue;}
+	/* 덧글리스트 */
+	.Comment .List{display:block; position:relative;}
+	.Comment .List li{display:block; position:relative; padding:20px 0px;} 
+	.Comment .List li + li{border-top:1px dashed #eee;}
+		/* 덧글한불럭 */
+		.CommentBox{}
+		.CommentBox dl{display:block; position:relative; }
+		.CommentBox dt{display:block; position:relative;}
+		.CommentBox dd{display:block; position:relative; margin-top:20px; padding-left:1em;}
+			/* 덧글 */
+			.CommentCont{display:block; text-align:right; margin-top:2px;}
+			.CommentCont pre{display:inline-block; width:calc(100% - 2.3em); font-size:0.9em; text-align:left; line-height:1.5em; font-weight:300; padding-left:10px;}
+			.CommentCont pre span{font-weight:800; padding-right:5px;}
+	/* 덧글쓰기 */
+	.CommentWrite{display:block; width:100%; }
+	.CommentWrite .Inner{ border-top: 1px solid #eeeeee; padding:15px;}
+		/* 덧글입력 */
+		.CommentWriteBox{display:block; width:100%;}
+		.CommentWriteBox{display:table; position:relative; width:100%; table-layout:fixed;}
+		.CommentWriteBox dt{display:table-cell; width:75%; vertical-align:middle; }
+		.CommentWriteBox textarea{display:block; width:100%; min-height:3.8em; line-height:1.5em; border-radius:3px; border:1px solid #dddddd; padding:3px;}
+		.CommentWriteBox textarea span{font-weight:800; padding-right:5px;}
+		.CommentWriteBox dd{display:table-cell; width:25%; vertical-align:middle; text-align:right;}
+		.CommentWriteBox .Btn{width:90%; letter-spacing:-1px;}
+		.CommentWriteBox textarea:first-letter{}
+		.CommentWriteBox:focus-within textarea{}
+
+
+/* ===================================================================== */
+/* 메신저
+입력영역https://webisfree.com/2015-11-03/textarea-태그-높이-자동으로-조절하는-방법
+*/'
+.messengerWrap{}
+.messengerWrap{}
+
+
+/* 메신저 - 톡톡 대화 */'
+.messengerTalkBody{overflow-y:hidden;}
+.messengerTalkWrap{}
+.messengerTalkWrap .Header{display:none;}
+.messengerTalkWrap .Footer{display:none;}
+.messengerTalkArea{display:block; position:relative; width:100%; height:100vh; overflow:hidden; }
+.messengerTalkSection{}
+	/* ------------------------------------------ */
+	/* 메세지헤더영역 */
+	.messengerTalkSectionHead{display:block; position:relative; } /* box-shadow: 0px 3px 0px rgb(0, 0, 0, 0.4); */
+	.messengerTalkSectionHead .List{display:table; position:relative; width:100%; table-layout:fixed; }
+	.messengerTalkSectionHead .List li{display:table-cell; position:relative; vertical-align:middle;}
+	.messengerTalkSectionHead .List li + li{}
+	.messengerTalkSectionHead .List .BtnBox{text-align:right;}
+	/* ------------------------------------------ */
+	/* 메세지보기영역 */
+	.messengerTalkSectionCont{display:block; position:absolute; align-items:flex-end; border-top:1px solid #ddd; box-shadow:inset 0px 3px 5px rgb(0, 0, 0, 0.05); background-color:#f4f4f4; padding:10px 10px 15px 10px; overflow-y:scroll; overflow-x:hidden; border:3px dashed red; z-index:99;}
+	.messengerTalkSectionCont .List{width:100%; margin:auto; overflow:hidden;}
+	.messengerTalkSectionCont .List li{display:block; position:relative; width:100%;}
+	.messengerTalkSectionCont .List li + li{margin-top:10px;}
+		/* [메세지] 날짜경계선 */
+		.messengerTalkSectionCont .Msg_Day{display:block; position:relative; width:100%; text-align:center; padding-bottom:0px;}
+		.messengerTalkSectionCont .Msg_Day:before{content:''; clear:both; display:block; position:absolute; top:50%; left:0px; width:100%; height:0px; border-top:1px solid #dddddd; z-index:1;}
+		.messengerTalkSectionCont .Msg_Day p{display:inline-block; position:relative; color:#a1a1a1; font-size:0.85em; line-height:1.4em; font-weight:300; background-color:#f4f4f4; border-radius:30px; padding:0px 10px; z-index:2;}
+		.messengerTalkSectionCont .Msg_Day p b{font-weight:300;}
+		/* [메세지] 메세지공통 */
+		.messengerTalkSectionCont .MsgBox{display:block; width:100%; vertical-align:top;}
+		.messengerTalkSectionCont .MsgBox .Name{display:block; position:relative; font-weight:100; display:none;} /* 대화상대명숨김 */
+		.messengerTalkSectionCont .MsgBox label{display:inline-block; position:relative; max-width:100%; background-color:#fff; border:1px solid #ddd; padding:10px;}
+		.messengerTalkSectionCont .MsgBox label pre{display:block; width:100%; font-size:0.9em; line-height:1.5em; font-weight:100; white-space:pre-line; word-break:break-all;} /* white-space:pre-line; pre-wrap */
+		.messengerTalkSectionCont .MsgBox label small{display:block; width:100%; color:#272727; opacity:0.5; font-size:0.75em; font-weight:300; line-height:1em; margin-top:0.5em;}
+		.messengerTalkSectionCont .MsgBox label small b{font-weight:300;}
+		.messengerTalkSectionCont .MsgBox label a{} /* 이미지전송 링크전송 */
+		.messengerTalkSectionCont .MsgBox label img{display:inline-block; width:auto; max-width:200px; background-color:#fff;} 
+		.messengerTalkSectionCont .MsgBox label span{position:absolute; bottom:0px; font-size:0.75em;} /* 안읽음1표기 */
+		/* [메세지] 받은메세지 */
+		.messengerTalkSectionCont .Msg_Other{}
+		.messengerTalkSectionCont .Msg_Other .MsgBox{text-align:left; padding-right:3em;} 
+		.messengerTalkSectionCont .Msg_Other .MsgBox label{border-radius:0px 10px 10px 10px;}
+		.messengerTalkSectionCont .Msg_Other .MsgBox label span{right:-13px;}
+		.messengerTalkSectionCont .Msg_Other .MsgBox label img{} 
+		.messengerTalkSectionCont .Msg_Other .MsgBox label a ~ small{left:15px;}
+		/* [메세지] 보낸메세지 */
+		.messengerTalkSectionCont .Msg_Myself {text-align:right; padding-left:3em;}
+		.messengerTalkSectionCont .Msg_Myself .MsgBox label{text-align:left; color:#fff; background-color: #0fb3a3; border-radius:10px 0px 10px 10px;}
+		.messengerTalkSectionCont .Msg_Myself .MsgBox label small{text-align:right; color:#fff; }
+		.messengerTalkSectionCont .Msg_Myself .MsgBox label span{left:-13px;}
+		.messengerTalkSectionCont .Msg_Myself .MsgBox label img{} 
+		/* 최신메세지로위치이동 */
+		.messengerTalkSectionCont button.GoNewest{position:absolute; right:3%; bottom:15%; width:35px; height:35px; opacity:0.5; background-color:#272930; color:#fff; border:none; border-radius:50%; padding:10px 0px; z-index:10;}
+		.messengerTalkSectionCont button.GoNewest span{}
+		.messengerTalkSectionCont button.GoNewest i{}
+		/* ------------------------------------------ */
+		/* 메세지입력 */
+		.messengerTalkSectionBottom{display:block; position:absolute; bottom:0px; background-color:#fff; border-top:1px solid #ddd; }
+		.messengerTalkSectionBottom .List{display:table; width:100%; table-layout:fixed; padding:10px 5px;} 
+		.messengerTalkSectionBottom li{display:table-cell; position:relative; vertical-align:middle;} 
+		.messengerTalkSectionBottom .MsgUpImg{width:8%;}
+		.messengerTalkSectionBottom .MsgUpImg input {display:none;}
+		.messengerTalkSectionBottom .MsgUpImg label{display:block; width:100%; border:1px solid #ddd; border-radius:30px; }
+		.messengerTalkSectionBottom .MsgUpImg label span{display:block; position:relative; width:1em; height:1em; margin: 0.4em auto; }
+		.messengerTalkSectionBottom .MsgUpImg label span:before{content:''; clear:both; display:block; position:absolute; top:49%; left:0%; width:100%; height:0px; border-top:2px solid #ddd;}
+		.messengerTalkSectionBottom .MsgUpImg label span:after{content:''; clear:both; display:block; position:absolute; top:0%; left:45%;width:0px; height:100%; border-left:2px solid #ddd;}
+		.messengerTalkSectionBottom .MsgTyping{}
+		.messengerTalkSectionBottom .MsgTyping textarea{display:block; position:relative; width:98%; height:2.4em; line-height:1.4em; font-weight:300; resize:none; border-radius:30px; border: 1px solid #ddd; background:none; padding:0.5em; margin:auto;}
+		.messengerTalkSectionBottom .MsgSend{width:15%;}
+		.messengerTalkSectionBottom .MsgSend button{display:block; position:relative; width:100%; line-height:2.4em;color:#fff; text-align:center; background-color:#0fb3a3; border-radius:30px; margin:auto;}
+
+	/* 대화상대정보 */
+	.messageInfoWarp{}
+	.messageInfoWarp.FloatLayer{}
+	.messageInfoWarp.FloatLayer .Inner{padding:1em;}
+		/* 상단 */
+		.messageInfoWarp .FloatLayer_Head{padding-left:0px;}
+		.messageInfoWarp .FloatLayer_Head h4{}
+		.messageInfoWarp .FloatLayer_Head h4 > p .SectionTitle{color:#0fb3a3;}
+		/* 컨텐츠 */
+		.messageInfoWarp .FloatLayer_Content{}
+		.messageInfoWarp .Godds_BasicsSection{}
+		.messageInfoWarp .Godds_BasicsSection .InfoProfile{margin-bottom:1em;}
+		.messageInfoWarp .Godds_BasicsSection .InfoProfile em{color:#0fb3a3; display:none;}
+		.messageInfoWarp .Godds_BasicsSection .InfoProfile mark{}
+		.messageInfoWarp .Godds_BasicsSection .SectionTitle{font-size:1.1em;}
+	@media(max-width:768px) {
+	.messageInfoWarp.FloatLayer{background-color:rgba(0,0,0, 0.4);}
+	.messageInfoWarp.FloatLayer .Inner{} /* width:90%; min-width:90%; box-shadow:1px -5px 10px rgba(0,0,0, 0.3); */
+	}
+
+
+/* ===================================================================== */
+/* 배너류 */
+.commBanner{display:block; position:relative;}
+
+/* 기본광고배너1 */
+.commBanner01{}
+
+
+/* ===================================================================== */
+/* css모션
+(http://tcpschool.com/css/css3_transform_animation)
+- AOS와 이름&모션이 매칭되도록 작성
+- get class이있는 이유 : pageableScrollArea에서의 다시재생을 위해
+
+name > duration > timing-function > delay > count > direction > fill-mode > play-state
+animation: myShorthand 3s ease-in-out 1s 3 alternate;
+animation-name:ani-fadeup;
+animation-duration:1s;
+animation-delay:0s; 딜레이시간
+animation-iteration-count:1;	infinite무한
+animation-direction:normal; 방향(normal / reverse 반대방향 / alternate / alternate-reverse)
+animation-timing-function:linear;  효과의시간당속도(linear 일정속도 / ease 기본-천천히시작해서빨라지고마지막은느리게 / ease-in 천천히시작 / ease-out 천천히끝 / ease-in-out 천천히시작천천히끝 / cubic-bezier(0.25, 0.25, 0.75, 0.75) 사용자지정)
+animation-fill-mode:forwards; 애니메이션이 시작되기 전이나 끝나고 난 후 어떤 값이 적용될지 지정 none / forwards 마지막 유지 / backwards 처음 유지 / both = forwards와 backwards를 모두 유지
+animation-play-state:inherit; paused 일시정지 /  running 재생 /  | inherit 상속
+
+
+*/
+.ani{}
+.ani-fadein{animation-name:ani-fadein; animation-duration:1.5s; animation-direction:normal;}
+.ani-fadeout{animation-name:ani-fadeout; animation-duration:1.5s; animation-direction:normal; animation-fill-mode:forwards;}
+.ani-fadedown{animation-name:ani-fadedown; animation-duration:1s; animation-direction:normal;}
+.ani-fadeup{animation-name:ani-fadeup; animation-duration:1s; animation-direction:normal;} 
+.ani-faderight{animation-name:ani-faderight; animation-duration:1s; animation-direction:normal;}
+.ani-fadeleft{animation-name:ani-fadeleft; animation-duration:1s; animation-direction:normal;} 
+.ani-fadeupright{animation-name:ani-fadeupright; animation-duration:1s; animation-direction:normal;}
+.ani-fadeupleft{animation-name:ani-fadeupleft; animation-duration:1s; animation-direction:normal;}
+.ani-fadedownright{animation-name:ani-fadedownright; animation-duration:1s; animation-direction:normal;}
+.ani-fadedownleft{animation-name:ani-fadedownleft; animation-duration:1s; animation-direction:normal;}
+@keyframes ani-fadein {
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+@keyframes ani-fadeout {
+	0%{opacity:1;}
+	100%{opacity:0;}
+}
+@keyframes ani-fadeup {
+	0%{transform:translateY(3em); opacity:0;}
+	96%{transform:translateY(-1px); opacity:1;}
+	100%{transform:translateY(0); opacity:1;}
+}
+@keyframes ani-fadedown {
+	0%{transform:translateY(-3em); opacity:0;}
+	96%{transform:translateY(1px); opacity:1;}
+	100%{transform:translateY(0); opacity:1;}
+}
+@keyframes ani-faderight {
+	0%{transform:translateX(-3em); opacity:0;}
+	96%{transform:translateX(1px); opacity:1;}
+	100%{transform:translateX(0); opacity:1;}
+}
+@keyframes ani-fadeleft {
+	0%{transform:translateX(3em); opacity:0;}
+	96%{transform:translateX(-1px); opacity:1;}
+	100%{transform:translateX(0); opacity:1;}
+}
+
+@keyframes ani-fadeupright {
+	0%{transform:translateX(-3em) translateY(3em); opacity:0;}
+	96%{transform:translateX(1px) translateY(-1px); opacity:1;}
+	100%{transform:translateX(0) translateY(0); opacity:1;}
+}
+@keyframes ani-fadedownleft {
+	0%{transform:translateX(3em) translateY(-3em); opacity:0;}
+	96%{transform:translateX(-1px) translateY(1px); opacity:1;}
+	100%{transform:translateX(0) translateY(0); opacity:1;}
+}
+
+@keyframes ani-fadeupleft {
+	0%{transform:translateX(3em) translateY(3em); opacity:0;}
+	96%{transform:translateX(-1px) translateY(-1px); opacity:1;}
+	100%{transform:translateX(0) translateY(0); opacity:1;}
+}
+@keyframes ani-fadedownright {
+	0%{transform:translateX(-3em) translateY(-3em); opacity:0;}
+	96%{transform:translateX(1px) translateY(1px); opacity:1;}
+	100%{transform:translateX(0) translateY(0); opacity:1;}
+}
+
+
+.ani-flipleft{animation-name:ani-flipleft; animation-duration:1s; animation-direction:normal;}
+.ani-flipldown{animation-name:ani-flipldown; animation-duration:1s; animation-direction:normal;}
+@keyframes ani-flipleft {
+	0%{transform:rotateY(180deg); opacity:0;}
+}
+@keyframes ani-flipldown {
+	0%{transform:rotateX(180deg); opacity:0;}
+}
+
+.ani-zoomin{animation-name:ani-zoomin; animation-duration:1s; animation-direction:normal;}
+.ani-zoomout{animation-name:ani-zoomout; animation-duration:1s; animation-direction:normal;}
+@keyframes ani-zoomin {
+	0%{transform:scale(1.1); opacity:0;}
+	100%{transform:scale(1); opacity:1;}
+}
+@keyframes ani-zoomout {
+	0%{transform:scale(0.9); opacity:0;}
+	100%{transform:scale(1); opacity:1;}
+}
+
+
+/* ===================================================================== */
+/* [그래프] 타이틀 */
+.GraphTitle{display:block; position:relative; margin-bottom:3em;}
+.GraphTitle p{display:table; background-color:#fafafa; border-radius:50px; margin:auto; padding:0.5em 2em;}
+.GraphTitle strong{font-size:15pt;}
+.GraphTitle span{font-size:12pt; letter-spacing:-1px;}
+.GraphTitle small{display:inline-block; position:absolute; bottom:0px; right:0px; color:#a9a9a9; font-size:11pt; line-height:1em;}
+
+
+/* [그래프] 값설명 */
+.Graph_ItemInfo{display:block; position:relative; font-size:10pt; line-height:1em; margin-top:1em;}
+.Graph_ItemInfo p{display:inline-table; position:relative; table-layout:fixed; border-radius:3px; background-color:#eaeaea; padding:0.3em 0.5em;;}
+.Graph_ItemInfo p img{display:table-cell; width:12px;}
+.Graph_ItemInfo p span{display:table-cell; padding-left:0.2em;}
+.Graph_ItemInfo ~ .Graph_Info{margin-top:0.5em;}
+.Graph_ItemInfo .Point{color:#fff; background-color:#7c65d9;}
+
+
+/* [그래프] 출처*/
+.Graph_Info{display:table; color:#a9a9a9; font-weight:300; line-height:1.3em; margin:auto; margin-top:1em;} 
+.Graph_Info i{display:table-cell; padding-right:0.6em;}
+.Graph_Info i b{display:block; position:relative; color:#fff; background-color:#d1d1d1; border-radius:3px; padding:0px 0.6em;} /* 말풍선 */
+.Graph_Info i b:after{content:''; display: block; position:absolute; right:-0.4em; top:25%; width:0px; height:0px; border-style:solid; border-width:0.3em 0px 0.3em 0.4em; border-color:transparent #d1d1d1; z-index: 1;}
+.Graph_Info span{display:table-cell; }
+
+
+/* ------------------------------------------ */
+/* [그래프] 막대그래프(가로형) */
+.Bargraph{display:inline-table; position:relative;}
+	/* 구조 */
+	.Bargraph .List{display:block; position:relative; margin:auto;}
+	.Bargraph li{display:block; position:relative; }
+	.Bargraph .Point:after{content:''; clear:both; position:absolute; left:0%; top:0%;  width:99%; height:90%; border-radius:3px;  border:1px dashed #d1d1d1;}
+		/* 구성 */
+		.Bargraph label{display:table; position:relative; width:100%; table-layout:fixed; overflow:hidden; }
+		.Bargraph label:after{}
+		.Bargraph label strong{display:table-cell; position:relative; width:35%; color:#a9a9a9; font-weight:300; text-align:right; border-right:1px solid #d1d1d1; padding-right:0.5em;}
+		.Bargraph label span{display:table-cell; position:relative; }
+		.Bargraph label span:before{content:''; clear:both; display:block; position:absolute; left:0px; top:50%; margin-top:-0.6em; height:1.2em; animation-duration:1s; border-radius:0px 3px 3px 0px; background-color:#eaeaea;}
+		.Bargraph label span img{display:block; position:absolute; left:0.2em; height:14px; top:50%; margin-top:-7px;}
+		.Bargraph label span:after{content:''; clear:both; display:block; position:absolute; top:0px; left:0.4em; font-size:11pt;}
+			/* 강조 */
+			.Bargraph .Point label{}
+			.Bargraph .Point label strong{color:#272727; font-weight:400;}
+			.Bargraph .Point label span:before{background-color:#7c65d9;}
+			.Bargraph .Point label span:after{color:#fff;}
+			/* 눈금 */
+			.Bargraph li:last-child label span{border-bottom:1px solid #d1d1d1;}
+			.Bargraph .Marking{}
+			.Bargraph .Marking label{}
+			.Bargraph .Marking label strong{}
+			.Bargraph .Marking label span{}
+			.Bargraph .Marking label span em{display:table; position:relative; width:100%; table-layout:fixed;}
+			.Bargraph .Marking label span b{display:table-cell; width:calc( 100% / 4); height:0.7em; border-right:1px solid #d1d1d1;}
+			.Bargraph .Marking label span b:first-child{}
+			/* for IE 10&11 */
+			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+				.Bargraph label span:before{top:0.8em; }
+			 }
+			 /* for IE 9 */
+			 @media screen and (min-width:0\0){
+				.Bargraph label span:before{top:0.8em;}
+			 }
+			/*  for IE6,7,8 */
+			@media \0screen\,screen\9 {
+				.Bargraph label span:before{top:0.8em; }
+			}
+
+		/* 애니메니션조정값 */
+		.Bargraph label[data-percent] span:before{}
+		.Bargraph label[data-percent='1'] span:before{width:1%; 		animation-name:PercentAni1;}
+		.Bargraph label[data-percent='2'] span:before{width:2%;		animation-name:PercentAni2;}
+		.Bargraph label[data-percent='3'] span:before{width:3%;		animation-name:PercentAni3;}
+		.Bargraph label[data-percent='4'] span:before{width:4%;		animation-name:PercentAni4;}
+		.Bargraph label[data-percent='5'] span:before{width:5%;		animation-name:PercentAni5;}
+		.Bargraph label[data-percent='6'] span:before{width:6%;		animation-name:PercentAni6;}
+		.Bargraph label[data-percent='7'] span:before{width:7%;		animation-name:PercentAni7;}
+		.Bargraph label[data-percent='8'] span:before{width:8%;		animation-name:PercentAni8;}
+		.Bargraph label[data-percent='9'] span:before{width:9%;		animation-name:PercentAni9;}
+		.Bargraph label[data-percent='10'] span:before{width:10%;	animation-name:PercentAni10;}
+		.Bargraph label[data-percent='11'] span:before{width:11%;	animation-name:PercentAni11;}
+		.Bargraph label[data-percent='12'] span:before{width:12%;	animation-name:PercentAni12;}
+		.Bargraph label[data-percent='13'] span:before{width:13%;	animation-name:PercentAni13;}
+		.Bargraph label[data-percent='14'] span:before{width:14%;	animation-name:PercentAni14;}
+		.Bargraph label[data-percent='15'] span:before{width:15%;	animation-name:PercentAni15;}
+		.Bargraph label[data-percent='16'] span:before{width:16%;	animation-name:PercentAni16;}
+		.Bargraph label[data-percent='17'] span:before{width:17%;	animation-name:PercentAni17;}
+		.Bargraph label[data-percent='18'] span:before{width:18%;	animation-name:PercentAni18;}
+		.Bargraph label[data-percent='19'] span:before{width:19%;	animation-name:PercentAni19;}
+		.Bargraph label[data-percent='20'] span:before{width:20%;	animation-name:PercentAni20;}
+		.Bargraph label[data-percent='21'] span:before{width:21%;	animation-name:PercentAni21;}
+		.Bargraph label[data-percent='22'] span:before{width:22%;	animation-name:PercentAni22;}
+		.Bargraph label[data-percent='23'] span:before{width:23%;	animation-name:PercentAni23;}
+		.Bargraph label[data-percent='24'] span:before{width:24%;	animation-name:PercentAni24;}
+		.Bargraph label[data-percent='25'] span:before{width:25%;	animation-name:PercentAni25;}
+		.Bargraph label[data-percent='26'] span:before{width:26%;	animation-name:PercentAni26;}
+		.Bargraph label[data-percent='27'] span:before{width:27%;	animation-name:PercentAni27;}
+		.Bargraph label[data-percent='28'] span:before{width:28%;	animation-name:PercentAni28;}
+		.Bargraph label[data-percent='29'] span:before{width:29%;	animation-name:PercentAni29;}
+		.Bargraph label[data-percent='30'] span:before{width:30%;	animation-name:PercentAni30;}
+		.Bargraph label[data-percent='31'] span:before{width:31%;	animation-name:PercentAni31;}
+		.Bargraph label[data-percent='32'] span:before{width:32%;	animation-name:PercentAni32;}
+		.Bargraph label[data-percent='33'] span:before{width:33%;	animation-name:PercentAni33;}
+		.Bargraph label[data-percent='34'] span:before{width:34%;	animation-name:PercentAni34;}
+		.Bargraph label[data-percent='35'] span:before{width:35%;	animation-name:PercentAni35;}
+		.Bargraph label[data-percent='36'] span:before{width:36%;	animation-name:PercentAni36;}
+		.Bargraph label[data-percent='37'] span:before{width:37%;	animation-name:PercentAni37;}
+		.Bargraph label[data-percent='38'] span:before{width:38%;	animation-name:PercentAni38;}
+		.Bargraph label[data-percent='39'] span:before{width:39%;	animation-name:PercentAni39;}
+		.Bargraph label[data-percent='40'] span:before{width:40%;	animation-name:PercentAni40;}
+		.Bargraph label[data-percent='41'] span:before{width:41%;	animation-name:PercentAni41;}
+		.Bargraph label[data-percent='42'] span:before{width:42%;	animation-name:PercentAni42;}
+		.Bargraph label[data-percent='43'] span:before{width:43%;	animation-name:PercentAni43;}
+		.Bargraph label[data-percent='44'] span:before{width:44%;	animation-name:PercentAni44;}
+		.Bargraph label[data-percent='45'] span:before{width:45%;	animation-name:PercentAni45;}
+		.Bargraph label[data-percent='46'] span:before{width:46%;	animation-name:PercentAni46;}
+		.Bargraph label[data-percent='47'] span:before{width:47%;	animation-name:PercentAni47;}
+		.Bargraph label[data-percent='48'] span:before{width:48%;	animation-name:PercentAni48;}
+		.Bargraph label[data-percent='49'] span:before{width:49%;	animation-name:PercentAni49;}
+		.Bargraph label[data-percent='50'] span:before{width:50%;	animation-name:PercentAni50;}
+		.Bargraph label[data-percent='51'] span:before{width:51%;	animation-name:PercentAni51;}
+		.Bargraph label[data-percent='52'] span:before{width:52%;	animation-name:PercentAni52;}
+		.Bargraph label[data-percent='53'] span:before{width:53%;	animation-name:PercentAni53;}
+		.Bargraph label[data-percent='54'] span:before{width:54%;	animation-name:PercentAni54;}
+		.Bargraph label[data-percent='55'] span:before{width:55%;	animation-name:PercentAni55;}
+		.Bargraph label[data-percent='56'] span:before{width:56%;	animation-name:PercentAni56;}
+		.Bargraph label[data-percent='57'] span:before{width:57%;	animation-name:PercentAni57;}
+		.Bargraph label[data-percent='58'] span:before{width:58%;	animation-name:PercentAni58;}
+		.Bargraph label[data-percent='59'] span:before{width:59%;	animation-name:PercentAni59;}
+		.Bargraph label[data-percent='60'] span:before{width:60%;	animation-name:PercentAni60;}
+		.Bargraph label[data-percent='61'] span:before{width:61%;	animation-name:PercentAni61;}
+		.Bargraph label[data-percent='62'] span:before{width:62%;	animation-name:PercentAni62;}
+		.Bargraph label[data-percent='63'] span:before{width:63%;	animation-name:PercentAni63;}
+		.Bargraph label[data-percent='64'] span:before{width:64%;	animation-name:PercentAni64;}
+		.Bargraph label[data-percent='65'] span:before{width:65%;	animation-name:PercentAni65;}
+		.Bargraph label[data-percent='66'] span:before{width:66%;	animation-name:PercentAni66;}
+		.Bargraph label[data-percent='67'] span:before{width:67%;	animation-name:PercentAni67;}
+		.Bargraph label[data-percent='68'] span:before{width:68%;	animation-name:PercentAni68;}
+		.Bargraph label[data-percent='69'] span:before{width:69%;	animation-name:PercentAni69;}
+		.Bargraph label[data-percent='70'] span:before{width:70%;	animation-name:PercentAni70;}
+		.Bargraph label[data-percent='71'] span:before{width:71%;	animation-name:PercentAni71;}
+		.Bargraph label[data-percent='72'] span:before{width:72%;	animation-name:PercentAni72;}
+		.Bargraph label[data-percent='73'] span:before{width:73%;	animation-name:PercentAni73;}
+		.Bargraph label[data-percent='74'] span:before{width:74%;	animation-name:PercentAni74;}
+		.Bargraph label[data-percent='75'] span:before{width:75%;	animation-name:PercentAni75;}
+		.Bargraph label[data-percent='76'] span:before{width:76%;	animation-name:PercentAni76;}
+		.Bargraph label[data-percent='77'] span:before{width:77%;	animation-name:PercentAni77;}
+		.Bargraph label[data-percent='78'] span:before{width:78%;	animation-name:PercentAni78;} 
+		.Bargraph label[data-percent='79'] span:before{width:79%;	animation-name:PercentAni79;}
+		.Bargraph label[data-percent='80'] span:before{width:80%;	animation-name:PercentAni80;}
+		.Bargraph label[data-percent='81'] span:before{width:81%;	animation-name:PercentAni81;}
+		.Bargraph label[data-percent='82'] span:before{width:82%;	animation-name:PercentAni82;}
+		.Bargraph label[data-percent='83'] span:before{width:83%;	animation-name:PercentAni83;}
+		.Bargraph label[data-percent='84'] span:before{width:84%;	animation-name:PercentAni84;}
+		.Bargraph label[data-percent='85'] span:before{width:85%;	animation-name:PercentAni85;}
+		.Bargraph label[data-percent='86'] span:before{width:86%;	animation-name:PercentAni86;}
+		.Bargraph label[data-percent='87'] span:before{width:87%;	animation-name:PercentAni87;}
+		.Bargraph label[data-percent='88'] span:before{width:88%;	animation-name:PercentAni88;}
+		.Bargraph label[data-percent='89'] span:before{width:89%;	animation-name:PercentAni89;}
+		.Bargraph label[data-percent='90'] span:before{width:90%;	animation-name:PercentAni90;}
+		.Bargraph label[data-percent='91'] span:before{width:91%;	animation-name:PercentAni91;}
+		.Bargraph label[data-percent='92'] span:before{width:92%;	animation-name:PercentAni92;}
+		.Bargraph label[data-percent='93'] span:before{width:93%;	animation-name:PercentAni93;}
+		.Bargraph label[data-percent='94'] span:before{width:94%;	animation-name:PercentAni94;}
+		.Bargraph label[data-percent='95'] span:before{width:95%;	animation-name:PercentAni95;}
+		.Bargraph label[data-percent='96'] span:before{width:96%;	animation-name:PercentAni96;}
+		.Bargraph label[data-percent='97'] span:before{width:97%;	animation-name:PercentAni97;}
+		.Bargraph label[data-percent='98'] span:before{width:98%;	animation-name:PercentAni98;}
+		.Bargraph label[data-percent='99'] span:before{width:99%;	animation-name:PercentAni99;}
+		.Bargraph label[data-percent='100'] span:before{width:100%;	animation-name:PercentAni100;}
+
+		.Bargraph label[data-percent] span:after{}
+		.Bargraph label[data-percent='1'] span:after{content:'1%';}		@keyframes PercentAni1{	0%{width:0px;} 100%{width:1%;}		}
+		.Bargraph label[data-percent='2'] span:after{content:'2%';}		@keyframes PercentAni2{	0%{width:0px;} 100%{width:2%;}		}
+		.Bargraph label[data-percent='3'] span:after{content:'3%';}		@keyframes PercentAni3{	0%{width:0px;} 100%{width:3%;}		}
+		.Bargraph label[data-percent='4'] span:after{content:'4%';}		@keyframes PercentAni4{	0%{width:0px;} 100%{width:4%;}		}
+		.Bargraph label[data-percent='5'] span:after{content:'5%';}		@keyframes PercentAni5{	0%{width:0px;} 100%{width:5%;}		}
+		.Bargraph label[data-percent='6'] span:after{content:'6%';}		@keyframes PercentAni6{	0%{width:0px;} 100%{width:6%;}		}
+		.Bargraph label[data-percent='7'] span:after{content:'7%';}		@keyframes PercentAni7{	0%{width:0px;} 100%{width:7%;}		}
+		.Bargraph label[data-percent='8'] span:after{content:'8%';}		@keyframes PercentAni8{	0%{width:0px;} 100%{width:8%;}		}
+		.Bargraph label[data-percent='9'] span:after{content:'9%';}		@keyframes PercentAni9{	0%{width:0px;} 100%{width:9%;}		}
+		.Bargraph label[data-percent='10'] span:after{content:'10%';}		@keyframes PercentAni10{	0%{width:0px;} 100%{width:10%;}		}
+		.Bargraph label[data-percent='11'] span:after{content:'11%';}		@keyframes PercentAni11{	0%{width:0px;} 100%{width:11%;}		}
+		.Bargraph label[data-percent='12'] span:after{content:'12%';}		@keyframes PercentAni12{	0%{width:0px;} 100%{width:12%;}		}
+		.Bargraph label[data-percent='13'] span:after{content:'13%';}		@keyframes PercentAni13{	0%{width:0px;} 100%{width:13%;}		}
+		.Bargraph label[data-percent='14'] span:after{content:'14%';}		@keyframes PercentAni14{	0%{width:0px;} 100%{width:14%;}		}
+		.Bargraph label[data-percent='15'] span:after{content:'15%';}		@keyframes PercentAni15{	0%{width:0px;} 100%{width:15%;}		}
+		.Bargraph label[data-percent='16'] span:after{content:'16%';}		@keyframes PercentAni16{	0%{width:0px;} 100%{width:16%;}		}
+		.Bargraph label[data-percent='17'] span:after{content:'17%';}		@keyframes PercentAni17{	0%{width:0px;} 100%{width:17%;}		}
+		.Bargraph label[data-percent='18'] span:after{content:'18%';}		@keyframes PercentAni18{	0%{width:0px;} 100%{width:18%;}		}
+		.Bargraph label[data-percent='19'] span:after{content:'19%';}		@keyframes PercentAni19{	0%{width:0px;} 100%{width:19%;}		}
+		.Bargraph label[data-percent='20'] span:after{content:'20%';}		@keyframes PercentAni20{	0%{width:0px;} 100%{width:20%;}		}
+		.Bargraph label[data-percent='21'] span:after{content:'21%';}		@keyframes PercentAni21{	0%{width:0px;} 100%{width:21%;}		}
+		.Bargraph label[data-percent='22'] span:after{content:'22%';}		@keyframes PercentAni22{	0%{width:0px;} 100%{width:22%;}		}
+		.Bargraph label[data-percent='23'] span:after{content:'23%';}		@keyframes PercentAni23{	0%{width:0px;} 100%{width:23%;}		}
+		.Bargraph label[data-percent='24'] span:after{content:'24%';}		@keyframes PercentAni24{	0%{width:0px;} 100%{width:24%;}		}
+		.Bargraph label[data-percent='25'] span:after{content:'25%';}		@keyframes PercentAni25{	0%{width:0px;} 100%{width:25%;}		}
+		.Bargraph label[data-percent='26'] span:after{content:'26%';}		@keyframes PercentAni26{	0%{width:0px;} 100%{width:26%;}		}
+		.Bargraph label[data-percent='27'] span:after{content:'27%';}		@keyframes PercentAni27{	0%{width:0px;} 100%{width:27%;}		}
+		.Bargraph label[data-percent='28'] span:after{content:'28%';}		@keyframes PercentAni28{	0%{width:0px;} 100%{width:28%;}		}
+		.Bargraph label[data-percent='29'] span:after{content:'29%';}		@keyframes PercentAni29{	0%{width:0px;} 100%{width:29%;}		}
+		.Bargraph label[data-percent='30'] span:after{content:'30%';}		@keyframes PercentAni30{	0%{width:0px;} 100%{width:30%;}		}
+		.Bargraph label[data-percent='31'] span:after{content:'31%';}		@keyframes PercentAni31{	0%{width:0px;} 100%{width:31%;}		}
+		.Bargraph label[data-percent='32'] span:after{content:'32%';}		@keyframes PercentAni32{	0%{width:0px;} 100%{width:32%;}		}
+		.Bargraph label[data-percent='33'] span:after{content:'33%';}		@keyframes PercentAni33{	0%{width:0px;} 100%{width:33%;}		}
+		.Bargraph label[data-percent='34'] span:after{content:'34%';}		@keyframes PercentAni34{	0%{width:0px;} 100%{width:34%;}		}
+		.Bargraph label[data-percent='35'] span:after{content:'35%';}		@keyframes PercentAni35{	0%{width:0px;} 100%{width:35%;}		}
+		.Bargraph label[data-percent='36'] span:after{content:'36%';}		@keyframes PercentAni36{	0%{width:0px;} 100%{width:36%;}		}
+		.Bargraph label[data-percent='37'] span:after{content:'37%';}		@keyframes PercentAni37{	0%{width:0px;} 100%{width:37%;}		}
+		.Bargraph label[data-percent='38'] span:after{content:'38%';}		@keyframes PercentAni38{	0%{width:0px;} 100%{width:38%;}		}
+		.Bargraph label[data-percent='39'] span:after{content:'39%';}		@keyframes PercentAni39{	0%{width:0px;} 100%{width:39%;}		}
+		.Bargraph label[data-percent='40'] span:after{content:'40%';}		@keyframes PercentAni40{	0%{width:0px;} 100%{width:40%;}		}
+		.Bargraph label[data-percent='41'] span:after{content:'41%';}		@keyframes PercentAni41{	0%{width:0px;} 100%{width:41%;}		}
+		.Bargraph label[data-percent='42'] span:after{content:'42%';}		@keyframes PercentAni42{	0%{width:0px;} 100%{width:42%;}		}
+		.Bargraph label[data-percent='43'] span:after{content:'43%';}		@keyframes PercentAni43{	0%{width:0px;} 100%{width:43%;}		}
+		.Bargraph label[data-percent='44'] span:after{content:'44%';}		@keyframes PercentAni44{	0%{width:0px;} 100%{width:44%;}		}
+		.Bargraph label[data-percent='45'] span:after{content:'45%';}		@keyframes PercentAni45{	0%{width:0px;} 100%{width:45%;}		}
+		.Bargraph label[data-percent='46'] span:after{content:'46%';}		@keyframes PercentAni46{	0%{width:0px;} 100%{width:46%;}		}
+		.Bargraph label[data-percent='47'] span:after{content:'47%';}		@keyframes PercentAni47{	0%{width:0px;} 100%{width:47%;}		}
+		.Bargraph label[data-percent='48'] span:after{content:'48%';}		@keyframes PercentAni48{	0%{width:0px;} 100%{width:48%;}		}
+		.Bargraph label[data-percent='49'] span:after{content:'49%';}		@keyframes PercentAni49{	0%{width:0px;} 100%{width:49%;}		}
+		.Bargraph label[data-percent='50'] span:after{content:'50%';}		@keyframes PercentAni50{	0%{width:0px;} 100%{width:50%;}		}
+		.Bargraph label[data-percent='51'] span:after{content:'51%';}		@keyframes PercentAni51{	0%{width:0px;} 100%{width:51%;}		}
+		.Bargraph label[data-percent='52'] span:after{content:'52%';}		@keyframes PercentAni52{	0%{width:0px;} 100%{width:52%;}		}
+		.Bargraph label[data-percent='53'] span:after{content:'53%';}		@keyframes PercentAni53{	0%{width:0px;} 100%{width:53%;}		}
+		.Bargraph label[data-percent='54'] span:after{content:'54%';}		@keyframes PercentAni54{	0%{width:0px;} 100%{width:54%;}		}
+		.Bargraph label[data-percent='55'] span:after{content:'55%';}		@keyframes PercentAni55{	0%{width:0px;} 100%{width:55%;}		}
+		.Bargraph label[data-percent='56'] span:after{content:'56%';}		@keyframes PercentAni56{	0%{width:0px;} 100%{width:56%;}		}
+		.Bargraph label[data-percent='57'] span:after{content:'57%';}		@keyframes PercentAni57{	0%{width:0px;} 100%{width:57%;}		}
+		.Bargraph label[data-percent='58'] span:after{content:'58%';}		@keyframes PercentAni58{	0%{width:0px;} 100%{width:58%;}		}
+		.Bargraph label[data-percent='59'] span:after{content:'59%';}		@keyframes PercentAni59{	0%{width:0px;} 100%{width:59%;}		}
+		.Bargraph label[data-percent='60'] span:after{content:'60%';}		@keyframes PercentAni60{	0%{width:0px;} 100%{width:60%;}		}
+		.Bargraph label[data-percent='61'] span:after{content:'61%';}		@keyframes PercentAni61{	0%{width:0px;} 100%{width:61%;}		}
+		.Bargraph label[data-percent='62'] span:after{content:'62%';}		@keyframes PercentAni62{	0%{width:0px;} 100%{width:62%;}		}
+		.Bargraph label[data-percent='63'] span:after{content:'63%';}		@keyframes PercentAni63{	0%{width:0px;} 100%{width:63%;}		}
+		.Bargraph label[data-percent='64'] span:after{content:'64%';}		@keyframes PercentAni64{	0%{width:0px;} 100%{width:64%;}		}
+		.Bargraph label[data-percent='65'] span:after{content:'65%';}		@keyframes PercentAni65{	0%{width:0px;} 100%{width:65%;}		}
+		.Bargraph label[data-percent='66'] span:after{content:'66%';}		@keyframes PercentAni66{	0%{width:0px;} 100%{width:66%;}		}
+		.Bargraph label[data-percent='67'] span:after{content:'67%';}		@keyframes PercentAni67{	0%{width:0px;} 100%{width:67%;}		}
+		.Bargraph label[data-percent='68'] span:after{content:'68%';}		@keyframes PercentAni68{	0%{width:0px;} 100%{width:68%;}		}
+		.Bargraph label[data-percent='69'] span:after{content:'69%';}		@keyframes PercentAni69{	0%{width:0px;} 100%{width:69%;}		}
+		.Bargraph label[data-percent='70'] span:after{content:'70%';}		@keyframes PercentAni70{	0%{width:0px;} 100%{width:70%;}		}
+		.Bargraph label[data-percent='71'] span:after{content:'71%';}		@keyframes PercentAni71{	0%{width:0px;} 100%{width:71%;}		}
+		.Bargraph label[data-percent='72'] span:after{content:'72%';}		@keyframes PercentAni72{	0%{width:0px;} 100%{width:72%;}		}
+		.Bargraph label[data-percent='73'] span:after{content:'73%';}		@keyframes PercentAni73{	0%{width:0px;} 100%{width:73%;}		}
+		.Bargraph label[data-percent='74'] span:after{content:'74%';}		@keyframes PercentAni74{	0%{width:0px;} 100%{width:74%;}		}
+		.Bargraph label[data-percent='75'] span:after{content:'75%';}		@keyframes PercentAni75{	0%{width:0px;} 100%{width:75%;}		}
+		.Bargraph label[data-percent='76'] span:after{content:'76%';}		@keyframes PercentAni76{	0%{width:0px;} 100%{width:76%;}		}
+		.Bargraph label[data-percent='77'] span:after{content:'77%';}		@keyframes PercentAni77{	0%{width:0px;} 100%{width:77%;}		}
+		.Bargraph label[data-percent='78'] span:after{content:'78%';}		@keyframes PercentAni78{	0%{width:0px;} 100%{width:78%;}		}
+		.Bargraph label[data-percent='79'] span:after{content:'79%';}		@keyframes PercentAni79{	0%{width:0px;} 100%{width:79%;}		}
+		.Bargraph label[data-percent='80'] span:after{content:'80%';}		@keyframes PercentAni80{	0%{width:0px;} 100%{width:80%;}		}
+		.Bargraph label[data-percent='81'] span:after{content:'81%';}		@keyframes PercentAni81{	0%{width:0px;} 100%{width:81%;}		}
+		.Bargraph label[data-percent='82'] span:after{content:'82%';}		@keyframes PercentAni82{	0%{width:0px;} 100%{width:82%;}		}
+		.Bargraph label[data-percent='83'] span:after{content:'83%';}		@keyframes PercentAni83{	0%{width:0px;} 100%{width:83%;}		}
+		.Bargraph label[data-percent='84'] span:after{content:'84%';}		@keyframes PercentAni84{	0%{width:0px;} 100%{width:84%;}		}
+		.Bargraph label[data-percent='85'] span:after{content:'85%';}		@keyframes PercentAni85{	0%{width:0px;} 100%{width:85%;}		}
+		.Bargraph label[data-percent='86'] span:after{content:'86%';}		@keyframes PercentAni86{	0%{width:0px;} 100%{width:86%;}		}
+		.Bargraph label[data-percent='87'] span:after{content:'87%';}		@keyframes PercentAni87{	0%{width:0px;} 100%{width:87%;}		}
+		.Bargraph label[data-percent='88'] span:after{content:'88%';}		@keyframes PercentAni88{	0%{width:0px;} 100%{width:88%;}		}
+		.Bargraph label[data-percent='89'] span:after{content:'89%';}		@keyframes PercentAni89{	0%{width:0px;} 100%{width:89%;}		}
+		.Bargraph label[data-percent='90'] span:after{content:'90%';}		@keyframes PercentAni90{	0%{width:0px;} 100%{width:90%;}		}
+		.Bargraph label[data-percent='91'] span:after{content:'91%';}		@keyframes PercentAni91{	0%{width:0px;} 100%{width:91%;}		}
+		.Bargraph label[data-percent='92'] span:after{content:'92%';}		@keyframes PercentAni92{	0%{width:0px;} 100%{width:92%;}		}
+		.Bargraph label[data-percent='93'] span:after{content:'93%';}		@keyframes PercentAni93{	0%{width:0px;} 100%{width:93%;}		}
+		.Bargraph label[data-percent='94'] span:after{content:'94%';}		@keyframes PercentAni94{	0%{width:0px;} 100%{width:94%;}		}
+		.Bargraph label[data-percent='95'] span:after{content:'95%';}		@keyframes PercentAni95{	0%{width:0px;} 100%{width:95%;}		}
+		.Bargraph label[data-percent='96'] span:after{content:'96%';}		@keyframes PercentAni96{	0%{width:0px;} 100%{width:96%;}		}
+		.Bargraph label[data-percent='97'] span:after{content:'97%';}		@keyframes PercentAni97{	0%{width:0px;} 100%{width:97%;}		}
+		.Bargraph label[data-percent='98'] span:after{content:'98%';}		@keyframes PercentAni98{	0%{width:0px;} 100%{width:98%;}		}
+		.Bargraph label[data-percent='99'] span:after{content:'99%';}		@keyframes PercentAni99{	0%{width:0px;} 100%{width:99%;}		}
+		.Bargraph label[data-percent='100'] span:after{content:'100%';}	@keyframes PercentAni100{	0%{width:0px;} 100%{width:100%;}		}
+
+
+
+/* ------------------------------------------ */
+/* [그래프] 막대그래프(세로형) */
+.BargraphHeight{display:inline-table; position:relative; text-align:center; margin:auto;}
+	/* 구조 */
+	.BargraphHeight .List{display:inline-table; position:relative; table-layout:fixed; margin:auto; margin:0px 0.5em; padding-top:1.5em; }
+	.BargraphHeight li{display:table-cell; position:relative;} /* width:calc( 100% / 9);  border-right:1px dashed #000; */
+	.BargraphHeight .Point:after{content:''; clear:both; position:absolute; left:0%; top:0%;  width:99%; height:90%; border-radius:3px;}
+		/* 구성 */
+		.BargraphHeight label{display:block; position:relative; width:100%;} /*  overflow:hidden; */
+		.BargraphHeight label:after{}
+		.BargraphHeight label span{display:block; position:relative; height:15em; border-bottom:1px solid #d1d1d1; padding:0px 1.1em;}
+		.BargraphHeight label span:before{content:''; clear:both; display:block; position:absolute; left:50%; bottom:0px; width:1.8em; margin-left:-0.9em; animation-duration:1s; border-radius:3px 3px 0px 0px; background-color:#eaeaea;}
+		.BargraphHeight label span:after{content:''; clear:both; display:block; position:absolute; bottom:0px; left:0px; width:100%; color:#a9a9a9; font-size:10pt; line-height:1.5em; letter-spacing:-1px;}
+		.BargraphHeight label span img{display:block; position:absolute; bottom:0.2em; width:14px; left:50%; margin-left:-7px;}
+		.BargraphHeight label strong{display:block; position:relative; color:#a9a9a9; font-weight:300; line-height:1.2em; text-align:center; white-space: normal; word-break:keep-all; }
+			/* 강조 */
+			.BargraphHeight .Point label{}
+			.BargraphHeight .Point label strong{color:#272727; font-weight:400;}
+			.BargraphHeight .Point label span:before{background-color:#7c65d9;}
+			.BargraphHeight .Point label span:after{color:#272727; font-weight:600;}
+			/* 눈금 */
+			.BargraphHeight .List li:first-child label span{border-left:1px solid #d1d1d1;}
+			.BargraphHeight .Marking{}
+			.BargraphHeight .Marking label{}
+			.BargraphHeight .Marking label strong{}
+			.BargraphHeight .Marking label span{width:1em; vertical-align:top; padding:0px; padding-right:0.5em;}
+			.BargraphHeight .Marking label span em{display:block; position:relative; }
+			.BargraphHeight .Marking label span b{display:block; height:calc( 15em / 4);  border-top:1px solid #d1d1d1;}
+			.BargraphHeight .Marking label span b:first-child{}
+			/* --------------------------------------------------------- */
+			/* 여러값비교 */
+			.BargraphHeight.Multiplex{}
+				/* 구조 */
+				.BargraphHeight.Multiplex .List{padding:0px 0.3em; padding-bottom:1.8em;;}
+					/* 구성 */
+					.BargraphHeight.Multiplex label{}
+					.BargraphHeight.Multiplex label span{}
+					.BargraphHeight.Multiplex label strong{display:none;}
+					.BargraphHeight.Multiplex .List li:first-child label{}
+					.BargraphHeight.Multiplex .List li:first-child label span{}
+					.BargraphHeight.Multiplex .ThText{display:block; position:absolute; left:0px; bottom:0px; width:100%; text-align:center;}
+					/* 눈금 */
+					.BargraphHeight.Multiplex .List li:first-child label span{border-left:none;}
+
+		/* 애니메니션조정값 */
+		.BargraphHeight label[data-percent] span:before{}
+		.BargraphHeight label[data-percent='1'] span:before{height:1%; 		animation-name:PercentAniHeight1;}
+		.BargraphHeight label[data-percent='2'] span:before{height:2%;		animation-name:PercentAniHeight2;}
+		.BargraphHeight label[data-percent='3'] span:before{height:3%;		animation-name:PercentAniHeight3;}
+		.BargraphHeight label[data-percent='4'] span:before{height:4%;		animation-name:PercentAniHeight4;}
+		.BargraphHeight label[data-percent='5'] span:before{height:5%;		animation-name:PercentAniHeight5;}
+		.BargraphHeight label[data-percent='6'] span:before{height:6%;		animation-name:PercentAniHeight6;}
+		.BargraphHeight label[data-percent='7'] span:before{height:7%;		animation-name:PercentAniHeight7;}
+		.BargraphHeight label[data-percent='8'] span:before{height:8%;		animation-name:PercentAniHeight8;}
+		.BargraphHeight label[data-percent='9'] span:before{height:9%;		animation-name:PercentAniHeight9;}
+		.BargraphHeight label[data-percent='10'] span:before{height:10%;	animation-name:PercentAniHeight10;}
+		.BargraphHeight label[data-percent='11'] span:before{height:11%;	animation-name:PercentAniHeight11;}
+		.BargraphHeight label[data-percent='12'] span:before{height:12%;	animation-name:PercentAniHeight12;}
+		.BargraphHeight label[data-percent='13'] span:before{height:13%;	animation-name:PercentAniHeight13;}
+		.BargraphHeight label[data-percent='14'] span:before{height:14%;	animation-name:PercentAniHeight14;}
+		.BargraphHeight label[data-percent='15'] span:before{height:15%;	animation-name:PercentAniHeight15;}
+		.BargraphHeight label[data-percent='16'] span:before{height:16%;	animation-name:PercentAniHeight16;}
+		.BargraphHeight label[data-percent='17'] span:before{height:17%;	animation-name:PercentAniHeight17;}
+		.BargraphHeight label[data-percent='18'] span:before{height:18%;	animation-name:PercentAniHeight18;}
+		.BargraphHeight label[data-percent='19'] span:before{height:19%;	animation-name:PercentAniHeight19;}
+		.BargraphHeight label[data-percent='20'] span:before{height:20%;	animation-name:PercentAniHeight20;}
+		.BargraphHeight label[data-percent='21'] span:before{height:21%;	animation-name:PercentAniHeight21;}
+		.BargraphHeight label[data-percent='22'] span:before{height:22%;	animation-name:PercentAniHeight22;}
+		.BargraphHeight label[data-percent='23'] span:before{height:23%;	animation-name:PercentAniHeight23;}
+		.BargraphHeight label[data-percent='24'] span:before{height:24%;	animation-name:PercentAniHeight24;}
+		.BargraphHeight label[data-percent='25'] span:before{height:25%;	animation-name:PercentAniHeight25;}
+		.BargraphHeight label[data-percent='26'] span:before{height:26%;	animation-name:PercentAniHeight26;}
+		.BargraphHeight label[data-percent='27'] span:before{height:27%;	animation-name:PercentAniHeight27;}
+		.BargraphHeight label[data-percent='28'] span:before{height:28%;	animation-name:PercentAniHeight28;}
+		.BargraphHeight label[data-percent='29'] span:before{height:29%;	animation-name:PercentAniHeight29;}
+		.BargraphHeight label[data-percent='30'] span:before{height:30%;	animation-name:PercentAniHeight30;}
+		.BargraphHeight label[data-percent='31'] span:before{height:31%;	animation-name:PercentAniHeight31;}
+		.BargraphHeight label[data-percent='32'] span:before{height:32%;	animation-name:PercentAniHeight32;}
+		.BargraphHeight label[data-percent='33'] span:before{height:33%;	animation-name:PercentAniHeight33;}
+		.BargraphHeight label[data-percent='34'] span:before{height:34%;	animation-name:PercentAniHeight34;}
+		.BargraphHeight label[data-percent='35'] span:before{height:35%;	animation-name:PercentAniHeight35;}
+		.BargraphHeight label[data-percent='36'] span:before{height:36%;	animation-name:PercentAniHeight36;}
+		.BargraphHeight label[data-percent='37'] span:before{height:37%;	animation-name:PercentAniHeight37;}
+		.BargraphHeight label[data-percent='38'] span:before{height:38%;	animation-name:PercentAniHeight38;}
+		.BargraphHeight label[data-percent='39'] span:before{height:39%;	animation-name:PercentAniHeight39;}
+		.BargraphHeight label[data-percent='40'] span:before{height:40%;	animation-name:PercentAniHeight40;}
+		.BargraphHeight label[data-percent='41'] span:before{height:41%;	animation-name:PercentAniHeight41;}
+		.BargraphHeight label[data-percent='42'] span:before{height:42%;	animation-name:PercentAniHeight42;}
+		.BargraphHeight label[data-percent='43'] span:before{height:43%;	animation-name:PercentAniHeight43;}
+		.BargraphHeight label[data-percent='44'] span:before{height:44%;	animation-name:PercentAniHeight44;}
+		.BargraphHeight label[data-percent='45'] span:before{height:45%;	animation-name:PercentAniHeight45;}
+		.BargraphHeight label[data-percent='46'] span:before{height:46%;	animation-name:PercentAniHeight46;}
+		.BargraphHeight label[data-percent='47'] span:before{height:47%;	animation-name:PercentAniHeight47;}
+		.BargraphHeight label[data-percent='48'] span:before{height:48%;	animation-name:PercentAniHeight48;}
+		.BargraphHeight label[data-percent='49'] span:before{height:49%;	animation-name:PercentAniHeight49;}
+		.BargraphHeight label[data-percent='50'] span:before{height:50%;	animation-name:PercentAniHeight50;}
+		.BargraphHeight label[data-percent='51'] span:before{height:51%;	animation-name:PercentAniHeight51;}
+		.BargraphHeight label[data-percent='52'] span:before{height:52%;	animation-name:PercentAniHeight52;}
+		.BargraphHeight label[data-percent='53'] span:before{height:53%;	animation-name:PercentAniHeight53;}
+		.BargraphHeight label[data-percent='54'] span:before{height:54%;	animation-name:PercentAniHeight54;}
+		.BargraphHeight label[data-percent='55'] span:before{height:55%;	animation-name:PercentAniHeight55;}
+		.BargraphHeight label[data-percent='56'] span:before{height:56%;	animation-name:PercentAniHeight56;}
+		.BargraphHeight label[data-percent='57'] span:before{height:57%;	animation-name:PercentAniHeight57;}
+		.BargraphHeight label[data-percent='58'] span:before{height:58%;	animation-name:PercentAniHeight58;}
+		.BargraphHeight label[data-percent='59'] span:before{height:59%;	animation-name:PercentAniHeight59;}
+		.BargraphHeight label[data-percent='60'] span:before{height:60%;	animation-name:PercentAniHeight60;}
+		.BargraphHeight label[data-percent='61'] span:before{height:61%;	animation-name:PercentAniHeight61;}
+		.BargraphHeight label[data-percent='62'] span:before{height:62%;	animation-name:PercentAniHeight62;}
+		.BargraphHeight label[data-percent='63'] span:before{height:63%;	animation-name:PercentAniHeight63;}
+		.BargraphHeight label[data-percent='64'] span:before{height:64%;	animation-name:PercentAniHeight64;}
+		.BargraphHeight label[data-percent='65'] span:before{height:65%;	animation-name:PercentAniHeight65;}
+		.BargraphHeight label[data-percent='66'] span:before{height:66%;	animation-name:PercentAniHeight66;}
+		.BargraphHeight label[data-percent='67'] span:before{height:67%;	animation-name:PercentAniHeight67;}
+		.BargraphHeight label[data-percent='68'] span:before{height:68%;	animation-name:PercentAniHeight68;}
+		.BargraphHeight label[data-percent='69'] span:before{height:69%;	animation-name:PercentAniHeight69;}
+		.BargraphHeight label[data-percent='70'] span:before{height:70%;	animation-name:PercentAniHeight70;}
+		.BargraphHeight label[data-percent='71'] span:before{height:71%;	animation-name:PercentAniHeight71;}
+		.BargraphHeight label[data-percent='72'] span:before{height:72%;	animation-name:PercentAniHeight72;}
+		.BargraphHeight label[data-percent='73'] span:before{height:73%;	animation-name:PercentAniHeight73;}
+		.BargraphHeight label[data-percent='74'] span:before{height:74%;	animation-name:PercentAniHeight74;}
+		.BargraphHeight label[data-percent='75'] span:before{height:75%;	animation-name:PercentAniHeight75;}
+		.BargraphHeight label[data-percent='76'] span:before{height:76%;	animation-name:PercentAniHeight76;}
+		.BargraphHeight label[data-percent='77'] span:before{height:77%;	animation-name:PercentAniHeight77;}
+		.BargraphHeight label[data-percent='78'] span:before{height:78%;	animation-name:PercentAniHeight78;} 
+		.BargraphHeight label[data-percent='79'] span:before{height:79%;	animation-name:PercentAniHeight79;}
+		.BargraphHeight label[data-percent='80'] span:before{height:80%;	animation-name:PercentAniHeight80;}
+		.BargraphHeight label[data-percent='81'] span:before{height:81%;	animation-name:PercentAniHeight81;}
+		.BargraphHeight label[data-percent='82'] span:before{height:82%;	animation-name:PercentAniHeight82;}
+		.BargraphHeight label[data-percent='83'] span:before{height:83%;	animation-name:PercentAniHeight83;}
+		.BargraphHeight label[data-percent='84'] span:before{height:84%;	animation-name:PercentAniHeight84;}
+		.BargraphHeight label[data-percent='85'] span:before{height:85%;	animation-name:PercentAniHeight85;}
+		.BargraphHeight label[data-percent='86'] span:before{height:86%;	animation-name:PercentAniHeight86;}
+		.BargraphHeight label[data-percent='87'] span:before{height:87%;	animation-name:PercentAniHeight87;}
+		.BargraphHeight label[data-percent='88'] span:before{height:88%;	animation-name:PercentAniHeight88;}
+		.BargraphHeight label[data-percent='89'] span:before{height:89%;	animation-name:PercentAniHeight89;}
+		.BargraphHeight label[data-percent='90'] span:before{height:90%;	animation-name:PercentAniHeight90;}
+		.BargraphHeight label[data-percent='91'] span:before{height:91%;	animation-name:PercentAniHeight91;}
+		.BargraphHeight label[data-percent='92'] span:before{height:92%;	animation-name:PercentAniHeight92;}
+		.BargraphHeight label[data-percent='93'] span:before{height:93%;	animation-name:PercentAniHeight93;}
+		.BargraphHeight label[data-percent='94'] span:before{height:94%;	animation-name:PercentAniHeight94;}
+		.BargraphHeight label[data-percent='95'] span:before{height:95%;	animation-name:PercentAniHeight95;}
+		.BargraphHeight label[data-percent='96'] span:before{height:96%;	animation-name:PercentAniHeight96;}
+		.BargraphHeight label[data-percent='97'] span:before{height:97%;	animation-name:PercentAniHeight97;}
+		.BargraphHeight label[data-percent='98'] span:before{height:98%;	animation-name:PercentAniHeight98;}
+		.BargraphHeight label[data-percent='99'] span:before{height:99%;	animation-name:PercentAniHeight99;}
+		.BargraphHeight label[data-percent='100'] span:before{height:100%;	animation-name:PercentAniHeight100;}
+
+		.BargraphHeight label[data-percent] span:after{}
+		.BargraphHeight label[data-percent='1'] span:after{content:'1%'; 	bottom:1%;}				@keyframes PercentAniHeight1{	0%{height:0px;} 100%{height:1%;}		}
+		.BargraphHeight label[data-percent='2'] span:after{content:'2%';	bottom:2%;}				@keyframes PercentAniHeight2{	0%{height:0px;} 100%{height:2%;}		}
+		.BargraphHeight label[data-percent='3'] span:after{content:'3%';	bottom:3%;}				@keyframes PercentAniHeight3{	0%{height:0px;} 100%{height:3%;}		}
+		.BargraphHeight label[data-percent='4'] span:after{content:'4%';	bottom:4%;}				@keyframes PercentAniHeight4{	0%{height:0px;} 100%{height:4%;}		}
+		.BargraphHeight label[data-percent='5'] span:after{content:'5%';	bottom:5%;}				@keyframes PercentAniHeight5{	0%{height:0px;} 100%{height:5%;}		}
+		.BargraphHeight label[data-percent='6'] span:after{content:'6%';	bottom:6%;}				@keyframes PercentAniHeight6{	0%{height:0px;} 100%{height:6%;}		}
+		.BargraphHeight label[data-percent='7'] span:after{content:'7%';	bottom:7%;}				@keyframes PercentAniHeight7{	0%{height:0px;} 100%{height:7%;}		}
+		.BargraphHeight label[data-percent='8'] span:after{content:'8%';	bottom:8%;}				@keyframes PercentAniHeight8{	0%{height:0px;} 100%{height:8%;}		}
+		.BargraphHeight label[data-percent='9'] span:after{content:'9%';	bottom:9%;}				@keyframes PercentAniHeight9{	0%{height:0px;} 100%{height:9%;}		}
+		.BargraphHeight label[data-percent='10'] span:after{content:'10%';	bottom:10%;}		@keyframes PercentAniHeight10{	0%{height:0px;} 100%{height:10%;}		}
+		.BargraphHeight label[data-percent='11'] span:after{content:'11%';	bottom:11%;}		@keyframes PercentAniHeight11{	0%{height:0px;} 100%{height:11%;}		}
+		.BargraphHeight label[data-percent='12'] span:after{content:'12%';	bottom:12%;}		@keyframes PercentAniHeight12{	0%{height:0px;} 100%{height:12%;}		}
+		.BargraphHeight label[data-percent='13'] span:after{content:'13%';	bottom:13%;}		@keyframes PercentAniHeight13{	0%{height:0px;} 100%{height:13%;}		}
+		.BargraphHeight label[data-percent='14'] span:after{content:'14%';	bottom:14%;}		@keyframes PercentAniHeight14{	0%{height:0px;} 100%{height:14%;}		}
+		.BargraphHeight label[data-percent='15'] span:after{content:'15%';	bottom:15%;}		@keyframes PercentAniHeight15{	0%{height:0px;} 100%{height:15%;}		}
+		.BargraphHeight label[data-percent='16'] span:after{content:'16%';	bottom:16%;}		@keyframes PercentAniHeight16{	0%{height:0px;} 100%{height:16%;}		}
+		.BargraphHeight label[data-percent='17'] span:after{content:'17%';	bottom:17%;}		@keyframes PercentAniHeight17{	0%{height:0px;} 100%{height:17%;}		}
+		.BargraphHeight label[data-percent='18'] span:after{content:'18%';	bottom:18%;}		@keyframes PercentAniHeight18{	0%{height:0px;} 100%{height:18%;}		}
+		.BargraphHeight label[data-percent='19'] span:after{content:'19%';	bottom:19%;}		@keyframes PercentAniHeight19{	0%{height:0px;} 100%{height:19%;}		}
+		.BargraphHeight label[data-percent='20'] span:after{content:'20%';	bottom:20%;}		@keyframes PercentAniHeight20{	0%{height:0px;} 100%{height:20%;}		}
+		.BargraphHeight label[data-percent='21'] span:after{content:'21%';	bottom:21%;}		@keyframes PercentAniHeight21{	0%{height:0px;} 100%{height:21%;}		}
+		.BargraphHeight label[data-percent='22'] span:after{content:'22%';	bottom:22%;}		@keyframes PercentAniHeight22{	0%{height:0px;} 100%{height:22%;}		}
+		.BargraphHeight label[data-percent='23'] span:after{content:'23%';	bottom:23%;}		@keyframes PercentAniHeight23{	0%{height:0px;} 100%{height:23%;}		}
+		.BargraphHeight label[data-percent='24'] span:after{content:'24%';	bottom:24%;}		@keyframes PercentAniHeight24{	0%{height:0px;} 100%{height:24%;}		}
+		.BargraphHeight label[data-percent='25'] span:after{content:'25%';	bottom:25%;}		@keyframes PercentAniHeight25{	0%{height:0px;} 100%{height:25%;}		}
+		.BargraphHeight label[data-percent='26'] span:after{content:'26%';	bottom:26%;}		@keyframes PercentAniHeight26{	0%{height:0px;} 100%{height:26%;}		}
+		.BargraphHeight label[data-percent='27'] span:after{content:'27%';	bottom:27%;}		@keyframes PercentAniHeight27{	0%{height:0px;} 100%{height:27%;}		}
+		.BargraphHeight label[data-percent='28'] span:after{content:'28%';	bottom:28%;}		@keyframes PercentAniHeight28{	0%{height:0px;} 100%{height:28%;}		}
+		.BargraphHeight label[data-percent='29'] span:after{content:'29%';	bottom:29%;}		@keyframes PercentAniHeight29{	0%{height:0px;} 100%{height:29%;}		}
+		.BargraphHeight label[data-percent='30'] span:after{content:'30%';	bottom:30%;}		@keyframes PercentAniHeight30{	0%{height:0px;} 100%{height:30%;}		}
+		.BargraphHeight label[data-percent='31'] span:after{content:'31%';	bottom:31%;}		@keyframes PercentAniHeight31{	0%{height:0px;} 100%{height:31%;}		}
+		.BargraphHeight label[data-percent='32'] span:after{content:'32%';	bottom:32%;}		@keyframes PercentAniHeight32{	0%{height:0px;} 100%{height:32%;}		}
+		.BargraphHeight label[data-percent='33'] span:after{content:'33%';	bottom:33%;}		@keyframes PercentAniHeight33{	0%{height:0px;} 100%{height:33%;}		}
+		.BargraphHeight label[data-percent='34'] span:after{content:'34%';	bottom:34%;}		@keyframes PercentAniHeight34{	0%{height:0px;} 100%{height:34%;}		}
+		.BargraphHeight label[data-percent='35'] span:after{content:'35%';	bottom:35%;}		@keyframes PercentAniHeight35{	0%{height:0px;} 100%{height:35%;}		}
+		.BargraphHeight label[data-percent='36'] span:after{content:'36%';	bottom:36%;}		@keyframes PercentAniHeight36{	0%{height:0px;} 100%{height:36%;}		}
+		.BargraphHeight label[data-percent='37'] span:after{content:'37%';	bottom:37%;}		@keyframes PercentAniHeight37{	0%{height:0px;} 100%{height:37%;}		}
+		.BargraphHeight label[data-percent='38'] span:after{content:'38%';	bottom:38%;}		@keyframes PercentAniHeight38{	0%{height:0px;} 100%{height:38%;}		}
+		.BargraphHeight label[data-percent='39'] span:after{content:'39%';	bottom:39%;}		@keyframes PercentAniHeight39{	0%{height:0px;} 100%{height:39%;}		}
+		.BargraphHeight label[data-percent='40'] span:after{content:'40%';	bottom:40%;}		@keyframes PercentAniHeight40{	0%{height:0px;} 100%{height:40%;}		}
+		.BargraphHeight label[data-percent='41'] span:after{content:'41%';	bottom:41%;}		@keyframes PercentAniHeight41{	0%{height:0px;} 100%{height:41%;}		}
+		.BargraphHeight label[data-percent='42'] span:after{content:'42%';	bottom:42%;}		@keyframes PercentAniHeight42{	0%{height:0px;} 100%{height:42%;}		}
+		.BargraphHeight label[data-percent='43'] span:after{content:'43%';	bottom:43%;}		@keyframes PercentAniHeight43{	0%{height:0px;} 100%{height:43%;}		}
+		.BargraphHeight label[data-percent='44'] span:after{content:'44%';	bottom:44%;}		@keyframes PercentAniHeight44{	0%{height:0px;} 100%{height:44%;}		}
+		.BargraphHeight label[data-percent='45'] span:after{content:'45%';	bottom:45%;}		@keyframes PercentAniHeight45{	0%{height:0px;} 100%{height:45%;}		}
+		.BargraphHeight label[data-percent='46'] span:after{content:'46%';	bottom:46%;}		@keyframes PercentAniHeight46{	0%{height:0px;} 100%{height:46%;}		}
+		.BargraphHeight label[data-percent='47'] span:after{content:'47%';	bottom:47%;}		@keyframes PercentAniHeight47{	0%{height:0px;} 100%{height:47%;}		}
+		.BargraphHeight label[data-percent='48'] span:after{content:'48%';	bottom:48%;}		@keyframes PercentAniHeight48{	0%{height:0px;} 100%{height:48%;}		}
+		.BargraphHeight label[data-percent='49'] span:after{content:'49%';	bottom:49%;}		@keyframes PercentAniHeight49{	0%{height:0px;} 100%{height:49%;}		}
+		.BargraphHeight label[data-percent='50'] span:after{content:'50%';	bottom:50%;}		@keyframes PercentAniHeight50{	0%{height:0px;} 100%{height:50%;}		}
+		.BargraphHeight label[data-percent='51'] span:after{content:'51%';	bottom:51%;}		@keyframes PercentAniHeight51{	0%{height:0px;} 100%{height:51%;}		}
+		.BargraphHeight label[data-percent='52'] span:after{content:'52%';	bottom:52%;}		@keyframes PercentAniHeight52{	0%{height:0px;} 100%{height:52%;}		}
+		.BargraphHeight label[data-percent='53'] span:after{content:'53%';	bottom:53%;}		@keyframes PercentAniHeight53{	0%{height:0px;} 100%{height:53%;}		}
+		.BargraphHeight label[data-percent='54'] span:after{content:'54%';	bottom:54%;}		@keyframes PercentAniHeight54{	0%{height:0px;} 100%{height:54%;}		}
+		.BargraphHeight label[data-percent='55'] span:after{content:'55%';	bottom:55%;}		@keyframes PercentAniHeight55{	0%{height:0px;} 100%{height:55%;}		}
+		.BargraphHeight label[data-percent='56'] span:after{content:'56%';	bottom:56%;}		@keyframes PercentAniHeight56{	0%{height:0px;} 100%{height:56%;}		}
+		.BargraphHeight label[data-percent='57'] span:after{content:'57%';	bottom:57%;}		@keyframes PercentAniHeight57{	0%{height:0px;} 100%{height:57%;}		}
+		.BargraphHeight label[data-percent='58'] span:after{content:'58%';	bottom:58%;}		@keyframes PercentAniHeight58{	0%{height:0px;} 100%{height:58%;}		}
+		.BargraphHeight label[data-percent='59'] span:after{content:'59%';	bottom:59%;}		@keyframes PercentAniHeight59{	0%{height:0px;} 100%{height:59%;}		}
+		.BargraphHeight label[data-percent='60'] span:after{content:'60%';	bottom:60%;}		@keyframes PercentAniHeight60{	0%{height:0px;} 100%{height:60%;}		}
+		.BargraphHeight label[data-percent='61'] span:after{content:'61%';	bottom:61%;}		@keyframes PercentAniHeight61{	0%{height:0px;} 100%{height:61%;}		}
+		.BargraphHeight label[data-percent='62'] span:after{content:'62%';	bottom:62%;}		@keyframes PercentAniHeight62{	0%{height:0px;} 100%{height:62%;}		}
+		.BargraphHeight label[data-percent='63'] span:after{content:'63%';	bottom:63%;}		@keyframes PercentAniHeight63{	0%{height:0px;} 100%{height:63%;}		}
+		.BargraphHeight label[data-percent='64'] span:after{content:'64%';	bottom:64%;}		@keyframes PercentAniHeight64{	0%{height:0px;} 100%{height:64%;}		}
+		.BargraphHeight label[data-percent='65'] span:after{content:'65%';	bottom:65%;}		@keyframes PercentAniHeight65{	0%{height:0px;} 100%{height:65%;}		}
+		.BargraphHeight label[data-percent='66'] span:after{content:'66%';	bottom:66%;}		@keyframes PercentAniHeight66{	0%{height:0px;} 100%{height:66%;}		}
+		.BargraphHeight label[data-percent='67'] span:after{content:'67%';	bottom:67%;}		@keyframes PercentAniHeight67{	0%{height:0px;} 100%{height:67%;}		}
+		.BargraphHeight label[data-percent='68'] span:after{content:'68%';	bottom:68%;}		@keyframes PercentAniHeight68{	0%{height:0px;} 100%{height:68%;}		}
+		.BargraphHeight label[data-percent='69'] span:after{content:'69%';	bottom:69%;}		@keyframes PercentAniHeight69{	0%{height:0px;} 100%{height:69%;}		}
+		.BargraphHeight label[data-percent='70'] span:after{content:'70%';	bottom:70%;}		@keyframes PercentAniHeight70{	0%{height:0px;} 100%{height:70%;}		}
+		.BargraphHeight label[data-percent='71'] span:after{content:'71%';	bottom:71%;}		@keyframes PercentAniHeight71{	0%{height:0px;} 100%{height:71%;}		}
+		.BargraphHeight label[data-percent='72'] span:after{content:'72%';	bottom:72%;}		@keyframes PercentAniHeight72{	0%{height:0px;} 100%{height:72%;}		}
+		.BargraphHeight label[data-percent='73'] span:after{content:'73%';	bottom:73%;}		@keyframes PercentAniHeight73{	0%{height:0px;} 100%{height:73%;}		}
+		.BargraphHeight label[data-percent='74'] span:after{content:'74%';	bottom:74%;}		@keyframes PercentAniHeight74{	0%{height:0px;} 100%{height:74%;}		}
+		.BargraphHeight label[data-percent='75'] span:after{content:'75%';	bottom:75%;}		@keyframes PercentAniHeight75{	0%{height:0px;} 100%{height:75%;}		}
+		.BargraphHeight label[data-percent='76'] span:after{content:'76%';	bottom:76%;}		@keyframes PercentAniHeight76{	0%{height:0px;} 100%{height:76%;}		}
+		.BargraphHeight label[data-percent='77'] span:after{content:'77%';	bottom:77%;}		@keyframes PercentAniHeight77{	0%{height:0px;} 100%{height:77%;}		}
+		.BargraphHeight label[data-percent='78'] span:after{content:'78%';	bottom:78%;}		@keyframes PercentAniHeight78{	0%{height:0px;} 100%{height:78%;}		}
+		.BargraphHeight label[data-percent='79'] span:after{content:'79%';	bottom:79%;}		@keyframes PercentAniHeight79{	0%{height:0px;} 100%{height:79%;}		}
+		.BargraphHeight label[data-percent='80'] span:after{content:'80%';	bottom:80%;}		@keyframes PercentAniHeight80{	0%{height:0px;} 100%{height:80%;}		}
+		.BargraphHeight label[data-percent='81'] span:after{content:'81%';	bottom:81%;}		@keyframes PercentAniHeight81{	0%{height:0px;} 100%{height:81%;}		}
+		.BargraphHeight label[data-percent='82'] span:after{content:'82%';	bottom:82%;}		@keyframes PercentAniHeight82{	0%{height:0px;} 100%{height:82%;}		}
+		.BargraphHeight label[data-percent='83'] span:after{content:'83%';	bottom:83%;}		@keyframes PercentAniHeight83{	0%{height:0px;} 100%{height:83%;}		}
+		.BargraphHeight label[data-percent='84'] span:after{content:'84%';	bottom:84%;}		@keyframes PercentAniHeight84{	0%{height:0px;} 100%{height:84%;}		}
+		.BargraphHeight label[data-percent='85'] span:after{content:'85%';	bottom:85%;}		@keyframes PercentAniHeight85{	0%{height:0px;} 100%{height:85%;}		}
+		.BargraphHeight label[data-percent='86'] span:after{content:'86%';	bottom:86%;}		@keyframes PercentAniHeight86{	0%{height:0px;} 100%{height:86%;}		}
+		.BargraphHeight label[data-percent='87'] span:after{content:'87%';	bottom:87%;}		@keyframes PercentAniHeight87{	0%{height:0px;} 100%{height:87%;}		}
+		.BargraphHeight label[data-percent='88'] span:after{content:'88%';	bottom:88%;}		@keyframes PercentAniHeight88{	0%{height:0px;} 100%{height:88%;}		}
+		.BargraphHeight label[data-percent='89'] span:after{content:'89%';	bottom:89%;}		@keyframes PercentAniHeight89{	0%{height:0px;} 100%{height:89%;}		}
+		.BargraphHeight label[data-percent='90'] span:after{content:'90%';	bottom:90%;}		@keyframes PercentAniHeight90{	0%{height:0px;} 100%{height:90%;}		}
+		.BargraphHeight label[data-percent='91'] span:after{content:'91%';	bottom:91%;}		@keyframes PercentAniHeight91{	0%{height:0px;} 100%{height:91%;}		}
+		.BargraphHeight label[data-percent='92'] span:after{content:'92%';	bottom:92%;}		@keyframes PercentAniHeight92{	0%{height:0px;} 100%{height:92%;}		}
+		.BargraphHeight label[data-percent='93'] span:after{content:'93%';	bottom:93%;}		@keyframes PercentAniHeight93{	0%{height:0px;} 100%{height:93%;}		}
+		.BargraphHeight label[data-percent='94'] span:after{content:'94%';	bottom:94%;}		@keyframes PercentAniHeight94{	0%{height:0px;} 100%{height:94%;}		}
+		.BargraphHeight label[data-percent='95'] span:after{content:'95%';	bottom:95%;}		@keyframes PercentAniHeight95{	0%{height:0px;} 100%{height:95%;}		}
+		.BargraphHeight label[data-percent='96'] span:after{content:'96%';	bottom:96%;}		@keyframes PercentAniHeight96{	0%{height:0px;} 100%{height:96%;}		}
+		.BargraphHeight label[data-percent='97'] span:after{content:'97%';	bottom:97%;}		@keyframes PercentAniHeight97{	0%{height:0px;} 100%{height:97%;}		}
+		.BargraphHeight label[data-percent='98'] span:after{content:'98%';	bottom:98%;}		@keyframes PercentAniHeight98{	0%{height:0px;} 100%{height:98%;}		}
+		.BargraphHeight label[data-percent='99'] span:after{content:'99%';	bottom:99%;}		@keyframes PercentAniHeight99{	0%{height:0px;} 100%{height:99%;}		}
+		.BargraphHeight label[data-percent='100'] span:after{content:'100%';	bottom:100%;}		@keyframes PercentAniHeight100{	0%{height:0px;} 100%{height:100%;}		}
+
+/* ------------------------------------------ */
+/* [그래프] 꺽은선그래프 */
+.LineGrap{display:inline-table; position:relative; text-align:center; margin:auto;}
+	/* 구조 */
+	.LineGrap dl{display:block; position:relative; margin:auto;}
+		/* 꺽은선(중요한값일수록뒤로넣기) */
+		.LineGrap dt{display:block; position:relative; overflow:hidden;}
+		.LineGrap dt .List{display:block; position:relative;}
+		.LineGrap dt .List li{display:block; position:absolute; left:0px; bottom:0px; width:100%;}
+		.LineGrap dt .List li img{}
+		.LineGrap dt .List li:first-child{position:relative;}
+		.LineGrap dt .List li:nth-child(1){z-index:1;}
+		.LineGrap dt .List li:nth-child(2){z-index:2;}
+		.LineGrap dt .List li:nth-child(3){z-index:3;}
+		.LineGrap dt .List li:nth-child(4){z-index:4;}
+		.LineGrap dt .List li:nth-child(5){z-index:5;}
+		.LineGrap dt .List li:nth-child(6){z-index:6;}
+		.LineGrap dt .List li:nth-child(7){z-index:7;}
+		.LineGrap dt .List li:nth-child(8){z-index:8;}
+		.LineGrap dt .List li:nth-child(9){z-index:9;}
+		.LineGrap dt .List li:nth-child(10){z-index:10;}
+		/* 눈금 */
+		.LineGrap dd{display:block; position:relative; padding-top:0.6em;}
+		.LineGrap dd .List{display:table; position:relative; width:94%; table-layout:fixed; margin:auto;}
+		.LineGrap dd li{display:table-cell; position:relative;}
+		.LineGrap dd label{display:block; position:relative;}
+		.LineGrap dd label span{display:block; position:relative; height:0.6em; border-bottom:1px solid #d1d1d1;}
+		.LineGrap dd label span:before{content:''; clear:both; display:block; position:absolute; left:50%; bottom:0px; height:100%; border-left:1px solid #d1d1d1;}
+		.LineGrap dd label strong{display:block; position:relative; font-size:11pt; font-weight:400; padding-top:0.3em;}
+
+
+/* ===================================================================== */
+
